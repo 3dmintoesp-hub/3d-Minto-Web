@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | 3D Minto</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<style>
+    .faq-hero{
+        padding:55px 0 28px;
+    }
+
+    .faq-hero .section-title{
+        margin-bottom:22px;
+    }
+
+    .faq-hero .section-title p{
+        max-width:760px;
+    }
+
+    .faq-note{
+        max-width:900px;
+        margin:24px auto 0;
+        background:#f8fbfc;
+        border:1px solid rgba(30,202,211,.16);
+        border-radius:24px;
+        padding:22px 24px;
+        box-shadow:0 12px 35px rgba(0,0,0,.05);
+    }
+
+    .faq-note strong{
+        display:block;
+        font-family:'Fredoka',sans-serif;
+        font-size:1.15rem;
+        color:#121826;
+        margin-bottom:8px;
+    }
+
+    .faq-note p{
+        margin:0;
+        color:#4b5563;
+    }
+
+    .faq-section{
+        padding:26px 0 45px;
+    }
+
+    .faq-container{
+        max-width:900px;
+        margin:0 auto;
+        display:grid;
+        gap:16px;
+    }
+
+    .faq-item{
+        background:white;
+        border-radius:24px;
+        box-shadow:var(--shadow);
+        overflow:hidden;
+        border:1px solid rgba(30,202,211,.10);
+    }
+
+    .faq-item summary{
+        list-style:none;
+        cursor:pointer;
+        padding:24px 26px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:18px;
+        font-family:'Fredoka',sans-serif;
+        font-size:1.3rem;
+        color:#121826;
+    }
+
+    .faq-item summary::-webkit-details-marker{
+        display:none;
+    }
+
+    .faq-item summary::after{
+        content:"+";
+        font-size:1.6rem;
+        color:var(--turquoise);
+        font-weight:600;
+        line-height:1;
+        flex-shrink:0;
+    }
+
+    .faq-item[open] summary::after{
+        content:"–";
+    }
+
+    .faq-answer{
+        padding:0 26px 24px 26px;
+        color:#4b5563;
+    }
+
+    .faq-answer p{
+        margin:0;
+    }
+
+    @media(max-width:768px){
+        .faq-hero{
+            padding:45px 0 18px;
+        }
+
+        .faq-note{
+            padding:18px 18px;
+            margin-top:20px;
+        }
+
+        .faq-item summary{
+            padding:20px 18px;
+            font-size:1.1rem;
+        }
+
+        .faq-answer{
+            padding:0 18px 18px 18px;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container">
+        <a href="index.html">
+            <img src="images/logo.png" class="logo" alt="3D Minto">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="ideas.html">Ideas</a></li>
+                <li><a href="comunidad.html">Comunidad</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="quienes-somos.html">Quiénes somos</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero faq-hero">
+    <div class="container">
+        <div class="section-title">
+            <h1>Preguntas frecuentes</h1>
+            <p class="ideas-mini">Todo lo que necesitas saber sobre 3D Minto</p>
+            <p>
+                Resolvemos las dudas más comunes sobre creatividad, uso y aprendizaje con lápices 3D.
+            </p>
+        </div>
+
+        <div class="faq-note">
+            <strong>Seguridad pensada para niños</strong>
+            <p>
+                Nuestro lápiz 3D está diseñado para imprimir a baja temperatura, ayudando a cuidar la integridad de los pequeños durante la creación. Aun así, recomendamos la supervisión de un adulto mientras se utiliza.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="container faq-container">
+
+        <details class="faq-item">
+            <summary>¿Qué es un lápiz 3D?</summary>
+            <div class="faq-answer">
+                <p>
+                    Un lápiz 3D permite crear figuras y diseños tridimensionales dibujando sobre superficies o directamente en el aire, transformando una idea en un objeto real.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Es adecuado para niños?</summary>
+            <div class="faq-answer">
+                <p>
+                    Sí. 3D Minto está pensado para niños y familias, con una experiencia creativa simple y segura. Además, nuestro lápiz imprime a baja temperatura para ayudar a reducir el riesgo de quemaduras frente a otros lápices 3D. Aun así, recomendamos siempre la supervisión de un adulto.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Necesito experiencia previa?</summary>
+            <div class="faq-answer">
+                <p>
+                    No. Los principiantes pueden comenzar con proyectos sencillos y avanzar poco a poco hacia creaciones más complejas.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Qué puedo crear?</summary>
+            <div class="faq-answer">
+                <p>
+                    Cohetes, animales, robots, decoración, arte, arquitectura y prácticamente cualquier idea que imagines.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Es difícil aprender a usarlo?</summary>
+            <div class="faq-answer">
+                <p>
+                    No. La mayoría de los usuarios aprende lo básico rápidamente y mejora con la práctica.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Por qué elegir 3D Minto?</summary>
+            <div class="faq-answer">
+                <p>
+                    Porque creemos en una creatividad más activa, divertida y compartida entre niños y familias, con un enfoque pensado para inspirar y cuidar.
+                </p>
+            </div>
+        </details>
+
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>¿Todavía tienes preguntas?</h2>
+        <p>
+            Seguimos construyendo recursos para ayudarte a descubrir todo el potencial de la creatividad 3D.
+        </p>
+        <a href="ideas.html" class="btn-primary">Explorar ideas</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-content">
+        <img src="images/logo.png" alt="3D Minto" class="footer-logo">
+
+        <div class="footer-links">
+            <a href="ideas.html">Ideas</a>
+            <a href="comunidad.html">Comunidad</a>
+            <a href="faq.html">FAQ</a>
+            <a href="quienes-somos.html">Quiénes somos</a>
+        </div>
+
+        <p>© 2026 3D Minto. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>
