@@ -1,235 +1,1067 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>3D Minto | Creatividad sin pantallas</title>
+<title>3D Minto | Crea en 3D</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-
 <link rel="icon" type="image/png" href="images/favicon.png">
 
+<style>
+    :root{
+        --navy:#15204a;
+        --orange:#ff7a00;
+        --teal:#10b6b0;
+        --purple:#6648f4;
+        --mint:#eafaf8;
+        --line:rgba(21,32,74,.10);
+        --text:#475569;
+        --shadow:0 18px 40px rgba(17,24,39,.08);
+    }
+
+    *{
+        box-sizing:border-box;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body.home-page{
+        margin:0;
+        font-family:'Poppins',sans-serif;
+        color:var(--navy);
+        background:#fff;
+        overflow-x:hidden;
+    }
+
+    .home-container{
+        width:min(1180px,92%);
+        margin:0 auto;
+    }
+
+    a{
+        text-decoration:none;
+        color:inherit;
+    }
+
+    img{
+        max-width:100%;
+        display:block;
+    }
+
+    .home-topbar{
+        background:#fafcff;
+        border-bottom:1px solid rgba(21,32,74,.08);
+        font-size:.92rem;
+        color:#334155;
+    }
+
+    .home-topbar__inner{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:12px;
+        padding:10px 0;
+        text-align:center;
+    }
+
+    .home-topbar__item{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        min-height:22px;
+        white-space:nowrap;
+    }
+
+    .home-header{
+        position:sticky;
+        top:0;
+        z-index:50;
+        background:rgba(255,255,255,.88);
+        backdrop-filter:blur(18px);
+        border-bottom:1px solid rgba(21,32,74,.08);
+    }
+
+    .home-header__inner{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:24px;
+        padding:16px 0;
+    }
+
+    .home-logo{
+        display:flex;
+        align-items:center;
+        flex-shrink:0;
+    }
+
+    .home-logo img{
+        height:42px;
+        width:auto;
+    }
+
+    .home-nav ul{
+        list-style:none;
+        display:flex;
+        align-items:center;
+        gap:28px;
+        margin:0;
+        padding:0;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .home-nav a{
+        position:relative;
+        font-weight:600;
+        color:#18224f;
+        padding-bottom:8px;
+    }
+
+    .home-nav a.is-active{
+        color:var(--orange);
+    }
+
+    .home-nav a.is-active::after{
+        content:"";
+        position:absolute;
+        left:0;
+        bottom:0;
+        width:100%;
+        height:3px;
+        border-radius:999px;
+        background:var(--orange);
+    }
+
+    .home-header__cta{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        padding:14px 18px;
+        border-radius:16px;
+        color:#fff;
+        background:linear-gradient(90deg,#ff7a00,#ff971e);
+        font-weight:700;
+        box-shadow:0 16px 28px rgba(255,122,0,.24);
+        white-space:nowrap;
+    }
+
+    .home-hero{
+        padding:54px 0 28px;
+    }
+
+    .home-hero__grid{
+        display:grid;
+        grid-template-columns:1.02fr .98fr;
+        gap:34px;
+        align-items:center;
+    }
+
+    .home-eyebrow{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:11px 16px;
+        border-radius:999px;
+        border:1.5px solid rgba(102,72,244,.24);
+        background:rgba(102,72,244,.04);
+        color:var(--purple);
+        font-size:.92rem;
+        font-weight:700;
+        letter-spacing:.02em;
+    }
+
+    .home-hero h1{
+        font-family:'Fredoka',sans-serif;
+        font-size:clamp(3rem,5.8vw,5.8rem);
+        line-height:.95;
+        letter-spacing:-.04em;
+        margin:22px 0 18px;
+        max-width:680px;
+    }
+
+    .home-hero h1 .accent{
+        color:var(--purple);
+    }
+
+    .home-hero p{
+        font-size:1.18rem;
+        line-height:1.5;
+        color:var(--text);
+        max-width:560px;
+        margin:0 0 28px;
+    }
+
+    .home-actions{
+        display:flex;
+        gap:14px;
+        flex-wrap:wrap;
+        align-items:center;
+    }
+
+    .home-btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        padding:16px 24px;
+        border-radius:18px;
+        font-weight:700;
+        transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+        border:1px solid transparent;
+    }
+
+    .home-btn:hover{
+        transform:translateY(-1px);
+    }
+
+    .home-btn--primary{
+        color:#fff;
+        background:linear-gradient(90deg,var(--orange),#ff911d);
+        box-shadow:0 18px 28px rgba(255,122,0,.22);
+    }
+
+    .home-btn--secondary{
+        color:#0f172a;
+        background:#fff;
+        border-color:rgba(15,23,42,.12);
+        box-shadow:0 12px 24px rgba(15,23,42,.08);
+    }
+
+    .home-amazon-logo{
+        display:inline-flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        line-height:1;
+        margin-right:2px;
+        transform:translateY(-1px);
+    }
+
+    .home-amazon-logo__letter{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:1.72rem;
+        font-weight:700;
+        line-height:1;
+        color:#111827;
+    }
+
+    .home-amazon-logo__smile{
+        display:block;
+        width:16px;
+        height:8px;
+        border-bottom:2.5px solid #ff9900;
+        border-radius:0 0 18px 18px;
+        margin-top:-3px;
+    }
+
+    .home-safety{
+        margin-top:24px;
+        display:grid;
+        grid-template-columns:auto 1fr;
+        gap:16px;
+        align-items:center;
+        padding:20px 22px;
+        border-radius:24px;
+        background:linear-gradient(180deg,#f7fffb,#ffffff);
+        border:1px solid rgba(16,185,129,.18);
+        box-shadow:var(--shadow);
+        max-width:560px;
+    }
+
+    .home-safety__icon{
+        width:58px;
+        height:58px;
+        border-radius:18px;
+        display:grid;
+        place-items:center;
+        color:#17a766;
+        background:rgba(16,185,129,.12);
+        font-size:1.45rem;
+        flex-shrink:0;
+    }
+
+    .home-safety h3{
+        margin:0 0 6px;
+        font-size:1.08rem;
+        line-height:1.15;
+    }
+
+    .home-safety p{
+        margin:0;
+        font-size:.98rem;
+        line-height:1.5;
+        max-width:none;
+    }
+
+    .home-hero__visual{
+        position:relative;
+    }
+
+    .home-hero__canvas{
+        position:relative;
+        min-height:640px;
+        border-radius:36px;
+        overflow:hidden;
+        background:transparent;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .home-hero__blob{
+        position:absolute;
+        border-radius:50%;
+        filter:blur(2px);
+        opacity:.95;
+    }
+
+    .home-hero__blob--1{
+        width:180px;
+        height:180px;
+        left:5%;
+        top:8%;
+        background:rgba(102,72,244,.08);
+    }
+
+    .home-hero__blob--2{
+        width:120px;
+        height:120px;
+        right:5%;
+        top:18%;
+        background:rgba(255,122,0,.08);
+    }
+
+    .home-hero__blob--3{
+        width:98px;
+        height:98px;
+        left:46%;
+        bottom:14%;
+        background:rgba(16,185,176,.10);
+    }
+
+    .home-hero__doodle{
+        position:absolute;
+        border-radius:999px;
+        opacity:.9;
+    }
+
+    .home-hero__doodle--1{
+        width:76px;
+        height:76px;
+        left:44%;
+        top:32%;
+        border:4px solid var(--orange);
+        border-color:var(--orange) transparent transparent transparent;
+        transform:rotate(20deg);
+    }
+
+    .home-hero__doodle--2{
+        width:110px;
+        height:110px;
+        right:21%;
+        top:20%;
+        border:4px solid var(--purple);
+        border-color:transparent transparent var(--purple) transparent;
+        transform:rotate(25deg);
+    }
+
+    .home-hero__image{
+        position:relative;
+        z-index:2;
+        width:min(100%,540px);
+        height:auto;
+        object-fit:contain;
+        filter:none;
+    }
+
+    .home-mini-benefits{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:18px;
+        margin-top:16px;
+        margin-bottom:4px;
+    }
+
+    .home-mini-benefit{
+        display:flex;
+        align-items:center;
+        gap:14px;
+        padding:16px 18px;
+        border-radius:20px;
+        background:#fff;
+        border:1px solid rgba(21,32,74,.08);
+        box-shadow:var(--shadow);
+        min-height:84px;
+    }
+
+    .home-mini-benefit__icon{
+        width:48px;
+        height:48px;
+        border-radius:999px;
+        display:grid;
+        place-items:center;
+        flex-shrink:0;
+        color:var(--teal);
+        background:rgba(16,185,176,.12);
+        font-size:1.2rem;
+    }
+
+    .home-mini-benefit strong{
+        display:block;
+        font-size:.98rem;
+        margin-bottom:3px;
+    }
+
+    .home-mini-benefit span{
+        display:block;
+        color:var(--text);
+        font-size:.9rem;
+        line-height:1.35;
+    }
+
+    .home-section-title{
+        text-align:center;
+        margin:44px 0 24px;
+    }
+
+    .home-section-title h2{
+        font-family:'Fredoka',sans-serif;
+        font-size:clamp(2rem,3.4vw,3rem);
+        line-height:1.05;
+        letter-spacing:-.03em;
+        margin:0 0 10px;
+    }
+
+    .home-section-title p{
+        margin:0 auto;
+        max-width:720px;
+        color:var(--text);
+        font-size:1.05rem;
+    }
+
+    .home-why{
+        padding:10px 0 22px;
+    }
+
+    .home-why__grid{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:18px;
+    }
+
+    .home-why__card{
+        background:#fff;
+        border-radius:24px;
+        border:1px solid rgba(21,32,74,.08);
+        box-shadow:var(--shadow);
+        padding:26px 22px 24px;
+        min-height:220px;
+        text-align:left;
+    }
+
+    .home-why__icon{
+        width:62px;
+        height:62px;
+        border-radius:20px;
+        display:grid;
+        place-items:center;
+        margin-bottom:16px;
+        font-size:1.55rem;
+        color:var(--purple);
+        background:rgba(102,72,244,.10);
+    }
+
+    .home-why__card h3{
+        margin:0 0 10px;
+        font-size:1.08rem;
+        line-height:1.2;
+    }
+
+    .home-why__card p{
+        margin:0;
+        color:var(--text);
+        font-size:.98rem;
+        line-height:1.55;
+    }
+
+    .home-projects{
+        padding:20px 0 8px;
+    }
+
+    .home-projects__head{
+        display:flex;
+        align-items:flex-end;
+        justify-content:space-between;
+        gap:18px;
+        margin-bottom:18px;
+    }
+
+    .home-section-kicker{
+        display:block;
+        color:var(--navy);
+        font-weight:800;
+        font-size:1.15rem;
+        letter-spacing:-.02em;
+        margin-bottom:6px;
+    }
+
+    .home-projects__head h2{
+        font-family:'Fredoka',sans-serif;
+        margin:0;
+        font-size:clamp(1.8rem,2.8vw,2.45rem);
+        letter-spacing:-.03em;
+    }
+
+    .home-projects__link{
+        color:var(--purple);
+        font-weight:700;
+        white-space:nowrap;
+    }
+
+    .home-projects__grid{
+        display:grid;
+        grid-template-columns:repeat(5,1fr);
+        gap:16px;
+    }
+
+    .home-project{
+        background:#fff;
+        border-radius:20px;
+        border:1px solid rgba(21,32,74,.08);
+        overflow:hidden;
+        box-shadow:var(--shadow);
+        transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .home-project:hover{
+        transform:translateY(-2px);
+        box-shadow:0 22px 42px rgba(15,23,42,.11);
+    }
+
+    .home-project img{
+        width:100%;
+        height:240px;
+        object-fit:contain;
+        background:#ffffff;
+        padding:12px;
+    }
+
+    .home-project__content{
+        padding:14px 14px 16px;
+    }
+
+    .home-project__tag{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:6px 10px;
+        border-radius:999px;
+        font-size:.78rem;
+        font-weight:800;
+        margin-bottom:12px;
+        color:#0f172a;
+    }
+
+    .tag-easy{background:#d1fae5;}
+    .tag-medium{background:#fde68a;}
+    .tag-hard{background:#fbcfe8;}
+
+    .home-project__content h3{
+        margin:0;
+        font-size:1rem;
+    }
+
+    .home-project__content p{
+        margin:4px 0 0;
+        color:var(--text);
+        font-size:.88rem;
+    }
+
+    .home-community{
+        padding:36px 0 10px;
+    }
+
+    .home-community__banner{
+        display:grid;
+        grid-template-columns:72px 1fr auto;
+        gap:18px;
+        align-items:center;
+        padding:22px 24px;
+        border-radius:26px;
+        background:linear-gradient(90deg, rgba(16,185,176,.15), rgba(255,122,0,.12));
+        border:1px solid rgba(21,32,74,.08);
+        box-shadow:var(--shadow);
+    }
+
+    .home-community__icon{
+        width:72px;
+        height:72px;
+        border-radius:50%;
+        display:grid;
+        place-items:center;
+        color:#fff;
+        font-size:1.8rem;
+        background:linear-gradient(135deg,#10b6b0,#6c4cf5);
+        flex-shrink:0;
+    }
+
+    .home-community__banner h2{
+        margin:0 0 8px;
+        font-family:'Fredoka',sans-serif;
+        font-size:1.55rem;
+        line-height:1.1;
+    }
+
+    .home-community__banner p{
+        margin:0;
+        color:var(--text);
+        max-width:690px;
+        line-height:1.5;
+    }
+
+    .home-btn--community{
+        color:#fff;
+        background:linear-gradient(90deg,#10b6b0,#0ea5e9);
+        box-shadow:0 18px 28px rgba(16,185,176,.20);
+        white-space:nowrap;
+    }
+
+    .home-footer{
+        position:relative;
+        margin-top:44px;
+        padding:44px 0 18px;
+        background:linear-gradient(135deg,#0f1d4a 0%, #08122d 100%);
+        color:#fff;
+        overflow:hidden;
+    }
+
+    .home-footer::before,
+    .home-footer::after{
+        content:"";
+        position:absolute;
+        width:180px;
+        height:180px;
+        border-radius:50%;
+        opacity:.95;
+        pointer-events:none;
+    }
+
+    .home-footer::before{
+        left:-90px;
+        bottom:-90px;
+        background:linear-gradient(135deg,#ff8b1a,#ff6d00);
+    }
+
+    .home-footer::after{
+        right:-70px;
+        bottom:-60px;
+        background:linear-gradient(135deg,#10b6b0,#1bc4bd);
+    }
+
+    .home-footer__grid{
+        position:relative;
+        z-index:1;
+        display:grid;
+        grid-template-columns:1.15fr .85fr .85fr .95fr;
+        gap:24px;
+        align-items:start;
+    }
+
+    .home-footer__logo{
+        height:42px;
+        width:auto;
+        margin-bottom:10px;
+    }
+
+    .home-footer__lead{
+        margin:0;
+        color:rgba(255,255,255,.82);
+        line-height:1.5;
+        max-width:270px;
+    }
+
+    .home-footer h4{
+        margin:0 0 12px;
+        font-size:1rem;
+    }
+
+    .home-footer ul{
+        list-style:none;
+        padding:0;
+        margin:0;
+        display:grid;
+        gap:8px;
+    }
+
+    .home-footer a{
+        color:rgba(255,255,255,.86);
+    }
+
+    .home-footer__line{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin-bottom:10px;
+        color:rgba(255,255,255,.86);
+    }
+
+    .home-footer__bottom{
+        position:relative;
+        z-index:1;
+        margin-top:28px;
+        padding-top:18px;
+        border-top:1px solid rgba(255,255,255,.12);
+        text-align:center;
+        color:rgba(255,255,255,.72);
+        font-size:.88rem;
+    }
+
+    @media (max-width: 1120px){
+        .home-hero__grid,
+        .home-footer__grid{
+            grid-template-columns:1fr;
+        }
+
+        .home-hero__canvas{
+            min-height:520px;
+        }
+
+        .home-mini-benefits,
+        .home-why__grid,
+        .home-projects__grid{
+            grid-template-columns:repeat(2,1fr);
+        }
+
+        .home-community__banner{
+            grid-template-columns:72px 1fr;
+        }
+
+        .home-community__banner .home-btn{
+            justify-self:start;
+        }
+    }
+
+    @media (max-width: 760px){
+        .home-topbar__inner{
+            grid-template-columns:1fr;
+            gap:8px;
+            padding:10px 0;
+        }
+
+        .home-header__inner{
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+
+        .home-nav ul{
+            gap:16px;
+        }
+
+        .home-header__cta{
+            width:100%;
+        }
+
+        .home-hero{
+            padding-top:36px;
+        }
+
+        .home-hero h1{
+            font-size:clamp(2.7rem,12vw,4rem);
+        }
+
+        .home-mini-benefits,
+        .home-why__grid,
+        .home-projects__grid{
+            grid-template-columns:1fr;
+        }
+
+        .home-projects__head,
+        .home-community__banner{
+            grid-template-columns:1fr;
+        }
+
+        .home-projects__head{
+            align-items:flex-start;
+        }
+
+        .home-community__banner{
+            gap:14px;
+        }
+
+        .home-community__banner .home-btn{
+            width:100%;
+            justify-content:center;
+        }
+    }
+</style>
 </head>
 
-<body>
+<body class="home-page">
 
-<header class="navbar">
+<div class="home-topbar">
+    <div class="home-container home-topbar__inner">
+        <div class="home-topbar__item">🇪🇸 Diseñado en España</div>
+        <div class="home-topbar__item">⭐ Más de 1.000 familias ya crean con 3D Minto</div>
+        <div class="home-topbar__item">🛡️ Baja temperatura segura para niños</div>
+    </div>
+</div>
 
-    <div class="container">
-
-        <a href="index.html">
-            <img src="images/logo.png" class="logo" alt="3D Minto">
+<header class="home-header">
+    <div class="home-container home-header__inner">
+        <a class="home-logo" href="index.html" aria-label="3D Minto">
+            <img src="images/logo.png" alt="3D Minto">
         </a>
 
-        <nav>
+        <nav class="home-nav" aria-label="Navegación principal">
             <ul>
+                <li><a class="is-active" href="#inicio">Inicio</a></li>
                 <li><a href="ideas.html">Ideas</a></li>
-                <li><a href="comunidad.html">Comunidad</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
                 <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
 
+        <a class="home-header__cta" href="#proyectos">Ver proyectos</a>
     </div>
-
 </header>
 
-<section class="hero">
+<main>
+    <section class="home-hero" id="inicio">
+        <div class="home-container home-hero__grid">
+            <div class="home-hero__content">
+                <span class="home-eyebrow">EL LÁPIZ 3D PERFECTO PARA NIÑOS</span>
 
-    <div class="container hero-content">
+                <h1>
+                    Dale forma<br>
+                    a tus ideas <span class="accent">en 3D</span>
+                </h1>
 
-        <div class="hero-text">
+                <p>Aprende, crea y diviértete en familia con total tranquilidad.</p>
 
-            <h1>Convierte ideas en creaciones reales.</h1>
+                <div class="home-actions">
+                    <a class="home-btn home-btn--primary" href="#proyectos">Explorar proyectos</a>
+                    <a class="home-btn home-btn--secondary" href="#">
+                        <span class="home-amazon-logo" aria-hidden="true">
+                            <span class="home-amazon-logo__letter">a</span>
+                            <span class="home-amazon-logo__smile"></span>
+                        </span>
+                        <span>Ver en Amazon</span>
+                    </a>
+                </div>
 
-            <p>
-                3D Minto ayuda a niños y familias a aprender, imaginar y crear de forma divertida con nuestro lápiz 3D.
-            </p>
-
-            <a href="ideas.html" class="btn-primary">
-                Descubre más
-            </a>
-
-            <div class="trust-bar">
-                <span>✓ Fácil de usar</span>
-                <span>✓ Creatividad sin pantallas</span>
-                <span>✓ Tiempo en familia</span>
-                <span>✓ Diseñado para inspirar</span>
+                <div class="home-safety">
+                    <div class="home-safety__icon">🛡️</div>
+                    <div>
+                        <h3>Seguro para niños a baja temperatura</h3>
+                        <p>Nuestro lápiz 3D trabaja a baja temperatura para que los niños puedan crear con tranquilidad y sin riesgos.</p>
+                    </div>
+                </div>
             </div>
 
+            <div class="home-hero__visual" aria-hidden="true">
+                <span class="home-hero__blob home-hero__blob--1"></span>
+                <span class="home-hero__blob home-hero__blob--2"></span>
+                <span class="home-hero__blob home-hero__blob--3"></span>
+                <span class="home-hero__doodle home-hero__doodle--1"></span>
+                <span class="home-hero__doodle home-hero__doodle--2"></span>
+                <div class="home-hero__canvas">
+                    <img class="home-hero__image" src="images/child.png" alt="Niño utilizando el lápiz 3D Minto">
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="hero-image">
-            <img src="images/child.png" alt="Niño utilizando lápiz 3D">
+    <section>
+        <div class="home-container">
+            <div class="home-mini-benefits">
+                <div class="home-mini-benefit">
+                    <div class="home-mini-benefit__icon">🛡️</div>
+                    <div>
+                        <strong>Seguro para niños</strong>
+                        <span>Baja temperatura que ayuda a cuidar.</span>
+                    </div>
+                </div>
+
+                <div class="home-mini-benefit">
+                    <div class="home-mini-benefit__icon">🎨</div>
+                    <div>
+                        <strong>Creatividad</strong>
+                        <span>Ideas que se convierten en figuras reales.</span>
+                    </div>
+                </div>
+
+                <div class="home-mini-benefit">
+                    <div class="home-mini-benefit__icon">👨‍👩‍👧‍👦</div>
+                    <div>
+                        <strong>Familia</strong>
+                        <span>Momentos para crear juntos y divertirse.</span>
+                    </div>
+                </div>
+
+                <div class="home-mini-benefit">
+                    <div class="home-mini-benefit__icon">🚀</div>
+                    <div>
+                        <strong>Fácil de usar</strong>
+                        <span>Listo para empezar desde el primer día.</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
-
-</section>
-
-<section class="about-preview">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Aprender creando</h2>
-
-            <p>
-                Herramientas para desarrollar imaginación, creatividad y momentos inolvidables en familia.
-            </p>
-
-        </div>
-
-        <div class="features-grid">
-
-            <div class="feature-card">
-                <div class="icon">💡</div>
-                <h3>Creatividad sin límites</h3>
-                <p>Desarrolla la imaginación mediante la creación práctica y divertida.</p>
+    <section class="home-why" id="por-que">
+        <div class="home-container">
+            <div class="home-section-title">
+                <h2>¿Por qué elegir 3D Minto?</h2>
+                <p>Una forma simple de crear, aprender y disfrutar sin que la tecnología se sienta fría o complicada.</p>
             </div>
 
-            <div class="feature-card">
-                <div class="icon">🚀</div>
-                <h3>Del dibujo al objeto</h3>
-                <p>Convierte ideas e imaginación en proyectos físicos sorprendentes.</p>
+            <div class="home-why__grid">
+                <article class="home-why__card">
+                    <div class="home-why__icon">🛡️</div>
+                    <h3>Seguro para niños</h3>
+                    <p>Diseñado para trabajar a baja temperatura y minimizar cualquier riesgo.</p>
+                </article>
+
+                <article class="home-why__card">
+                    <div class="home-why__icon">💡</div>
+                    <h3>Desarrolla la creatividad</h3>
+                    <p>Transforma ideas en creaciones reales y estimula la imaginación.</p>
+                </article>
+
+                <article class="home-why__card">
+                    <div class="home-why__icon">👨‍👩‍👧‍👦</div>
+                    <h3>Divertido en familia</h3>
+                    <p>Actividades para compartir, conectar y crear recuerdos inolvidables.</p>
+                </article>
+
+                <article class="home-why__card">
+                    <div class="home-why__icon">🚀</div>
+                    <h3>Fácil para principiantes</h3>
+                    <p>Ligero, intuitivo y perfecto para empezar desde el primer día.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-projects" id="proyectos">
+        <div class="home-container">
+            <div class="home-projects__head">
+                <div>
+                    <span class="home-section-kicker">Ideas para empezar</span>
+                    <h2>Proyectos que inspiran</h2>
+                </div>
+                <a class="home-projects__link" href="ideas.html">Ver todas las ideas →</a>
             </div>
 
-            <div class="feature-card">
-                <div class="icon">❤️</div>
-                <h3>Momentos en familia</h3>
-                <p>Comparte tiempo de calidad creando junto a quienes más quieres.</p>
+            <div class="home-projects__grid">
+                <a class="home-project" href="ideas.html">
+                    <img src="images/torre-eiffel.png" alt="Torre Eiffel terminada">
+                    <div class="home-project__content">
+                        <span class="home-project__tag tag-easy">Fácil</span>
+                        <h3>Torre Eiffel</h3>
+                        <p>Proyecto ideal para empezar.</p>
+                    </div>
+                </a>
+
+                <a class="home-project" href="ideas.html">
+                    <img src="images/cohete.png" alt="Cohete terminado">
+                    <div class="home-project__content">
+                        <span class="home-project__tag tag-easy">Fácil</span>
+                        <h3>Cohete</h3>
+                        <p>Perfecto para jugar con formas.</p>
+                    </div>
+                </a>
+
+                <a class="home-project" href="ideas.html">
+                    <img src="images/robot.png" alt="Robot terminado">
+                    <div class="home-project__content">
+                        <span class="home-project__tag tag-medium">Medio</span>
+                        <h3>Robot</h3>
+                        <p>Para quienes quieren ir un paso más allá.</p>
+                    </div>
+                </a>
+
+                <a class="home-project" href="ideas.html">
+                    <img src="images/dinosaurio.png" alt="Dinosaurio terminado">
+                    <div class="home-project__content">
+                        <span class="home-project__tag tag-medium">Medio</span>
+                        <h3>Dinosaurio</h3>
+                        <p>Un clásico que siempre llama la atención.</p>
+                    </div>
+                </a>
+
+                <a class="home-project" href="ideas.html">
+                    <img src="images/lampara.png" alt="Lámpara terminada">
+                    <div class="home-project__content">
+                        <span class="home-project__tag tag-hard">Difícil</span>
+                        <h3>Lámpara</h3>
+                        <p>Un proyecto más detallado y creativo.</p>
+                    </div>
+                </a>
             </div>
+        </div>
+    </section>
 
+    <section class="home-community" id="comunidad">
+        <div class="home-container home-community__banner">
+            <div class="home-community__icon">👥</div>
+            <div>
+                <h2>Únete a nuestra comunidad creativa</h2>
+                <p>Inspírate con otros creadores, comparte tus creaciones y forma parte de 3D Minto.</p>
+            </div>
+            <a class="home-btn home-btn--community" href="comunidad.html">Ver comunidad</a>
+        </div>
+    </section>
+</main>
+
+<footer class="home-footer">
+    <div class="home-container home-footer__grid">
+        <div>
+            <img class="home-footer__logo" src="images/logo.png" alt="3D Minto">
+            <p class="home-footer__lead">Crea en 3D. Imagina sin límites.</p>
         </div>
 
+        <div>
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="ideas.html">Ideas</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Ayuda</h4>
+            <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                <li><a href="comunidad.html">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contacto</h4>
+            <div class="home-footer__line">📧 hola@3dminto.com</div>
+            <div class="home-footer__line">📍 Diseñado en España</div>
+            <div class="home-footer__line">📷 Instagram</div>
+        </div>
     </div>
 
-</section>
-
-<section class="family-section">
-
-    <div class="container family-content">
-
-        <div class="family-image">
-            <img src="images/family.png" alt="Familia utilizando lápiz 3D">
-        </div>
-
-        <div class="family-text">
-
-            <h2>Más que un lápiz 3D</h2>
-
-            <p>
-                Una herramienta para desarrollar creatividad, compartir tiempo en familia y descubrir nuevas formas de aprender.
-            </p>
-
-            <a href="quienes-somos.html" class="btn-secondary">
-                Conoce nuestra historia
-            </a>
-
-        </div>
-
+    <div class="home-container home-footer__bottom">
+        © 2024 3D Minto. Todos los derechos reservados.
     </div>
-
-</section>
-
-<section class="explore">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Explora 3D Minto</h2>
-
-            <p>
-                Todo lo que necesitas para inspirarte, aprender y compartir tu creatividad.
-            </p>
-
-        </div>
-
-        <div class="explore-grid">
-
-            <a href="ideas.html" class="explore-card">
-                <span>💡</span>
-                <h3>Ideas</h3>
-                <p>Descubre nuevas creaciones.</p>
-            </a>
-
-            <a href="comunidad.html" class="explore-card">
-                <span>❤️</span>
-                <h3>Comunidad</h3>
-                <p>Comparte tus creaciones.</p>
-            </a>
-
-            <a href="faq.html" class="explore-card">
-                <span>❓</span>
-                <h3>FAQ</h3>
-                <p>Todo lo que necesitas saber.</p>
-            </a>
-
-            <a href="quienes-somos.html" class="explore-card">
-                <span>🚀</span>
-                <h3>Quiénes somos</h3>
-                <p>Conoce nuestra historia.</p>
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="cta">
-
-    <div class="container">
-
-        <h2>¿Listo para descubrir un nuevo mundo creativo?</h2>
-
-        <p>
-            Explora nuevas posibilidades junto a 3D Minto y descubre todo lo que puedes crear.
-        </p>
-
-        <a href="ideas.html" class="btn-primary">
-            Explorar ideas
-        </a>
-
-    </div>
-
-</section>
-
-<footer>
-
-    <div class="container footer-content">
-
-        <img src="images/logo.png" alt="3D Minto" class="footer-logo">
-
-        <div class="footer-links">
-
-            <a href="ideas.html">Ideas</a>
-            <a href="comunidad.html">Comunidad</a>
-            <a href="faq.html">FAQ</a>
-            <a href="quienes-somos.html">Quiénes somos</a>
-
-            <a href="https://instagram.com/3dminto.es" target="_blank">
-                Instagram
-            </a>
-
-        </div>
-
-        <p>
-            © 2026 3D Minto. Todos los derechos reservados.
-        </p>
-
-    </div>
-
 </footer>
 
 </body>
