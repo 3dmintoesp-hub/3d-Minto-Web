@@ -54,30 +54,6 @@
         display:block;
     }
 
-    .home-topbar{
-        background:#fafcff;
-        border-bottom:1px solid rgba(21,32,74,.08);
-        font-size:.92rem;
-        color:#334155;
-    }
-
-    .home-topbar__inner{
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-        gap:12px;
-        padding:10px 0;
-        text-align:center;
-    }
-
-    .home-topbar__item{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:8px;
-        min-height:22px;
-        white-space:nowrap;
-    }
-
     .home-header{
         position:sticky;
         top:0;
@@ -750,12 +726,6 @@
     }
 
     @media (max-width: 760px){
-        .home-topbar__inner{
-            grid-template-columns:1fr;
-            gap:8px;
-            padding:10px 0;
-        }
-
         .home-header__inner{
             flex-wrap:wrap;
             justify-content:center;
@@ -805,14 +775,6 @@
 </head>
 
 <body class="home-page">
-
-<div class="home-topbar">
-    <div class="home-container home-topbar__inner">
-        <div class="home-topbar__item">🇪🇸 Diseñado en España</div>
-        <div class="home-topbar__item">⭐ Más de 1.000 familias ya crean con 3D Minto</div>
-        <div class="home-topbar__item">🛡️ Baja temperatura segura para niños</div>
-    </div>
-</div>
 
 <header class="home-header">
     <div class="home-container home-header__inner">
@@ -965,7 +927,7 @@
             </div>
 
             <div class="home-projects__grid">
-                <a class="home-project" href="ideas.html">
+                <a class="home-project" href="ideas/torre-eiffel.html">
                     <img src="images/torre-eiffel.png" alt="Torre Eiffel terminada">
                     <div class="home-project__content">
                         <span class="home-project__tag tag-easy">Fácil</span>
@@ -974,7 +936,7 @@
                     </div>
                 </a>
 
-                <a class="home-project" href="ideas.html">
+                <a class="home-project" href="ideas/cohete.html">
                     <img src="images/cohete.png" alt="Cohete terminado">
                     <div class="home-project__content">
                         <span class="home-project__tag tag-easy">Fácil</span>
@@ -983,7 +945,7 @@
                     </div>
                 </a>
 
-                <a class="home-project" href="ideas.html">
+                <a class="home-project" href="ideas/robot.html">
                     <img src="images/robot.png" alt="Robot terminado">
                     <div class="home-project__content">
                         <span class="home-project__tag tag-medium">Medio</span>
@@ -992,7 +954,7 @@
                     </div>
                 </a>
 
-                <a class="home-project" href="ideas.html">
+                <a class="home-project" href="ideas/dinosaurio.html">
                     <img src="images/dinosaurio.png" alt="Dinosaurio terminado">
                     <div class="home-project__content">
                         <span class="home-project__tag tag-medium">Medio</span>
@@ -1001,7 +963,7 @@
                     </div>
                 </a>
 
-                <a class="home-project" href="ideas.html">
+                <a class="home-project" href="ideas/lampara.html">
                     <img src="images/lampara.png" alt="Lámpara terminada">
                     <div class="home-project__content">
                         <span class="home-project__tag tag-hard">Difícil</span>
