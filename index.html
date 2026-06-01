@@ -52,6 +52,28 @@
     }
     .home-logo{ display:flex; align-items:center; flex-shrink:0; }
     .home-logo img{ height:42px; width:auto; }
+    .home-nav-brand{
+        display:flex;
+        align-items:baseline;
+        gap:1px;
+        text-decoration:none;
+        flex-shrink:0;
+    }
+    .home-nav-brand__name{
+        font-family:'Fredoka',sans-serif;
+        font-size:1.6rem;
+        font-weight:700;
+        color:var(--navy);
+        letter-spacing:-.01em;
+        line-height:1;
+    }
+    .home-nav-brand__dot{
+        font-family:'Fredoka',sans-serif;
+        font-size:1.6rem;
+        font-weight:700;
+        color:var(--orange);
+        line-height:1;
+    }
 
     .home-nav ul{
         list-style:none;
@@ -92,70 +114,157 @@
     }
 
     /* ── HERO ── */
-    .home-hero{ padding:54px 0 28px; }
+    .home-hero{
+        padding:0;
+        background: linear-gradient(135deg, #fdf6f0 0%, #f0f9ff 60%, #f5f0ff 100%);
+        overflow:hidden;
+        position:relative;
+    }
+    .home-hero::before{
+        content:'';
+        position:absolute;
+        top:-200px; right:-200px;
+        width:600px; height:600px;
+        border-radius:50%;
+        background:radial-gradient(circle, rgba(255,122,0,.07) 0%, transparent 70%);
+        pointer-events:none;
+    }
+    .home-hero::after{
+        content:'';
+        position:absolute;
+        bottom:-150px; left:-100px;
+        width:500px; height:500px;
+        border-radius:50%;
+        background:radial-gradient(circle, rgba(16,185,176,.07) 0%, transparent 70%);
+        pointer-events:none;
+    }
     .home-hero__grid{
         display:grid;
-        grid-template-columns:1.02fr .98fr;
-        gap:34px;
-        align-items:center;
+        grid-template-columns:1fr 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:calc(100vh - 74px);
+        position:relative;
+        z-index:1;
+    }
+    .home-hero__content{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        padding:64px 48px 64px 0;
     }
     .home-eyebrow{
         display:inline-flex;
         align-items:center;
         gap:8px;
-        padding:11px 16px;
+        padding:8px 16px;
         border-radius:999px;
-        border:1.5px solid rgba(255,122,0,.3);
-        background:rgba(255,122,0,.06);
+        background:#fff;
+        border:1.5px solid rgba(255,122,0,.25);
         color:var(--orange);
-        font-size:.92rem;
+        font-size:.82rem;
         font-weight:700;
-        letter-spacing:.02em;
+        letter-spacing:.06em;
+        text-transform:uppercase;
+        margin-bottom:20px;
+        width:fit-content;
+        box-shadow:0 4px 12px rgba(255,122,0,.08);
+    }
+    .home-eyebrow::before{
+        content:'✦';
+        font-size:.7rem;
     }
     .home-hero h1{
         font-family:'Fredoka',sans-serif;
-        font-size:clamp(3rem,5.8vw,5.8rem);
-        line-height:.95;
-        letter-spacing:-.04em;
-        margin:22px 0 18px;
-        max-width:680px;
+        font-size:clamp(3.2rem,5.5vw,5.4rem);
+        line-height:1;
+        letter-spacing:-.03em;
+        margin:0 0 20px;
+        color:var(--navy);
     }
-    .home-hero h1 .accent{ color:var(--orange); }
-    .home-hero p{
-        font-size:1.18rem;
-        line-height:1.5;
+    .home-hero h1 .accent{
+        color:var(--orange);
+        position:relative;
+        display:inline-block;
+    }
+    .home-hero h1 .accent::after{
+        content:'';
+        position:absolute;
+        left:0; bottom:-4px;
+        width:100%; height:5px;
+        background:var(--orange);
+        border-radius:3px;
+        opacity:.35;
+    }
+    .home-hero__lead{
+        font-size:1.15rem;
+        line-height:1.65;
         color:var(--text);
-        max-width:560px;
-        margin:0 0 28px;
+        max-width:480px;
+        margin:0 0 16px;
+    }
+    .home-hero__social-proof{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin-bottom:32px;
+    }
+    .home-hero__avatars{
+        display:flex;
+    }
+    .home-hero__avatars span{
+        width:32px; height:32px;
+        border-radius:50%;
+        border:2px solid #fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:.9rem;
+        margin-right:-8px;
+        background:#f0f9ff;
+    }
+    .home-hero__social-proof p{
+        font-size:.88rem;
+        font-weight:600;
+        color:var(--text);
+        margin:0;
+    }
+    .home-hero__social-proof p strong{
+        color:var(--navy);
     }
     .home-actions{
         display:flex;
-        gap:14px;
+        gap:12px;
         flex-wrap:wrap;
         align-items:center;
+        margin-bottom:36px;
     }
     .home-btn{
         display:inline-flex;
         align-items:center;
         justify-content:center;
         gap:10px;
-        padding:16px 24px;
-        border-radius:18px;
+        padding:16px 28px;
+        border-radius:16px;
         font-weight:700;
+        font-size:.95rem;
         transition:transform .2s ease, box-shadow .2s ease;
         border:1px solid transparent;
     }
-    .home-btn:hover{ transform:translateY(-1px); }
+    .home-btn:hover{ transform:translateY(-2px); }
     .home-btn--primary{
         color:#fff;
-        background:linear-gradient(90deg,var(--orange),#ff911d);
-        box-shadow:0 18px 28px rgba(255,122,0,.22);
+        background:linear-gradient(135deg,var(--orange),#ff911d);
+        box-shadow:0 12px 28px rgba(255,122,0,.30);
+    }
+    .home-btn--primary:hover{
+        box-shadow:0 18px 36px rgba(255,122,0,.38);
     }
     .home-btn--secondary{
         color:#0f172a;
         background:#fff;
         border-color:rgba(15,23,42,.12);
-        box-shadow:0 12px 24px rgba(15,23,42,.08);
+        box-shadow:0 8px 20px rgba(15,23,42,.07);
     }
     .home-amazon-logo{
         display:inline-flex;
@@ -168,85 +277,104 @@
     }
     .home-amazon-logo__letter{
         font-family:Arial,Helvetica,sans-serif;
-        font-size:1.72rem;
+        font-size:1.5rem;
         font-weight:700;
         line-height:1;
         color:#111827;
     }
     .home-amazon-logo__smile{
         display:block;
-        width:16px; height:8px;
+        width:14px; height:7px;
         border-bottom:2.5px solid #ff9900;
         border-radius:0 0 18px 18px;
-        margin-top:-3px;
+        margin-top:-2px;
     }
-    .home-safety{
-        margin-top:24px;
-        display:grid;
-        grid-template-columns:auto 1fr;
-        gap:16px;
+    .home-trust-badges{
+        display:flex;
+        gap:12px;
+        flex-wrap:wrap;
+    }
+    .home-trust-badge{
+        display:inline-flex;
         align-items:center;
-        padding:20px 22px;
-        border-radius:24px;
-        background:linear-gradient(180deg,#f7fffb,#ffffff);
-        border:1px solid rgba(16,185,129,.18);
-        box-shadow:var(--shadow);
-        max-width:560px;
+        gap:7px;
+        background:#fff;
+        border:1px solid rgba(21,32,74,.08);
+        border-radius:12px;
+        padding:9px 14px;
+        font-size:.82rem;
+        font-weight:600;
+        color:var(--navy);
+        box-shadow:0 4px 12px rgba(17,24,39,.05);
     }
-    .home-safety__icon{
-        width:58px; height:58px;
-        border-radius:18px;
-        display:grid;
-        place-items:center;
-        color:#17a766;
-        background:rgba(16,185,129,.12);
-        font-size:1.45rem;
-        flex-shrink:0;
-    }
-    .home-safety h3{ margin:0 0 6px; font-size:1.08rem; line-height:1.15; }
-    .home-safety p{ margin:0; font-size:.98rem; line-height:1.5; max-width:none; }
+    .home-trust-badge span{ font-size:1rem; }
 
-    .home-hero__visual{ position:relative; }
-    .home-hero__canvas{
+    /* Hero visual side */
+    .home-hero__visual{
         position:relative;
-        min-height:640px;
-        border-radius:36px;
-        overflow:hidden;
-        background:transparent;
         display:flex;
         align-items:center;
         justify-content:center;
+        overflow:hidden;
+        background:transparent;
     }
-    .home-hero__blob{
-        position:absolute;
-        border-radius:50%;
-        filter:blur(2px);
-        opacity:.95;
-    }
-    .home-hero__blob--1{ width:180px; height:180px; left:5%; top:8%; background:rgba(255,122,0,.08); }
-    .home-hero__blob--2{ width:120px; height:120px; right:5%; top:18%; background:rgba(16,185,176,.08); }
-    .home-hero__blob--3{ width:98px; height:98px; left:46%; bottom:14%; background:rgba(16,185,176,.10); }
-    .home-hero__doodle{ position:absolute; border-radius:999px; opacity:.9; }
-    .home-hero__doodle--1{
-        width:76px; height:76px;
-        left:44%; top:32%;
-        border:4px solid var(--orange);
-        border-color:var(--orange) transparent transparent transparent;
-        transform:rotate(20deg);
-    }
-    .home-hero__doodle--2{
-        width:110px; height:110px;
-        right:21%; top:20%;
-        border:4px solid var(--teal);
-        border-color:transparent transparent var(--teal) transparent;
-        transform:rotate(25deg);
-    }
-    .home-hero__image{
+    .home-hero__bg-circle{ display:none; }
+    .home-hero__img-wrap{
         position:relative;
         z-index:2;
-        width:min(100%,540px);
-        height:auto;
-        object-fit:contain;
+        width:min(100%,560px);
+        aspect-ratio:1/1;
+        border-radius:50%;
+        overflow:hidden;
+        background:linear-gradient(135deg, rgba(255,122,0,.06) 0%, rgba(16,185,176,.07) 100%);
+        display:flex;
+        align-items:flex-end;
+        justify-content:center;
+    }
+    .home-hero__image{
+        width:110%;
+        height:110%;
+        object-fit:cover;
+        object-position:center 20%;
+        mix-blend-mode:multiply;
+    }
+    .home-hero__float-card{ display:none; }
+    .home-hero__float-card2{
+        position:absolute;
+        bottom:60px; right:32px;
+        background:#fff;
+        border-radius:20px;
+        padding:12px 18px;
+        box-shadow:0 8px 28px rgba(17,24,39,.10);
+        display:flex;
+        align-items:center;
+        gap:12px;
+        z-index:3;
+        border:1px solid rgba(21,32,74,.07);
+    }
+    .home-hero__float-card2 .fc2-icon{
+        width:40px; height:40px;
+        background:linear-gradient(135deg,#FFD700,#FFA500);
+        border-radius:12px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:1.1rem;
+        flex-shrink:0;
+    }
+    .home-hero__float-card2 .fc2-label{
+        font-size:.72rem;
+        font-weight:700;
+        color:var(--text);
+        text-transform:uppercase;
+        letter-spacing:.05em;
+        margin-bottom:2px;
+    }
+    .home-hero__float-card2 .fc2-value{
+        font-family:'Fredoka',sans-serif;
+        font-size:1rem;
+        font-weight:700;
+        color:var(--navy);
     }
 
     /* ── WHY SECTION ── */
@@ -359,6 +487,7 @@
         background:#ffffff;
         padding:12px;
         transition:transform .3s ease;
+        mix-blend-mode:multiply;
     }
     .home-project:hover img{ transform:scale(1.04); }
     .home-project__content{ padding:14px 14px 16px; }
@@ -443,8 +572,28 @@
         gap:24px;
         align-items:start;
     }
-    .home-footer__logo{ height:42px; width:auto; margin-bottom:10px; }
-    .home-footer__lead{ margin:0; color:rgba(255,255,255,.82); line-height:1.5; max-width:270px; }
+    .home-footer__brand{
+        display:flex;
+        align-items:baseline;
+        gap:2px;
+        margin-bottom:12px;
+    }
+    .home-footer__brand-name{
+        font-family:'Fredoka',sans-serif;
+        font-size:1.75rem;
+        font-weight:700;
+        color:#ffffff;
+        letter-spacing:-.01em;
+        line-height:1;
+    }
+    .home-footer__brand-dot{
+        font-family:'Fredoka',sans-serif;
+        font-size:1.75rem;
+        font-weight:700;
+        color:var(--orange);
+        line-height:1;
+    }
+    .home-footer__lead{ margin:0; color:rgba(255,255,255,.62); line-height:1.5; max-width:270px; font-size:.95rem; }
     .home-footer h4{ margin:0 0 12px; font-size:1rem; }
     .home-footer ul{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
     .home-footer a{ color:rgba(255,255,255,.86); transition:color .2s; }
@@ -463,7 +612,10 @@
     /* ── RESPONSIVE ── */
     @media (max-width:1120px){
         .home-hero__grid,.home-footer__grid{ grid-template-columns:1fr; }
-        .home-hero__canvas{ min-height:520px; }
+        .home-hero__grid{ min-height:auto; }
+        .home-hero__content{ padding:52px 0 0; }
+        .home-hero__visual{ min-height:420px; }
+        .home-hero__float-card2{ bottom:20px; right:20px; }
         .home-why__grid,.home-projects__grid{ grid-template-columns:repeat(2,1fr); }
         .home-community__banner{ grid-template-columns:72px 1fr; }
         .home-community__banner .home-btn{ justify-self:start; }
@@ -472,13 +624,16 @@
         .home-header__inner{ flex-wrap:wrap; justify-content:center; }
         .home-nav ul{ gap:16px; }
         .home-header__cta{ width:100%; }
-        .home-hero{ padding-top:36px; }
+        .home-hero__content{ padding:40px 0 0; }
         .home-hero h1{ font-size:clamp(2.7rem,12vw,4rem); }
+        .home-hero__float-card{ display:none; }
+        .home-hero__float-card2{ display:none; }
         .home-why__grid,.home-projects__grid{ grid-template-columns:1fr; }
         .home-projects__head,.home-community__banner{ grid-template-columns:1fr; }
         .home-projects__head{ align-items:flex-start; }
         .home-community__banner{ gap:14px; }
         .home-community__banner .home-btn{ width:100%; justify-content:center; }
+        .home-trust-badges{ gap:8px; }
     }
 </style>
 </head>
@@ -487,8 +642,8 @@
 
 <header class="home-header">
     <div class="home-container home-header__inner">
-        <a class="home-logo" href="index.html" aria-label="3D Minto">
-            <img src="images/logo.png" alt="3D Minto">
+        <a class="home-nav-brand" href="index.html" aria-label="3D Minto">
+            <span class="home-nav-brand__name">3D Minto</span><span class="home-nav-brand__dot">.</span>
         </a>
         <nav class="home-nav" aria-label="Navegación principal">
             <ul>
@@ -506,14 +661,25 @@
     <section class="home-hero" id="inicio">
         <div class="home-container home-hero__grid">
             <div class="home-hero__content">
-                <span class="home-eyebrow">EL LÁPIZ 3D PERFECTO PARA NIÑOS</span>
+                <span class="home-eyebrow">El lápiz 3D perfecto para niños</span>
                 <h1>
                     Dale forma<br>
-                    a tus ideas <span class="accent">en 3D</span>
+                    a tus ideas<br><span class="accent">en 3D</span>
                 </h1>
-                <p>Aprende, crea y diviértete en familia con total tranquilidad.</p>
+                <p class="home-hero__lead">Aprende, crea y diviértete en familia con total tranquilidad. Seguro, divertido y fácil desde el primer día.</p>
+
+                <div class="home-hero__social-proof">
+                    <div class="home-hero__avatars">
+                        <span>👦</span>
+                        <span>👧</span>
+                        <span>👨</span>
+                        <span>👩</span>
+                    </div>
+                    <p><strong>+1.000 familias</strong> ya crean con 3D Minto</p>
+                </div>
+
                 <div class="home-actions">
-                    <a class="home-btn home-btn--primary" href="#proyectos">Explorar proyectos</a>
+                    <a class="home-btn home-btn--primary" href="#proyectos">Explorar proyectos →</a>
                     <a class="home-btn home-btn--secondary" href="#">
                         <span class="home-amazon-logo" aria-hidden="true">
                             <span class="home-amazon-logo__letter">a</span>
@@ -522,22 +688,35 @@
                         <span>Ver en Amazon</span>
                     </a>
                 </div>
-                <div class="home-safety">
-                    <div class="home-safety__icon">🛡️</div>
-                    <div>
-                        <h3>Seguro para niños a baja temperatura</h3>
-                        <p>Nuestro lápiz 3D trabaja a baja temperatura para que los niños puedan crear con tranquilidad y sin riesgos.</p>
-                    </div>
+
+                <div class="home-trust-badges">
+                    <div class="home-trust-badge"><span>🛡️</span> Baja temperatura · Seguro</div>
+                    <div class="home-trust-badge"><span>⚡</span> Fácil desde el primer uso</div>
+                    <div class="home-trust-badge"><span>👨‍👩‍👧</span> Para toda la familia</div>
                 </div>
             </div>
-            <div class="home-hero__visual" aria-hidden="true">
-                <span class="home-hero__blob home-hero__blob--1"></span>
-                <span class="home-hero__blob home-hero__blob--2"></span>
-                <span class="home-hero__blob home-hero__blob--3"></span>
-                <span class="home-hero__doodle home-hero__doodle--1"></span>
-                <span class="home-hero__doodle home-hero__doodle--2"></span>
-                <div class="home-hero__canvas">
+
+            <div class="home-hero__visual">
+                <div class="home-hero__bg-circle"></div>
+
+                <div class="home-hero__float-card">
+                    <div class="home-hero__float-icon">🌡️</div>
+                    <div>
+                        <div class="home-hero__float-label">Temperatura</div>
+                        <div class="home-hero__float-value">Baja temperatura · 100% seguro</div>
+                    </div>
+                </div>
+
+                <div class="home-hero__img-wrap">
                     <img class="home-hero__image" src="images/child.png" alt="Niño utilizando el lápiz 3D Minto">
+                </div>
+
+                <div class="home-hero__float-card2">
+                    <div class="fc2-icon">⭐</div>
+                    <div>
+                        <div class="fc2-label">Valoración clientes</div>
+                        <div class="fc2-value">4.9 / 5 · +500 reseñas</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -643,7 +822,9 @@
 <footer class="home-footer">
     <div class="home-container home-footer__grid">
         <div>
-            <img class="home-footer__logo" src="images/logo.png" alt="3D Minto">
+            <div class="home-footer__brand">
+                <span class="home-footer__brand-name">3D Minto</span><span class="home-footer__brand-dot">.</span>
+            </div>
             <p class="home-footer__lead">Crea en 3D. Imagina sin límites.</p>
         </div>
         <div>
