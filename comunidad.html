@@ -237,7 +237,7 @@
         background:#fafaf8;
         border:1.5px solid rgba(21,32,74,.07);
         box-shadow:var(--shadow);
-        transition:transform .25s, box-shadow .25s;
+        transition:transform .25s, box-shadow .25s, opacity .25s;
     }
     .creation-card:hover{
         transform:translateY(-5px);
@@ -543,16 +543,16 @@
                 <h2>Lo que están creando</h2>
             </div>
             <div class="com-gallery__filter">
-                <button class="filter-btn active">Todos</button>
-                <button class="filter-btn">Fácil</button>
-                <button class="filter-btn">Medio</button>
-                <button class="filter-btn">Difícil</button>
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="easy">⭐ Fácil</button>
+                <button class="filter-btn" data-filter="medium">⭐⭐ Medio</button>
+                <button class="filter-btn" data-filter="hard">⭐⭐⭐ Difícil</button>
             </div>
         </div>
 
         <div class="com-gallery__grid">
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="easy">
                 <div class="creation-card__img">
                     <img src="images/comunidad-1.png" alt="Torre Eiffel hecha con lápiz 3D">
                     <div class="creation-card__likes">❤️ 48</div>
@@ -573,7 +573,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="hard">
                 <div class="creation-card__img">
                     <img src="images/comunidad-2.png" alt="Dragón hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 61</div>
@@ -594,7 +594,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="easy">
                 <div class="creation-card__img">
                     <img src="images/comunidad-3.png" alt="Mariposa hecha con lápiz 3D">
                     <div class="creation-card__likes">❤️ 32</div>
@@ -615,7 +615,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="medium">
                 <div class="creation-card__img">
                     <img src="images/comunidad-4.png" alt="Robot hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 74</div>
@@ -636,7 +636,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="easy">
                 <div class="creation-card__img">
                     <img src="images/comunidad-5.png" alt="Flor hecha con lápiz 3D">
                     <div class="creation-card__likes">❤️ 89</div>
@@ -657,7 +657,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="easy">
                 <div class="creation-card__img">
                     <img src="images/comunidad-6.png" alt="Perro hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 41</div>
@@ -678,7 +678,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="medium">
                 <div class="creation-card__img">
                     <img src="images/comunidad-7.png" alt="Castillo hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 55</div>
@@ -699,7 +699,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="easy">
                 <div class="creation-card__img">
                     <img src="images/comunidad-8.png" alt="Cohete hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 27</div>
@@ -720,7 +720,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="medium">
                 <div class="creation-card__img">
                     <img src="images/comunidad-9.png" alt="Auto hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 36</div>
@@ -741,7 +741,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="hard">
                 <div class="creation-card__img">
                     <img src="images/comunidad-10.png" alt="Barco pirata hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 52</div>
@@ -762,7 +762,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="easy">
                 <div class="creation-card__img">
                     <img src="images/comunidad-11.png" alt="Árbol hecho con lápiz 3D">
                     <div class="creation-card__likes">❤️ 29</div>
@@ -783,7 +783,7 @@
                 </div>
             </div>
 
-            <div class="creation-card">
+            <div class="creation-card" data-diff="medium">
                 <div class="creation-card__img">
                     <img src="images/comunidad-12.png" alt="Casa hecha con lápiz 3D">
                     <div class="creation-card__likes">❤️ 43</div>
@@ -902,10 +902,29 @@
 
 <script>
     // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.creation-card');
+
+    filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+
+            // Show/hide cards
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.diff === filter) {
+                    card.style.display = 'flex';
+                    card.style.flexDirection = 'column';
+                    setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(10px)';
+                    setTimeout(() => { card.style.display = 'none'; }, 250);
+                }
+            });
         });
     });
 </script>
