@@ -56,20 +56,50 @@
     .ideas-stat__label { font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.55); line-height: 1.3; }
 
     /* Hero right - difficulty legend */
-    .ideas-hero__right { display: flex; flex-direction: column; gap: 14px; }
-    .diff-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; transition: background .25s; }
-    .diff-card:hover { background: rgba(255,255,255,.12); }
-    .diff-card__stars { font-size: 1.1rem; flex-shrink: 0; width: 80px; }
-    .diff-card__info h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem; color: #fff; margin-bottom: 3px; }
-    .diff-card__info p { font-size: .82rem; color: rgba(255,255,255,.55); line-height: 1.4; }
-    .diff-card__count { font-family: 'Nunito', sans-serif; font-size: .85rem; font-weight: 700; color: rgba(255,255,255,.4); margin-left: auto; flex-shrink: 0; }
+    .ideas-hero__right { display: flex; flex-direction: column; gap: 12px; }
+    .diff-card {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 16px;
+        padding: 16px 20px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 14px;
+        transition: background .25s, border-color .25s;
+    }
+    .diff-card:hover { background: rgba(255,255,255,.11); border-color: rgba(255,122,0,.3); }
+    .diff-card__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(255,255,255,.1);
+        border-radius: 50px;
+        padding: 5px 12px;
+        font-size: .8rem;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+    }
+    .diff-card__info h4 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; color: #fff; margin-bottom: 2px; }
+    .diff-card__info p { font-size: .78rem; color: rgba(255,255,255,.5); line-height: 1.3; }
+    .diff-card__count {
+        font-family: 'Fredoka', sans-serif;
+        font-size: .85rem;
+        font-weight: 600;
+        color: var(--orange);
+        flex-shrink: 0;
+        background: rgba(255,122,0,.15);
+        padding: 4px 10px;
+        border-radius: 50px;
+    }
 
     /* GALLERY */
     .ideas-gallery { padding: 64px 0 80px; }
     .ideas-gallery__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
-    .ideas-gallery__title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.6rem,2.5vw,2.2rem); color: var(--navy); }
+    .ideas-gallery__title { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(1.6rem,2.5vw,2.2rem); color: var(--navy); }
     .ideas-filters { display: flex; gap: 8px; flex-wrap: wrap; }
-    .filter-btn { padding: 9px 20px; border-radius: 50px; font-size: .84rem; font-weight: 700; border: 1.5px solid var(--gray-200); background: #fff; color: var(--text-body); cursor: pointer; transition: all .2s; font-family: 'Nunito Sans', sans-serif; }
+    .filter-btn { padding: 9px 20px; border-radius: 50px; font-size: .84rem; font-weight: 700; border: 1.5px solid var(--gray-200); background: #fff; color: var(--text-body); cursor: pointer; transition: all .2s; font-family: 'Poppins', sans-serif; }
     .filter-btn:hover { border-color: var(--orange); color: var(--orange); }
     .filter-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; box-shadow: 0 4px 14px rgba(255,107,43,.3); }
 
@@ -86,10 +116,10 @@
     .tag-easy { background: #d1fae5; color: #065f46; }
     .tag-medium { background: #fde68a; color: #92400e; }
     .tag-hard { background: #fbcfe8; color: #9d174d; }
-    .idea-card__title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; color: var(--navy); margin-bottom: 5px; }
+    .idea-card__title { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--navy); margin-bottom: 4px; letter-spacing: -.01em; }
     .idea-card__meta { font-size: .78rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
     .idea-card__desc { font-size: .82rem; color: var(--text-body); line-height: 1.5; }
-    .idea-card__arrow { display: flex; align-items: center; justify-content: flex-end; padding: 0 16px 12px; color: var(--orange); font-size: 1rem; font-weight: 700; gap: 4px; font-size: .82rem; }
+    .idea-card__arrow { display: flex; align-items: center; justify-content: flex-end; padding: 0 16px 12px; color: var(--orange); font-weight: 700; gap: 4px; font-size: .82rem; }
 
     /* CTA */
     .ideas-cta { padding: 0 0 80px; }
@@ -181,7 +211,7 @@
 
       <div class="ideas-hero__right">
         <div class="diff-card">
-          <div class="diff-card__stars">⭐ Fácil</div>
+          <div class="diff-card__badge">⭐ Fácil</div>
           <div class="diff-card__info">
             <h4>Principiante</h4>
             <p>Formas simples · 25–45 min</p>
@@ -189,7 +219,7 @@
           <div class="diff-card__count">3 proyectos</div>
         </div>
         <div class="diff-card">
-          <div class="diff-card__stars">⭐⭐ Medio</div>
+          <div class="diff-card__badge">⭐⭐ Medio</div>
           <div class="diff-card__info">
             <h4>Intermedio</h4>
             <p>Más detalle · 40–60 min</p>
@@ -197,7 +227,7 @@
           <div class="diff-card__count">4 proyectos</div>
         </div>
         <div class="diff-card">
-          <div class="diff-card__stars">⭐⭐⭐ Difícil</div>
+          <div class="diff-card__badge">⭐⭐⭐ Difícil</div>
           <div class="diff-card__info">
             <h4>Avanzado</h4>
             <p>Alta precisión · 60–100 min</p>
