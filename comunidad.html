@@ -800,11 +800,11 @@
 <!-- SHARE -->
 <section class="com-share">
     <div class="container">
-        <div class="com-share__inner">
+        <div class="com-share__inner" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
             <div class="com-share__text">
                 <div class="com-share__badge">✦ Únete a la comunidad</div>
-                <h2>¿Creaste algo increíble?<br>Compártelo aquí</h2>
-                <p>Cada creación inspira a otra familia a crear. Subí tu foto y formá parte de la comunidad 3D Minto.</p>
+                <h2>¿Creaste algo increíble?<br>Mostráselo al mundo</h2>
+                <p>Cada creación inspira a otra familia. Subí tu foto en Instagram con el hashtag <strong>#3DMinto</strong> y aparecé en nuestra galería.</p>
                 <div class="com-share__steps">
                     <div class="com-share__step">
                         <div class="step-num">1</div>
@@ -816,37 +816,27 @@
                     </div>
                     <div class="com-share__step">
                         <div class="step-num">3</div>
-                        <p><strong>Completá el formulario</strong> y subí tu creación</p>
+                        <p><strong>Publicá en Instagram</strong> con <strong>#3DMinto</strong></p>
                     </div>
                 </div>
             </div>
-
-            <div class="com-share__form-side">
-                <div class="com-share__form-title">📸 Subir mi creación</div>
-                <div class="form-group">
-                    <label>Tu nombre o apodo</label>
-                    <input type="text" placeholder="Ej: Sofía, Lucas, Familia García...">
+            <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+                <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:28px 32px;width:100%;">
+                    <div style="font-size:2.5rem;margin-bottom:12px;">📷</div>
+                    <div style="font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:6px;">Seguinos en Instagram</div>
+                    <div style="color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:20px;">Publicamos las mejores creaciones de la semana y respondemos todas las dudas.</div>
+                    <a href="https://www.instagram.com/3dminto.es" target="_blank" rel="noopener"
+                       style="display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:14px;background:linear-gradient(90deg,#ff7a00,#ff971e);color:#fff;font-weight:700;font-size:.95rem;text-decoration:none;box-shadow:0 8px 20px rgba(255,122,0,.3);">
+                        📷 Ir a @3dminto.es →
+                    </a>
                 </div>
-                <div class="form-group">
-                    <label>Edad del creador</label>
-                    <input type="number" placeholder="Ej: 8" min="4" max="99">
+                <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:20px 24px;width:100%;display:flex;align-items:center;gap:16px;">
+                    <div style="font-size:1.8rem;">🏷️</div>
+                    <div>
+                        <div style="font-weight:700;color:#fff;margin-bottom:3px;">Usá el hashtag</div>
+                        <div style="font-family:'Fredoka',sans-serif;font-size:1.3rem;color:#ff971e;font-weight:700;">#3DMinto</div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>¿Qué construiste?</label>
-                    <select>
-                        <option value="">Seleccionar proyecto...</option>
-                        <option>Torre Eiffel</option>
-                        <option>Cohete</option>
-                        <option>Robot</option>
-                        <option>Dinosaurio</option>
-                        <option>Lámpara</option>
-                        <option>Otro</option>
-                    </select>
-                </div>
-                <div class="form-upload">
-                    📷 Arrastrá tu foto aquí o hacé click para subir
-                </div>
-                <button class="btn-submit">Compartir mi creación →</button>
             </div>
         </div>
     </div>
@@ -875,7 +865,7 @@
             <h4>Navegación</h4>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="index.html#proyectos">Proyectos</a></li>
+                <li><a href="ideas.html">Ideas</a></li>
                 <li><a href="comunidad.html">Comunidad</a></li>
             </ul>
         </div>
@@ -884,7 +874,6 @@
             <ul>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="quienes-somos.html">Quiénes somos</a></li>
-                <li><a href="comunidad.html">Contacto</a></li>
             </ul>
         </div>
         <div>
