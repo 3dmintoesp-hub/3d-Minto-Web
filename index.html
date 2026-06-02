@@ -61,7 +61,7 @@
     }
     .home-nav-brand__name{
         font-family:'Fredoka',sans-serif;
-        font-size:1.6rem;
+        font-size:1.35rem;
         font-weight:700;
         color:var(--navy);
         letter-spacing:-.01em;
@@ -69,7 +69,7 @@
     }
     .home-nav-brand__dot{
         font-family:'Fredoka',sans-serif;
-        font-size:1.6rem;
+        font-size:1.35rem;
         font-weight:700;
         color:var(--orange);
         line-height:1;
@@ -88,30 +88,27 @@
         position:relative;
         font-weight:600;
         color:#18224f;
-        padding-bottom:8px;
+        font-size:.9rem;
+        transition:color .2s;
     }
+    .home-nav a:hover{ color:var(--orange); }
     .home-nav a.is-active{ color:var(--orange); }
-    .home-nav a.is-active::after{
-        content:"";
-        position:absolute;
-        left:0; bottom:0;
-        width:100%; height:3px;
-        border-radius:999px;
-        background:var(--orange);
-    }
     .home-header__cta{
         display:inline-flex;
         align-items:center;
         justify-content:center;
         gap:10px;
-        padding:14px 18px;
-        border-radius:16px;
+        padding:12px 20px;
+        border-radius:14px;
         color:#fff;
         background:linear-gradient(90deg,#ff7a00,#ff971e);
         font-weight:700;
-        box-shadow:0 16px 28px rgba(255,122,0,.24);
+        font-size:.9rem;
+        box-shadow:0 8px 20px rgba(255,122,0,.22);
         white-space:nowrap;
+        transition:transform .2s, box-shadow .2s;
     }
+    .home-header__cta:hover{ transform:translateY(-1px); }
 
     /* ── HERO ── */
     .home-hero{
@@ -643,7 +640,7 @@
                 <li><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
-        <a class="home-header__cta" href="#proyectos">Ver proyectos</a>
+        <a class="home-header__cta" href="#">Ver en Amazon</a>
     </div>
 </header>
 
