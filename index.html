@@ -37,12 +37,12 @@
 
     /* ── NAV: solid white, no blur ── */
     .home-header{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;box-sizing:border-box;}
-    .home-header__inner{
+    .home-header__inner{height:100%;
         display:flex;
         align-items:center;
         justify-content:space-between;
         gap:24px;
-        padding:0 5vw;
+        padding:0;
     }
     .home-logo{ display:flex; align-items:center; flex-shrink:0; }
     .home-logo img{ height:42px; width:auto; }
@@ -601,7 +601,7 @@
         .home-community__banner .home-btn{ justify-self:start; }
     }
     @media (max-width:760px){
-        .home-header__inner{ flex-wrap:wrap; justify-content:center; }
+        .home-header__inner{height:100%; flex-wrap:wrap; justify-content:center; }
         .home-nav ul{ gap:16px; }
         .home-header__cta{ width:100%; }
         .home-hero__content{ padding:40px 0 0; }
