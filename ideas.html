@@ -123,17 +123,66 @@
 
     /* CTA */
     .ideas-cta { padding: 0 0 80px; }
-    .ideas-cta__inner { background: linear-gradient(135deg,var(--navy) 0%,#2D4170 100%); border-radius: 28px; padding: 52px 56px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px; position: relative; overflow: hidden; }
-    .ideas-cta__inner::before { content: ''; position: absolute; right: -60px; bottom: -60px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle,rgba(16,185,176,.2) 0%,transparent 70%); }
-    .ideas-cta__inner::after { content: ''; position: absolute; left: -40px; top: -40px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle,rgba(255,107,43,.12) 0%,transparent 70%); }
+    .ideas-cta__inner {
+        background: linear-gradient(135deg, #1A2C4E 0%, #2D4170 50%, #1A3A5C 100%);
+        border-radius: 28px;
+        padding: 56px 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+    .ideas-cta__inner::before {
+        content: ''; position: absolute;
+        right: -80px; top: -80px;
+        width: 280px; height: 280px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(0,181,163,.25) 0%, transparent 70%);
+    }
+    .ideas-cta__inner::after {
+        content: ''; position: absolute;
+        left: -60px; bottom: -60px;
+        width: 220px; height: 220px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,107,43,.18) 0%, transparent 70%);
+    }
     .ideas-cta__text { position: relative; z-index: 1; }
-    .ideas-cta__text h2 { font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 8px; }
-    .ideas-cta__text p { color: rgba(255,255,255,.65); font-size: .98rem; line-height: 1.55; }
-    .ideas-cta__actions { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
-    .btn-amazon { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #FF9900; color: var(--navy); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem; padding: 14px 28px; border-radius: 16px; text-decoration: none; transition: all .25s; box-shadow: 0 8px 24px rgba(255,153,0,.3); white-space: nowrap; }
-    .btn-amazon:hover { transform: translateY(-2px); }
-    .btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,.1); color: rgba(255,255,255,.85); font-family: 'Nunito', sans-serif; font-weight: 600; font-size: .9rem; padding: 13px 28px; border-radius: 16px; text-decoration: none; border: 1px solid rgba(255,255,255,.2); transition: background .2s; white-space: nowrap; }
-    .btn-ghost:hover { background: rgba(255,255,255,.18); }
+    .ideas-cta__eyebrow {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: rgba(255,122,0,.18); border: 1px solid rgba(255,122,0,.3);
+        color: #FFB347; font-size: .75rem; font-weight: 700;
+        letter-spacing: .1em; text-transform: uppercase;
+        padding: 5px 14px; border-radius: 50px;
+        margin-bottom: 14px;
+    }
+    .ideas-cta__text h2 {
+        font-family: 'Fredoka', sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 700; color: #fff;
+        margin-bottom: 10px; line-height: 1.1;
+        letter-spacing: -.02em;
+    }
+    .ideas-cta__text h2 span { color: var(--orange); }
+    .ideas-cta__text p { color: rgba(255,255,255,.6); font-size: .95rem; line-height: 1.6; max-width: 400px; }
+    .ideas-cta__actions { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; min-width: 220px; }
+    .btn-amazon {
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        background: #FF9900; color: #1A2C4E;
+        font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.05rem;
+        padding: 15px 28px; border-radius: 16px; text-decoration: none;
+        transition: all .25s; box-shadow: 0 8px 24px rgba(255,153,0,.35);
+        white-space: nowrap;
+    }
+    .btn-amazon:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255,153,0,.45); }
+    .btn-ghost {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        background: rgba(255,255,255,.08); color: rgba(255,255,255,.8);
+        font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .9rem;
+        padding: 13px 28px; border-radius: 16px; text-decoration: none;
+        border: 1px solid rgba(255,255,255,.18); transition: all .2s;
+        white-space: nowrap;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.15); color: #fff; }
 
     /* FOOTER */
     .ideas-footer { position: relative; padding: 48px 0 20px; background: linear-gradient(135deg,#0f1d4a 0%,#08122d 100%); color: #fff; overflow: hidden; }
@@ -373,8 +422,9 @@
   <div class="container">
     <div class="ideas-cta__inner">
       <div class="ideas-cta__text">
-        <h2>¿Listo para empezar a crear?</h2>
-        <p>Conseguí tu lápiz 3D en Amazon y empezá hoy mismo con tu primer proyecto.</p>
+        <div class="ideas-cta__eyebrow">✦ Empezá hoy</div>
+        <h2>¿Listo para crear<br>algo <span>increíble</span>?</h2>
+        <p>Conseguí tu lápiz 3D en Amazon y empezá hoy mismo con cualquiera de estos 10 proyectos.</p>
       </div>
       <div class="ideas-cta__actions">
         <a class="btn-amazon" href="#">🛒 Ver lápiz 3D en Amazon</a>
@@ -391,7 +441,17 @@
       <div class="footer-brand">
         <span class="footer-brand-name">3D Minto</span><span class="footer-brand-dot">.</span>
       </div>
-      <p class="footer-lead">Crea en 3D. Imagina sin límites.</p>
+      <p class="footer-lead">Creá figuras increíbles con tu lápiz 3D.<br>Seguro, divertido y para toda la familia.</p>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;">
+        <a href="https://www.instagram.com/3dminto.es" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:50px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:.8rem;font-weight:600;text-decoration:none;transition:background .2s;">
+          📷 Instagram
+        </a>
+        <a href="#"
+           style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:50px;background:rgba(255,153,0,.15);border:1px solid rgba(255,153,0,.25);color:#FFB347;font-size:.8rem;font-weight:600;text-decoration:none;">
+          🛒 Amazon
+        </a>
+      </div>
     </div>
     <div>
       <h4>Navegación</h4>
@@ -412,7 +472,7 @@
       <h4>Contacto</h4>
       <div class="footer-line">📧 hola@3dminto.com</div>
       <div class="footer-line">📍 Diseñado en España</div>
-      <div class="footer-line"><a href="https://www.instagram.com/3dminto.es" target="_blank" style="color:rgba(255,255,255,.75);">📷 Instagram</a></div>
+      <div class="footer-line"><a href="https://www.instagram.com/3dminto.es" target="_blank" style="color:rgba(255,255,255,.75);"><a href="https://www.instagram.com/3dminto.es" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📷 @3dminto.es</a></a></div>
     </div>
   </div>
   <div class="container footer-bottom">
