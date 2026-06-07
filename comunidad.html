@@ -159,7 +159,7 @@
     .com-mosaic-card img{
         width:100%; display:block;
         object-fit:cover;
-        mix-blend-mode:multiply;
+        
     }
     .com-mosaic-card:first-child img{ height:200px; }
     .com-mosaic-card:not(:first-child) img{ height:140px; }
@@ -233,12 +233,13 @@
     }
     .creation-card__img{
         aspect-ratio:4/3; overflow:hidden;
-        background:#f0f0ec;
+        background:#ffffff;
         position:relative;
     }
     .creation-card__img img{
         width:100%; height:100%;
-        object-fit:cover; display:block;
+        object-fit:contain; display:block;
+        padding:10px;
         transition:transform .3s ease;
     }
     .creation-card:hover .creation-card__img img{
