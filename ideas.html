@@ -130,8 +130,8 @@
     .idea-card { border-radius: var(--radius-md); overflow: hidden; background: #fff; border: 1.5px solid var(--gray-200); text-decoration: none; color: inherit; transition: all .28s; display: flex; flex-direction: column; position: relative; }
     .idea-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(26,44,78,.12); border-color: transparent; }
     .idea-card.hidden { display: none; }
-    .idea-card__img { overflow: hidden; aspect-ratio: 1/1; background: var(--off-white); position: relative; }
-    .idea-card__img img { width: 100%; height: 100%; object-fit: contain; padding: 14px; mix-blend-mode: multiply; transition: transform .35s ease; }
+    .idea-card__img { overflow: hidden; aspect-ratio: 1/1; background: #ffffff; position: relative; }
+    .idea-card__img img { width: 100%; height: 100%; object-fit: contain; padding: 12px; display: block; transition: transform .35s ease; }
     .idea-card:hover .idea-card__img img { transform: scale(1.06); }
     .idea-card__body { padding: 14px 16px 18px; flex: 1; }
     .idea-card__tag { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 50px; font-size: .75rem; font-weight: 800; margin-bottom: 10px; }
@@ -460,7 +460,7 @@
       </a>
 
       <a class="idea-card" href="ideas/perro.html" data-diff="medium">
-        <div class="idea-card__img" style="background:#fff;"><img src="images/perro.png" alt="Golden Retriever" style="mix-blend-mode:normal;object-fit:cover;padding:0;"></div>
+        <div class="idea-card__img"><img src="images/perro.png" alt="Golden Retriever"></div>
         <div class="idea-card__body">
           <span class="idea-card__tag tag-medium">⭐⭐ Medio</span>
           <div class="idea-card__title">Golden Retriever</div>
