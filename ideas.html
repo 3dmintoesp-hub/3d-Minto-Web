@@ -60,13 +60,15 @@
     .diff-card__count { font-family: 'Fredoka', sans-serif; font-size: .82rem; font-weight: 600; color: var(--orange); flex-shrink: 0; background: rgba(255,122,0,.15); padding: 4px 10px; border-radius: 50px; margin-left: auto; }
 
 
-    .ideas-hero__mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .ideas-hero__mosaic-item { border-radius: 16px; overflow: hidden; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; }
-    .ideas-hero__mosaic-item img { width: 100%; object-fit: contain; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,.3)); }
-    .ideas-hero__mosaic-item:first-child { grid-column: 1 / span 2; }
-    .ideas-hero__mosaic-item:first-child img { height: 160px; }
-    .ideas-hero__mosaic-item:not(:first-child) img { height: 120px; }
-    .ideas-hero__mosaic-label { font-size: .68rem; font-weight: 700; color: rgba(255,255,255,.5); text-align: center; padding: 6px 0 2px; letter-spacing: .05em; text-transform: uppercase; }
+    .ideas-hero__testimonials { display: flex; flex-direction: column; gap: 14px; }
+    .ideas-hero__testimonial { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 20px 22px; transition: background .2s; }
+    .ideas-hero__testimonial:hover { background: rgba(255,255,255,.1); }
+    .ideas-hero__testimonial-text { font-size: 1.02rem; color: rgba(255,255,255,.85); line-height: 1.6; margin-bottom: 14px; font-style: italic; }
+    .ideas-hero__testimonial-author { display: flex; align-items: center; gap: 10px; }
+    .ideas-hero__testimonial-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka', sans-serif; font-size: .9rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .ideas-hero__testimonial-name { font-size: .9rem; font-weight: 700; color: #fff; line-height: 1.2; }
+    .ideas-hero__testimonial-meta { font-size: .82rem; color: rgba(255,255,255,.5); }
+    .ideas-hero__testimonial-tag { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,122,0,.2); border-radius: 50px; padding: 3px 10px; font-size: .7rem; font-weight: 700; color: #ff971e; margin-left: auto; }
     /* GALLERY */
     .ideas-gallery { padding: 64px 0 80px; }
     .ideas-gallery__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
@@ -199,18 +201,39 @@
           <div class="diff-card"><div class="diff-card__badge">⭐⭐⭐ Difícil</div><div class="diff-card__info"><h4>Avanzado</h4><p>Alta precisión · 60–100 min</p></div><div class="diff-card__count">5 proyectos</div></div>
         </div>
       </div>
-      <div class="ideas-hero__mosaic">
-        <div class="ideas-hero__mosaic-item">
-          <img src="images/sagrada-familia.png" alt="Sagrada Família en 3D">
-          <div class="ideas-hero__mosaic-label">Sagrada Família · Difícil</div>
+      <div class="ideas-hero__testimonials">
+        <div class="ideas-hero__testimonial">
+          <p class="ideas-hero__testimonial-text">"Mi hijo no quería parar. Acabó el robot y ya me estaba preguntando cuál hacemos el siguiente fin de semana."</p>
+          <div class="ideas-hero__testimonial-author">
+            <div class="ideas-hero__testimonial-avatar" style="background:#ff7a00;">A</div>
+            <div>
+              <div class="ideas-hero__testimonial-name">Andrés, papá de Nico (9 años)</div>
+              <div class="ideas-hero__testimonial-meta">Hicieron el Robot</div>
+            </div>
+            <span class="ideas-hero__testimonial-tag">⭐ Fácil</span>
+          </div>
         </div>
-        <div class="ideas-hero__mosaic-item">
-          <img src="images/dinosaurio.png" alt="Dinosaurio en 3D">
-          <div class="ideas-hero__mosaic-label">Dinosaurio · Medio</div>
+        <div class="ideas-hero__testimonial">
+          <p class="ideas-hero__testimonial-text">"No quedó perfecto, pero a él le da igual. Lo tiene en su mesita y se lo enseña orgulloso a todo el que entra en su cuarto."</p>
+          <div class="ideas-hero__testimonial-author">
+            <div class="ideas-hero__testimonial-avatar" style="background:#10b6b0;">S</div>
+            <div>
+              <div class="ideas-hero__testimonial-name">Sara, mamá de Bruno (11 años)</div>
+              <div class="ideas-hero__testimonial-meta">Hicieron el Dinosaurio T-Rex</div>
+            </div>
+            <span class="ideas-hero__testimonial-tag">⭐⭐ Medio</span>
+          </div>
         </div>
-        <div class="ideas-hero__mosaic-item">
-          <img src="images/cohete.png" alt="Cohete en 3D">
-          <div class="ideas-hero__mosaic-label">Cohete · Fácil</div>
+        <div class="ideas-hero__testimonial">
+          <p class="ideas-hero__testimonial-text">"Cuando acabó el castillo fue directa a enseñárselo a la abuela. Ese orgullo en su cara, créeme, no te lo da ninguna pantalla."</p>
+          <div class="ideas-hero__testimonial-author">
+            <div class="ideas-hero__testimonial-avatar" style="background:#15204a;">P</div>
+            <div>
+              <div class="ideas-hero__testimonial-name">Paula, mamá de Irene (10 años)</div>
+              <div class="ideas-hero__testimonial-meta">Hicieron el Castillo de Cuento</div>
+            </div>
+            <span class="ideas-hero__testimonial-tag">⭐⭐⭐ Difícil</span>
+          </div>
         </div>
       </div>
     </div>
