@@ -52,14 +52,9 @@
     .com-section-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--orange);border-radius:2px;}
     .com-gallery__header h2{font-family:'Fredoka',sans-serif;font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:700;color:var(--navy);letter-spacing:-.02em;margin:0;}
     .com-gallery__filter{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
-    .filter-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:50px;font-size:.8rem;font-weight:600;border:1.5px solid rgba(21,32,74,.12);background:#fff;color:var(--text);cursor:pointer;transition:all .18s;white-space:nowrap;}
+    .filter-btn{padding:9px 20px;border-radius:50px;font-size:.84rem;font-weight:700;border:1.5px solid #E8E6E0;background:#fff;color:#3D4A5C;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
     .filter-btn:hover{border-color:var(--orange);color:var(--orange);}
-    .filter-btn.active{background:var(--navy);border-color:var(--navy);color:#fff;}
-    .filter-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-    .dot-all{background:#ff7a00;}
-    .dot-easy{background:#34c97b;}
-    .dot-medium{background:#f5a623;}
-    .dot-hard{background:#f06060;}
+    .filter-btn.active{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 4px 14px rgba(255,107,43,.3);}
     .com-gallery__stats{display:flex;gap:20px;align-items:center;margin-top:14px;margin-bottom:28px;}
     .com-gallery__stat{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text);}
     .com-gallery__stat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
@@ -79,10 +74,10 @@
     .creation-card__username{font-size:.72rem;color:var(--text);letter-spacing:.02em;}
     .creation-card__title{font-family:'Fredoka',sans-serif;font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.15;}
     .creation-card__meta{display:flex;align-items:center;justify-content:space-between;margin-top:6px;}
-    .creation-card__tag{font-size:.7rem;font-weight:700;}
-    .tag-easy{color:#2a7a2a;}
-    .tag-medium{color:#8a5a00;}
-    .tag-hard{color:#991a1a;}
+    .creation-card__tag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:50px;font-size:.75rem;font-weight:800;}
+    .tag-easy{background:#d1fae5;color:#065f46;}
+    .tag-medium{background:#fde68a;color:#92400e;}
+    .tag-hard{background:#fbcfe8;color:#9d174d;}
     .creation-card__time{font-size:.7rem;color:var(--text);display:flex;align-items:center;gap:3px;}
     .creation-card__bar{height:3px;width:100%;margin-top:auto;}
     .creation-card__bar.easy{background:#9FE1CB;}
@@ -186,19 +181,13 @@
                 <h2>Lo que están creando</h2>
             </div>
             <div class="com-gallery__filter">
-                <button class="filter-btn active" data-filter="all"><span class="filter-dot dot-all"></span> Todos</button>
-                <button class="filter-btn" data-filter="easy"><span class="filter-dot dot-easy"></span> Fácil</button>
-                <button class="filter-btn" data-filter="medium"><span class="filter-dot dot-medium"></span> Medio</button>
-                <button class="filter-btn" data-filter="hard"><span class="filter-dot dot-hard"></span> Difícil</button>
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="easy">⭐ Fácil</button>
+                <button class="filter-btn" data-filter="medium">⭐⭐ Medio</button>
+                <button class="filter-btn" data-filter="hard">⭐⭐⭐ Difícil</button>
             </div>
         </div>
-        <div class="com-gallery__stats">
-            <div class="com-gallery__stat"><span class="com-gallery__stat-dot" style="background:#34c97b;"></span><span><strong>6</strong> fáciles</span></div>
-            <div class="com-gallery__stat"><span class="com-gallery__stat-dot" style="background:#f5a623;"></span><span><strong>4</strong> medias</span></div>
-            <div class="com-gallery__stat"><span class="com-gallery__stat-dot" style="background:#f06060;"></span><span><strong>2</strong> difíciles</span></div>
-            <div class="com-gallery__stat com-gallery__stat--total"><span><strong>12</strong> creaciones en total</span></div>
-        </div>
-        <div class="com-gallery__divider"></div>
+
 
         <div class="com-gallery__grid">
             <div class="creation-card" data-diff="easy">
