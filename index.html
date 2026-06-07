@@ -39,16 +39,16 @@
     img{ max-width:100%; display:block; }
 
     /* NAV */
-    .home-header{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;gap:24px;}
-    .home-nav-brand{display:flex;align-items:baseline;gap:1px;text-decoration:none;flex-shrink:0;}
-    .home-nav-brand__name{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:var(--navy);letter-spacing:-.01em;line-height:1;}
-    .home-nav-brand__dot{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:var(--orange);line-height:1;}
+    
+    
+    
+    
     .home-nav ul{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0;}
-    .home-nav a{position:relative;font-weight:600;color:#18224f;font-size:.9rem;transition:color .2s;}
-    .home-nav a:hover{color:var(--orange);}
+    
+    
     .home-nav a.is-active{color:var(--orange);}
-    .home-header__cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 20px;border-radius:14px;color:#fff;background:linear-gradient(90deg,#ff7a00,#ff971e);font-weight:700;font-size:.9rem;box-shadow:0 8px 20px rgba(255,122,0,.22);white-space:nowrap;transition:transform .2s,box-shadow .2s;}
-    .home-header__cta:hover{transform:translateY(-1px);}
+    
+    
 
     /* HERO */
     .home-hero{
@@ -193,7 +193,21 @@
         .site-footer__grid{grid-template-columns:1fr;}
         .cookie-banner{flex-direction:column;align-items:flex-start;}
     }
-</style>
+
+    /* ── NAV UNIFICADO ── */
+    .site-nav{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;gap:24px;}
+    .site-nav__brand{display:flex;align-items:baseline;gap:1px;text-decoration:none;flex-shrink:0;}
+    .site-nav__brand-name{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:#15204a;letter-spacing:-.01em;line-height:1;}
+    .site-nav__brand-dot{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:#ff7a00;line-height:1;}
+    .site-nav__links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0;}
+    .site-nav__links a{font-weight:600;font-size:.9rem;color:#18224f;transition:color .2s;text-decoration:none;}
+    .site-nav__links a:hover{color:#ff7a00;}
+    .site-nav__links a.active{color:#ff7a00;}
+    .site-nav__cta{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;color:#fff;background:linear-gradient(90deg,#ff7a00,#ff971e);font-weight:700;font-size:.9rem;box-shadow:0 8px 20px rgba(255,122,0,.22);transition:transform .2s,box-shadow .2s;white-space:nowrap;text-decoration:none;}
+    .site-nav__cta:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(255,122,0,.3);}
+    @media(max-width:768px){.site-nav__links{display:none;}}
+
+    </style>
 </head>
 
 <body class="home-page">
@@ -208,20 +222,20 @@
 </div>
 
 <!-- NAV -->
-<header class="home-header">
-    <a class="home-nav-brand" href="index.html">
-        <span class="home-nav-brand__name">3D Minto</span><span class="home-nav-brand__dot">.</span>
+<header class="site-nav">
+    <a class="site-nav__brand" href="index.html">
+        <span class="site-nav__brand-name">3D Minto</span><span class="site-nav__brand-dot">.</span>
     </a>
-    <nav class="home-nav">
-        <ul>
-            <li><a href="index.html" class="is-active">Inicio</a></li>
-            <li><a href="ideas.html">Ideas</a></li>
-            <li><a href="comunidad.html">Comunidad</a></li>
-            <li><a href="quienes-somos.html">Quiénes somos</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-        </ul>
+    <nav>
+        <ul class="site-nav__links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="ideas.html">Ideas</a></li>
+                <li><a href="comunidad.html">Comunidad</a></li>
+                <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                </ul>
     </nav>
-    <a class="home-header__cta" href="#">Ver en Amazon</a>
+    <a class="site-nav__cta" href="#">Ver en Amazon</a>
 </header>
 
 <main>
