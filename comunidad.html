@@ -71,12 +71,12 @@
     .com-gallery__header{
         display:flex; align-items:flex-end;
         justify-content:space-between;
-        margin-bottom:40px; gap:20px;
+        gap:20px;
     }
     .com-section-label{
-        font-size:.78rem; font-weight:800;
+        font-size:.72rem; font-weight:800;
         letter-spacing:.12em; text-transform:uppercase;
-        color:var(--orange); margin-bottom:10px;
+        color:var(--orange); margin-bottom:6px;
         display:flex; align-items:center; gap:8px;
     }
     .com-section-label::before{
@@ -91,20 +91,46 @@
         letter-spacing:-.02em; margin:0;
     }
     .com-gallery__filter{
-        display:flex; gap:8px; flex-wrap:wrap;
+        display:flex; gap:6px; flex-wrap:wrap;
+        align-items:center;
     }
     .filter-btn{
-        padding:8px 18px; border-radius:50px;
-        font-size:.82rem; font-weight:700;
+        display:inline-flex; align-items:center; gap:6px;
+        padding:8px 16px; border-radius:50px;
+        font-size:.8rem; font-weight:600;
         border:1.5px solid rgba(21,32,74,.12);
         background:#fff; color:var(--text);
-        cursor:pointer; transition:all .2s;
+        cursor:pointer; transition:all .18s;
+        white-space:nowrap;
     }
-    .filter-btn:hover, .filter-btn.active{
-        background:var(--orange);
-        border-color:var(--orange);
-        color:#fff;
-        box-shadow:0 4px 12px rgba(255,122,0,.25);
+    .filter-btn:hover{ border-color:var(--orange); color:var(--orange); }
+    .filter-btn.active{
+        background:var(--navy); border-color:var(--navy); color:#fff;
+    }
+    .filter-dot{
+        width:7px; height:7px; border-radius:50%; flex-shrink:0;
+    }
+    .dot-all   { background:#ff7a00; }
+    .dot-easy  { background:#34c97b; }
+    .dot-medium{ background:#f5a623; }
+    .dot-hard  { background:#f06060; }
+    .com-gallery__stats{
+        display:flex; gap:20px; align-items:center;
+        margin-top:14px; margin-bottom:28px;
+    }
+    .com-gallery__stat{
+        display:flex; align-items:center; gap:6px;
+        font-size:.78rem; color:var(--text);
+    }
+    .com-gallery__stat-dot{
+        width:8px; height:8px; border-radius:50%; flex-shrink:0;
+    }
+    .com-gallery__stat strong{ font-weight:700; color:var(--navy); }
+    .com-gallery__stat--total{ margin-left:auto; }
+    .com-gallery__divider{
+        width:100%; height:1px;
+        background:rgba(21,32,74,.08);
+        margin-bottom:28px;
     }
 
     /* ── CREATION CARDS — minimal ── */
@@ -376,12 +402,30 @@
                 <h2>Lo que están creando</h2>
             </div>
             <div class="com-gallery__filter">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="easy">⭐ Fácil</button>
-                <button class="filter-btn" data-filter="medium">⭐⭐ Medio</button>
-                <button class="filter-btn" data-filter="hard">⭐⭐⭐ Difícil</button>
+                <button class="filter-btn active" data-filter="all"><span class="filter-dot dot-all"></span> Todos</button>
+                <button class="filter-btn" data-filter="easy"><span class="filter-dot dot-easy"></span> Fácil</button>
+                <button class="filter-btn" data-filter="medium"><span class="filter-dot dot-medium"></span> Medio</button>
+                <button class="filter-btn" data-filter="hard"><span class="filter-dot dot-hard"></span> Difícil</button>
             </div>
         </div>
+        <div class="com-gallery__stats">
+            <div class="com-gallery__stat">
+                <span class="com-gallery__stat-dot" style="background:#34c97b;"></span>
+                <span><strong>6</strong> fáciles</span>
+            </div>
+            <div class="com-gallery__stat">
+                <span class="com-gallery__stat-dot" style="background:#f5a623;"></span>
+                <span><strong>4</strong> medias</span>
+            </div>
+            <div class="com-gallery__stat">
+                <span class="com-gallery__stat-dot" style="background:#f06060;"></span>
+                <span><strong>2</strong> difíciles</span>
+            </div>
+            <div class="com-gallery__stat com-gallery__stat--total">
+                <span><strong>12</strong> creaciones en total</span>
+            </div>
+        </div>
+        <div class="com-gallery__divider"></div>
 
         <div class="com-gallery__grid">
             <div class="creation-card" data-diff="easy">
