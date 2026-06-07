@@ -1,507 +1,243 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comunidad | 3D Minto</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<style>
-    :root{
-        --navy:#15204a;
-        --orange:#ff7a00;
-        --teal:#10b6b0;
-        --text:#475569;
-        --shadow:0 18px 40px rgba(17,24,39,.08);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ideas de proyectos — 3D Minto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #FF6B2B; --orange-light: #FFF0E8; --orange-dark: #E55A1C;
+      --teal: #00B5A3; --teal-light: #E0F7F5; --teal-dark: #008F80;
+      --navy: #1A2C4E; --navy-mid: #2D4170; --navy-light: #EDF1F8;
+      --white: #FFFFFF; --off-white: #FAFAF8; --gray-200: #E8E6E0;
+      --text-main: #1A2C4E; --text-body: #3D4A5C; --text-muted: #7A8599;
+      --radius-sm: 12px; --radius-md: 20px; --radius-lg: 32px;
+      --shadow: 0 18px 40px rgba(17,24,39,.08);
     }
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; }
-    body{
-        font-family:'Poppins',sans-serif;
-        color:var(--navy);
-        background:#fff;
-        overflow-x:hidden;
-        -webkit-font-smoothing:antialiased;
-    }
-    .container{ width:min(1440px,96%); margin:0 auto; }
-    a{ text-decoration:none; color:inherit; }
-    img{ max-width:100%; display:block; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: var(--text-main); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    .container { width: min(1440px, 96%); margin: 0 auto; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-    /* ── NAV ── */
-    .com-nav{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;box-sizing:border-box;}
-    .com-nav__inner{height:100%;
-        display:flex; align-items:center;
-        justify-content:space-between;
-        gap:24px; padding:0 5vw;
-    }
-    .com-nav__brand{
-        display:flex; align-items:baseline;
-        gap:1px; text-decoration:none; flex-shrink:0;
-    }
-    .com-nav__brand-name{
-        font-family:'Fredoka',sans-serif;
-        font-size:1.35rem; font-weight:700;
-        color:var(--navy); letter-spacing:-.01em; line-height:1;
-    }
-    .com-nav__brand-dot{
-        font-family:'Fredoka',sans-serif;
-        font-size:1.35rem; font-weight:700;
-        color:var(--orange); line-height:1;
-    }
-    .com-nav__links{
-        list-style:none; display:flex;
-        align-items:center; gap:28px;
-    }
-    .com-nav__links a{
-        font-weight:600; font-size:.9rem;
-        color:#18224f; transition:color .2s;
-    }
-    .com-nav__links a:hover{ color:var(--orange); }
-    .com-nav__links a.active{ color:var(--orange); }
-    .com-nav__cta{ display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:14px; color:#fff; background:linear-gradient(90deg,#ff7a00,#ff971e); font-weight:700; font-size:.9rem; box-shadow:0 8px 20px rgba(255,122,0,.22); transition:transform .2s, box-shadow .2s; white-space:nowrap; }
-    .com-nav__cta:hover{ transform:translateY(-1px); box-shadow:0 12px 28px rgba(255,122,0,.3); }
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;}
+    .nav-brand { display: flex; align-items: baseline; gap: 1px; text-decoration: none; }
+    .nav-brand-name { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.35rem; color: var(--navy); letter-spacing: -.01em; line-height: 1; }
+    .nav-brand-dot { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.35rem; color: var(--orange); line-height: 1; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: .9rem; font-weight: 600; color: #18224f; transition: color .2s; font-family: 'Poppins', sans-serif; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a.active { color: var(--orange); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 14px; color: #fff; background: linear-gradient(90deg,#ff7a00,#ff971e); font-weight: 700; font-size: .9rem; font-family: 'Poppins', sans-serif; box-shadow: 0 8px 20px rgba(255,122,0,.22); transition: transform .2s, box-shadow .2s; white-space: nowrap; }
+    .nav-cta:hover { transform: translateY(-1px); }
 
-    /* ── HERO ── */
-    .com-hero{
-        background:linear-gradient(135deg,#f0f9ff 0%,#fdf6f0 50%,#f0fff8 100%);
-        padding:72px 0 64px;
-        position:relative; overflow:hidden;
+    /* HERO */
+    .ideas-hero {
+      background: linear-gradient(145deg, #0f1d4a 0%, #1A2C4E 50%, #1f3560 100%);
+      padding: 80px 0 72px;
+      position: relative; overflow: hidden;
     }
-    .com-hero::before{
-        content:''; position:absolute;
-        top:-100px; right:-80px;
-        width:400px; height:400px; border-radius:50%;
-        background:radial-gradient(circle,rgba(16,185,176,.08) 0%,transparent 70%);
+    .ideas-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle,rgba(0,181,163,.18) 0%,transparent 65%); }
+    .ideas-hero::after { content: ''; position: absolute; bottom: -80px; left: 5%; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle,rgba(255,107,43,.12) 0%,transparent 65%); }
+    .ideas-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .ideas-hero__badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 8px 18px; border-radius: 999px;
+        background: rgba(0,181,163,.15); border: 1px solid rgba(0,181,163,.35);
+        color: #5EEADA; font-size: .75rem; font-weight: 700;
+        letter-spacing: .1em; text-transform: uppercase; margin-bottom: 22px;
     }
-    .com-hero::after{
-        content:''; position:absolute;
-        bottom:-80px; left:5%;
-        width:320px; height:320px; border-radius:50%;
-        background:radial-gradient(circle,rgba(255,122,0,.07) 0%,transparent 70%);
+    .ideas-hero h1 {
+        font-family: 'Fredoka', sans-serif;
+        font-weight: 700;
+        font-size: clamp(2.8rem, 5vw, 4.2rem);
+        color: #fff; line-height: 1.05;
+        letter-spacing: -.02em; margin-bottom: 18px;
     }
-    .com-hero__inner{
-        position:relative; z-index:1;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:56px; align-items:center;
+    .ideas-hero h1 em { font-style: normal; color: var(--orange); }
+    .ideas-hero__lead { font-size: 1rem; color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 36px; max-width: 460px; }
+    .ideas-hero__stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .ideas-stat {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 18px; padding: 18px 16px; text-align: center;
+        transition: background .2s;
     }
-    .com-hero__badge{
-        display:inline-flex; align-items:center;
-        gap:8px; padding:8px 16px;
-        border-radius:999px; background:#fff;
-        border:1.5px solid rgba(16,185,176,.3);
-        color:var(--teal); font-size:.78rem;
-        font-weight:700; letter-spacing:.08em;
-        text-transform:uppercase; margin-bottom:20px;
-        box-shadow:0 4px 12px rgba(16,185,176,.08);
+    .ideas-stat:hover { background: rgba(255,255,255,.1); }
+    .ideas-stat__num {
+        font-family: 'Fredoka', sans-serif;
+        font-size: 2.2rem; font-weight: 700;
+        color: var(--orange); line-height: 1; margin-bottom: 5px;
     }
-    .com-hero h1{
-        font-family:'Fredoka',sans-serif;
-        font-size:clamp(2.4rem,4vw,3.8rem);
-        font-weight:700; line-height:1.08;
-        letter-spacing:-.03em; color:var(--navy);
-        margin-bottom:8px;
+    .ideas-stat__label { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.5); line-height: 1.3; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* Hero right - difficulty legend */
+    .ideas-hero__right { display: flex; flex-direction: column; gap: 12px; }
+    .diff-card {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 16px;
+        padding: 16px 20px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 14px;
+        transition: background .25s, border-color .25s;
     }
-    .com-hero__tagline{
-        font-family:'Fredoka',sans-serif;
-        font-size:1.15rem; font-weight:600;
-        color:var(--orange); margin-bottom:16px;
-        display:flex; align-items:center; gap:8px;
+    .diff-card:hover { background: rgba(255,255,255,.11); border-color: rgba(255,122,0,.3); }
+    .diff-card__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(255,255,255,.1);
+        border-radius: 50px;
+        padding: 5px 12px;
+        font-size: .8rem;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
     }
-    .com-hero__tagline::before{
-        content:''; display:inline-block;
-        width:24px; height:3px;
-        background:var(--orange); border-radius:2px; flex-shrink:0;
-    }
-    .com-hero__lead{
-        font-size:1rem; color:var(--text);
-        line-height:1.7; margin-bottom:32px;
-    }
-    .com-hero__stats{
-        display:flex; gap:14px; flex-wrap:wrap;
-    }
-    .com-stat{
-        background:#fff; border-radius:16px;
-        padding:14px 20px; text-align:center;
-        border:1.5px solid rgba(21,32,74,.07);
-        box-shadow:var(--shadow); min-width:90px;
-        flex:1;
-    }
-    .com-stat__num{
-        font-family:'Fredoka',sans-serif;
-        font-size:1.7rem; font-weight:700;
-        color:var(--orange); line-height:1; margin-bottom:4px;
-    }
-    .com-stat__label{
-        font-size:.75rem; font-weight:600;
-        color:var(--text); line-height:1.3;
+    .diff-card__info h4 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; color: #fff; margin-bottom: 2px; }
+    .diff-card__info p { font-size: .78rem; color: rgba(255,255,255,.5); line-height: 1.3; }
+    .diff-card__count {
+        font-family: 'Fredoka', sans-serif;
+        font-size: .85rem;
+        font-weight: 600;
+        color: var(--orange);
+        flex-shrink: 0;
+        background: rgba(255,122,0,.15);
+        padding: 4px 10px;
+        border-radius: 50px;
     }
 
-    /* Hero right - mosaic */
-    .com-hero__mosaic{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:auto auto;
-        gap:12px;
-    }
-    .com-mosaic-card{
-        border-radius:20px; overflow:hidden;
-        position:relative;
-        background:#fff;
-        border:1.5px solid rgba(21,32,74,.07);
-        box-shadow:0 8px 24px rgba(17,24,39,.08);
-    }
-    .com-mosaic-card:first-child{
-        grid-column:1 / span 2;
-    }
-    .com-mosaic-card img{
-        width:100%; display:block;
-        object-fit:cover;
-        
-    }
-    .com-mosaic-card:first-child img{ height:200px; }
-    .com-mosaic-card:not(:first-child) img{ height:140px; }
-    .com-mosaic-label{
-        position:absolute; bottom:10px; left:10px;
-        background:rgba(255,255,255,.95);
-        border-radius:10px; padding:6px 12px;
-        font-size:.75rem; font-weight:700;
-        color:var(--navy);
-        backdrop-filter:blur(4px);
-    }
+    /* GALLERY */
+    .ideas-gallery { padding: 64px 0 80px; }
+    .ideas-gallery__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+    .ideas-gallery__title { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(1.6rem,2.5vw,2.2rem); color: var(--navy); }
+    .ideas-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { padding: 9px 20px; border-radius: 50px; font-size: .84rem; font-weight: 700; border: 1.5px solid var(--gray-200); background: #fff; color: var(--text-body); cursor: pointer; transition: all .2s; font-family: 'Poppins', sans-serif; }
+    .filter-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .filter-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; box-shadow: 0 4px 14px rgba(255,107,43,.3); }
 
-    /* ── GALLERY ── */
-    .com-gallery{
-        padding:56px 0 72px;
-        background:#fff;
-    }
-    .com-gallery__header{
-        display:flex; align-items:flex-end;
-        justify-content:space-between;
-        margin-bottom:40px; gap:20px;
-    }
-    .com-section-label{
-        font-size:.78rem; font-weight:800;
-        letter-spacing:.12em; text-transform:uppercase;
-        color:var(--orange); margin-bottom:10px;
-        display:flex; align-items:center; gap:8px;
-    }
-    .com-section-label::before{
-        content:''; display:inline-block;
-        width:20px; height:2px;
-        background:var(--orange); border-radius:2px;
-    }
-    .com-gallery__header h2{
-        font-family:'Fredoka',sans-serif;
-        font-size:clamp(1.8rem,2.8vw,2.4rem);
-        font-weight:700; color:var(--navy);
-        letter-spacing:-.02em; margin:0;
-    }
-    .com-gallery__filter{
-        display:flex; gap:8px; flex-wrap:wrap;
-    }
-    .filter-btn{
-        padding:8px 18px; border-radius:50px;
-        font-size:.82rem; font-weight:700;
-        border:1.5px solid rgba(21,32,74,.12);
-        background:#fff; color:var(--text);
-        cursor:pointer; transition:all .2s;
-    }
-    .filter-btn:hover, .filter-btn.active{
-        background:var(--orange);
-        border-color:var(--orange);
-        color:#fff;
-        box-shadow:0 4px 12px rgba(255,122,0,.25);
-    }
-    .com-gallery__grid{
-        display:grid;
-        grid-template-columns:repeat(4,1fr);
-        gap:20px;
-    }
-    .creation-card{
-        border-radius:20px; overflow:hidden;
-        background:#fafaf8;
-        border:1.5px solid rgba(21,32,74,.07);
-        box-shadow:var(--shadow);
-        transition:transform .25s, box-shadow .25s, opacity .25s;
-    }
-    .creation-card:hover{
-        transform:translateY(-5px);
-        box-shadow:0 20px 44px rgba(17,24,39,.12);
-    }
-    .creation-card__img{
-        aspect-ratio:4/3; overflow:hidden;
-        background:#ffffff;
-        position:relative;
-    }
-    .creation-card__img img{
-        width:100%; height:100%;
-        object-fit:contain; display:block;
-        padding:10px;
-        transition:transform .3s ease;
-    }
-    .creation-card:hover .creation-card__img img{
-        transform:scale(1.05);
-    }
-    .creation-card__likes{
-        position:absolute; top:10px; right:10px;
-        background:rgba(255,255,255,.92);
-        border-radius:50px; padding:5px 10px;
-        font-size:.75rem; font-weight:700;
-        color:var(--navy); display:flex;
-        align-items:center; gap:4px;
-        backdrop-filter:blur(4px);
-    }
-    .creation-card__body{
-        padding:14px 16px 16px;
-    }
-    .creation-card__user{
-        display:flex; align-items:center;
-        gap:9px; margin-bottom:8px;
-    }
-    .creation-card__avatar{
-        width:30px; height:30px; border-radius:50%;
-        display:flex; align-items:center;
-        justify-content:center; font-size:.85rem;
-        font-weight:700; color:#fff; flex-shrink:0;
-    }
-    .creation-card__username{
-        font-size:.82rem; font-weight:700;
-        color:var(--navy);
-    }
-    .creation-card__age{
-        font-size:.75rem; color:var(--text);
-    }
-    .creation-card__title{
-        font-family:'Fredoka',sans-serif;
-        font-size:1rem; font-weight:700;
-        color:var(--navy); margin-bottom:4px;
-    }
-    .creation-card__meta{
-        display:flex; align-items:center;
-        gap:6px; font-size:.75rem; color:var(--text);
-        flex-wrap:wrap;
-    }
-    .creation-card__tag{
-        display:inline-flex; align-items:center;
-        gap:4px; padding:3px 10px;
-        border-radius:50px; font-size:.7rem;
-        font-weight:700;
-    }
-    .tag-easy{ background:#d1fae5; color:#065f46; }
-    .tag-medium{ background:#fde68a; color:#92400e; }
-    .tag-hard{ background:#fbcfe8; color:#9d174d; }
+    /* Project grid */
+    .ideas-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .idea-card { border-radius: var(--radius-md); overflow: hidden; background: #fff; border: 1.5px solid var(--gray-200); text-decoration: none; color: inherit; transition: all .28s; display: flex; flex-direction: column; position: relative; }
+    .idea-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(26,44,78,.12); border-color: transparent; }
+    .idea-card.hidden { display: none; }
+    .idea-card__img { overflow: hidden; aspect-ratio: 1/1; background: #ffffff; position: relative; }
+    .idea-card__img img { width: 100%; height: 100%; object-fit: contain; padding: 12px; display: block; mix-blend-mode: multiply; transition: transform .35s ease; }
+    .idea-card:hover .idea-card__img img { transform: scale(1.06); }
+    .idea-card__body { padding: 14px 16px 18px; flex: 1; }
+    .idea-card__tag { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 50px; font-size: .75rem; font-weight: 800; margin-bottom: 10px; }
+    .tag-easy { background: #d1fae5; color: #065f46; }
+    .tag-medium { background: #fde68a; color: #92400e; }
+    .tag-hard { background: #fbcfe8; color: #9d174d; }
+    .idea-card__title { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--navy); margin-bottom: 4px; letter-spacing: -.01em; }
+    .idea-card__meta { font-size: .78rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .idea-card__desc { font-size: .82rem; color: var(--text-body); line-height: 1.5; }
+    .idea-card__arrow { display: flex; align-items: center; justify-content: flex-end; padding: 0 16px 12px; color: var(--orange); font-weight: 700; gap: 4px; font-size: .82rem; }
 
-    /* ── SHARE CTA ── */
-    .com-share{
-        padding:0 0 72px;
+    /* CTA */
+    .ideas-cta { padding: 0 0 80px; }
+    .ideas-cta__inner {
+        background: linear-gradient(135deg, #1A2C4E 0%, #2D4170 50%, #1A3A5C 100%);
+        border-radius: 28px;
+        padding: 56px 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        position: relative;
+        overflow: hidden;
     }
-    .com-share__inner{
-        background:linear-gradient(135deg,var(--navy) 0%,#1a3461 100%);
-        border-radius:28px; padding:56px;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:48px; align-items:center;
-        position:relative; overflow:hidden;
+    .ideas-cta__inner::before {
+        content: ''; position: absolute;
+        right: -80px; top: -80px;
+        width: 280px; height: 280px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(0,181,163,.25) 0%, transparent 70%);
     }
-    .com-share__inner::before{
-        content:''; position:absolute;
-        right:-60px; top:-60px;
-        width:280px; height:280px; border-radius:50%;
-        background:radial-gradient(circle,rgba(16,185,176,.2) 0%,transparent 70%);
+    .ideas-cta__inner::after {
+        content: ''; position: absolute;
+        left: -60px; bottom: -60px;
+        width: 220px; height: 220px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,107,43,.18) 0%, transparent 70%);
     }
-    .com-share__inner::after{
-        content:''; position:absolute;
-        left:-40px; bottom:-40px;
-        width:200px; height:200px; border-radius:50%;
-        background:radial-gradient(circle,rgba(255,122,0,.15) 0%,transparent 70%);
+    .ideas-cta__text { position: relative; z-index: 1; }
+    .ideas-cta__eyebrow {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: rgba(255,122,0,.18); border: 1px solid rgba(255,122,0,.3);
+        color: #FFB347; font-size: .75rem; font-weight: 700;
+        letter-spacing: .1em; text-transform: uppercase;
+        padding: 5px 14px; border-radius: 50px;
+        margin-bottom: 14px;
     }
-    .com-share__text{ position:relative; z-index:1; }
-    .com-share__badge{
-        display:inline-flex; align-items:center; gap:6px;
-        padding:6px 14px; border-radius:50px;
-        background:rgba(16,185,176,.2);
-        border:1px solid rgba(16,185,176,.3);
-        color:#5eeada; font-size:.78rem; font-weight:700;
-        letter-spacing:.06em; text-transform:uppercase;
-        margin-bottom:16px;
+    .ideas-cta__text h2 {
+        font-family: 'Fredoka', sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 700; color: #fff;
+        margin-bottom: 10px; line-height: 1.1;
+        letter-spacing: -.02em;
     }
-    .com-share__text h2{
-        font-family:'Fredoka',sans-serif;
-        font-size:clamp(1.7rem,2.8vw,2.4rem);
-        font-weight:700; color:#fff;
-        margin-bottom:12px; line-height:1.15;
+    .ideas-cta__text h2 span { color: var(--orange); }
+    .ideas-cta__text p { color: rgba(255,255,255,.6); font-size: .95rem; line-height: 1.6; max-width: 400px; }
+    .ideas-cta__actions { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; min-width: 220px; }
+    .btn-amazon {
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        background: #FF9900; color: #1A2C4E;
+        font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.05rem;
+        padding: 15px 28px; border-radius: 16px; text-decoration: none;
+        transition: all .25s; box-shadow: 0 8px 24px rgba(255,153,0,.35);
+        white-space: nowrap;
     }
-    .com-share__text p{
-        color:rgba(255,255,255,.65);
-        font-size:.98rem; line-height:1.65; margin-bottom:24px;
+    .btn-amazon:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255,153,0,.45); }
+    .btn-ghost {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        background: rgba(255,255,255,.08); color: rgba(255,255,255,.8);
+        font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .9rem;
+        padding: 13px 28px; border-radius: 16px; text-decoration: none;
+        border: 1px solid rgba(255,255,255,.18); transition: all .2s;
+        white-space: nowrap;
     }
-    .com-share__steps{
-        display:flex; flex-direction:column; gap:12px;
-    }
-    .com-share__step{
-        display:flex; align-items:center; gap:12px;
-    }
-    .step-num{
-        width:30px; height:30px; border-radius:50%;
-        background:rgba(255,122,0,.25);
-        display:flex; align-items:center; justify-content:center;
-        font-family:'Fredoka',sans-serif;
-        font-size:.9rem; font-weight:700;
-        color:var(--orange); flex-shrink:0;
-    }
-    .com-share__step p{
-        font-size:.88rem; color:rgba(255,255,255,.75);
-        margin:0; line-height:1.4;
-    }
-    .com-share__step p strong{ color:#fff; }
+    .btn-ghost:hover { background: rgba(255,255,255,.15); color: #fff; }
 
-    .com-share__form-side{
-        position:relative; z-index:1;
-        background:rgba(255,255,255,.06);
-        border:1px solid rgba(255,255,255,.12);
-        border-radius:20px; padding:28px;
-    }
-    .com-share__form-title{
-        font-family:'Fredoka',sans-serif;
-        font-size:1.2rem; font-weight:700;
-        color:#fff; margin-bottom:20px;
-    }
-    .form-group{
-        margin-bottom:14px;
-    }
-    .form-group label{
-        display:block; font-size:.8rem;
-        font-weight:700; color:rgba(255,255,255,.65);
-        margin-bottom:6px; letter-spacing:.03em;
-    }
-    .form-group input,
-    .form-group select{
-        width:100%; padding:11px 14px;
-        border-radius:12px;
-        background:rgba(255,255,255,.1);
-        border:1px solid rgba(255,255,255,.15);
-        color:#fff; font-family:'Poppins',sans-serif;
-        font-size:.88rem; outline:none;
-        transition:border-color .2s;
-    }
-    .form-group input::placeholder{ color:rgba(255,255,255,.35); }
-    .form-group input:focus,
-    .form-group select:focus{
-        border-color:rgba(255,122,0,.5);
-    }
-    .form-group select option{ background:var(--navy); color:#fff; }
-    .form-upload{
-        width:100%; padding:20px;
-        border-radius:12px;
-        background:rgba(255,255,255,.05);
-        border:2px dashed rgba(255,255,255,.2);
-        text-align:center; cursor:pointer;
-        color:rgba(255,255,255,.5);
-        font-size:.85rem; font-weight:600;
-        transition:all .2s; margin-bottom:14px;
-    }
-    .form-upload:hover{
-        border-color:rgba(255,122,0,.4);
-        color:rgba(255,255,255,.7);
-    }
-    .btn-submit{
-        width:100%; padding:14px;
-        border-radius:14px;
-        background:linear-gradient(90deg,var(--orange),#ff911d);
-        color:#fff; font-family:'Poppins',sans-serif;
-        font-weight:700; font-size:.95rem;
-        border:none; cursor:pointer;
-        box-shadow:0 8px 24px rgba(255,122,0,.35);
-        transition:transform .2s, box-shadow .2s;
-    }
-    .btn-submit:hover{
-        transform:translateY(-2px);
-        box-shadow:0 12px 32px rgba(255,122,0,.45);
-    }
+    /* FOOTER */
+    .ideas-footer { position: relative; padding: 48px 0 20px; background: linear-gradient(135deg,#0f1d4a 0%,#08122d 100%); color: #fff; overflow: hidden; }
+    .ideas-footer::before { content: ''; position: absolute; left: -90px; bottom: -90px; width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg,#ff8b1a,#ff6d00); opacity: .95; }
+    .ideas-footer::after { content: ''; position: absolute; right: -70px; bottom: -60px; width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg,#10b6b0,#1bc4bd); opacity: .95; }
+    .ideas-footer__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr .85fr .95fr; gap: 24px; align-items: start; }
+    .footer-brand { display: flex; align-items: baseline; gap: 2px; margin-bottom: 12px; }
+    .footer-brand-name { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.75rem; color: #fff; line-height: 1; }
+    .footer-brand-dot { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.75rem; color: var(--orange); line-height: 1; }
+    .footer-lead { color: rgba(255,255,255,.62); font-size: .95rem; line-height: 1.5; max-width: 270px; }
+    .ideas-footer h4 { margin: 0 0 12px; font-size: 1rem; }
+    .ideas-footer ul { list-style: none; display: grid; gap: 8px; }
+    .ideas-footer a { color: rgba(255,255,255,.75); font-size: .9rem; transition: color .2s; }
+    .ideas-footer a:hover { color: var(--teal); }
+    .footer-line { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: rgba(255,255,255,.75); font-size: .9rem; }
+    .footer-bottom { position: relative; z-index: 1; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); text-align: center; color: rgba(255,255,255,.45); font-size: .85rem; }
 
-    /* ── FOOTER ── */
-    .com-footer{
-        position:relative; padding:48px 0 20px;
-        background:linear-gradient(135deg,#0f1d4a 0%,#08122d 100%);
-        color:#fff; overflow:hidden;
+    /* RESPONSIVE */
+    @media (max-width: 1100px) { .ideas-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px) {
+      .ideas-hero__inner { grid-template-columns: 1fr; gap: 36px; }
+      .ideas-hero__right { order: -1; }
+      .ideas-grid { grid-template-columns: repeat(2, 1fr); }
+      .ideas-cta__inner { grid-template-columns: 1fr; padding: 36px 28px; }
+      .ideas-cta__actions { flex-direction: row; flex-wrap: wrap; }
+      .ideas-footer__grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
     }
-    .com-footer::before{
-        content:''; position:absolute;
-        left:-90px; bottom:-90px;
-        width:180px; height:180px; border-radius:50%;
-        background:linear-gradient(135deg,#ff8b1a,#ff6d00); opacity:.95;
+    @media (max-width: 540px) {
+      .ideas-grid { grid-template-columns: 1fr 1fr; }
+      .ideas-footer__grid { grid-template-columns: 1fr; }
     }
-    .com-footer::after{
-        content:''; position:absolute;
-        right:-70px; bottom:-60px;
-        width:180px; height:180px; border-radius:50%;
-        background:linear-gradient(135deg,#10b6b0,#1bc4bd); opacity:.95;
-    }
-    .com-footer__grid{
-        position:relative; z-index:1;
-        display:grid;
-        grid-template-columns:1.15fr .85fr .85fr .95fr;
-        gap:24px; align-items:start;
-    }
-    .com-footer__brand{
-        display:flex; align-items:baseline;
-        gap:2px; margin-bottom:12px;
-    }
-    .com-footer__brand-name{
-        font-family:'Fredoka',sans-serif;
-        font-size:1.75rem; font-weight:700; color:#fff; line-height:1;
-    }
-    .com-footer__brand-dot{
-        font-family:'Fredoka',sans-serif;
-        font-size:1.75rem; font-weight:700;
-        color:var(--orange); line-height:1;
-    }
-    .com-footer__lead{
-        color:rgba(255,255,255,.62);
-        font-size:.95rem; line-height:1.5; max-width:270px;
-    }
-    .com-footer h4{ margin:0 0 12px; font-size:1rem; }
-    .com-footer ul{ list-style:none; display:grid; gap:8px; }
-    .com-footer a{
-        color:rgba(255,255,255,.75); font-size:.9rem;
-        transition:color .2s;
-    }
-    .com-footer a:hover{ color:var(--teal); }
-    .com-footer__line{
-        display:flex; align-items:center;
-        gap:10px; margin-bottom:10px;
-        color:rgba(255,255,255,.75); font-size:.9rem;
-    }
-    .com-footer__bottom{
-        position:relative; z-index:1;
-        margin-top:28px; padding-top:18px;
-        border-top:1px solid rgba(255,255,255,.12);
-        text-align:center;
-        color:rgba(255,255,255,.45); font-size:.85rem;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:1024px){
-        .com-gallery__grid{ grid-template-columns:repeat(2,1fr); }
-        .com-share__inner{ grid-template-columns:1fr; }
-        .com-footer__grid{ grid-template-columns:1fr 1fr; }
-        .com-hero__inner{ grid-template-columns:1fr; gap:36px; }
-        .com-hero__mosaic{ order:-1; }
-    }
-    @media(max-width:640px){
-        .com-gallery__grid{ grid-template-columns:1fr 1fr; }
-        .com-gallery__header{ flex-direction:column; align-items:flex-start; }
-        .com-nav__links{ display:none; }
-        .com-footer__grid{ grid-template-columns:1fr; }
-        .com-share__inner{ padding:32px 24px; }
-    }
-    @media(max-width:420px){
-        .com-gallery__grid{ grid-template-columns:1fr; }
-    }
-
+  
     .site-footer{
         background:linear-gradient(135deg,#0f1d4a 0%,#08122d 100%);
         padding:48px 5vw 0;
@@ -585,341 +321,218 @@
 <body>
 
 <!-- NAV -->
-<header class="com-nav">
-    <div class="container com-nav__inner">
-        <a class="com-nav__brand" href="index.html">
-            <span class="com-nav__brand-name">3D Minto</span><span class="com-nav__brand-dot">.</span>
-        </a>
-        <nav>
-            <ul class="com-nav__links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="ideas.html">Ideas</a></li>
-                <li><a href="comunidad.html" class="active">Comunidad</a></li>
-                <li><a href="quienes-somos.html">Quiénes somos</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-        <a class="com-nav__cta" href="#">Ver en Amazon</a>
-    </div>
-</header>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="nav-brand-name">3D Minto</span><span class="nav-brand-dot">.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="ideas.html" class="active">Ideas</a></li>
+    <li><a href="comunidad.html">Comunidad</a></li>
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="#">Ver en Amazon</a>
+</nav>
 
-<!-- GALLERY -->
-<section class="com-gallery">
-    <div class="container">
-        <div class="com-gallery__header">
-            <div>
-                <div class="com-section-label">Creaciones de la comunidad</div>
-                <h2>Lo que están creando</h2>
-            </div>
-            <div class="com-gallery__filter">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="easy">⭐ Fácil</button>
-                <button class="filter-btn" data-filter="medium">⭐⭐ Medio</button>
-                <button class="filter-btn" data-filter="hard">⭐⭐⭐ Difícil</button>
-            </div>
+<!-- HERO -->
+<section class="ideas-hero">
+  <div class="container">
+    <div class="ideas-hero__inner">
+      <div>
+        <div class="ideas-hero__badge">✦ Biblioteca de proyectos</div>
+        <h1>Todas las <em>ideas</em><br>para crear</h1>
+        <p class="ideas-hero__lead">10 proyectos guiados para todos los niveles. Desde tu primera figura hasta creaciones que van a impresionar a todos.</p>
+        <div class="ideas-hero__stats">
+          <div class="ideas-stat">
+            <div class="ideas-stat__num">10</div>
+            <div class="ideas-stat__label">Proyectos disponibles</div>
+          </div>
+          <div class="ideas-stat">
+            <div class="ideas-stat__num">3</div>
+            <div class="ideas-stat__label">Niveles de dificultad</div>
+          </div>
+          <div class="ideas-stat">
+            <div class="ideas-stat__num">6+</div>
+            <div class="ideas-stat__label">Años en adelante</div>
+          </div>
         </div>
+      </div>
 
-        <div class="com-gallery__grid">
-
-            <div class="creation-card" data-diff="easy">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-1.png" alt="Torre Eiffel hecha con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 48</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#ff7a00;">S</div>
-                        <div>
-                            <div class="creation-card__username">Sofía R.</div>
-                            <div class="creation-card__age">12 años · Madrid</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Torre Eiffel multicolor</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-easy">⭐ Fácil</span>
-                        <span>⏱ 50 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="hard">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-2.png" alt="Dragón hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 61</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#15204a;">A</div>
-                        <div>
-                            <div class="creation-card__username">Ana + Papá</div>
-                            <div class="creation-card__age">14 años · Valencia</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Dragón de fuego</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-hard">⭐⭐⭐ Difícil</span>
-                        <span>⏱ 80 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="easy">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-3.png" alt="Mariposa hecha con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 32</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#10b6b0;">L</div>
-                        <div>
-                            <div class="creation-card__username">Lucía M.</div>
-                            <div class="creation-card__age">13 años · Málaga</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Mariposa de colores</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-easy">⭐ Fácil</span>
-                        <span>⏱ 25 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="medium">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-4.png" alt="Robot hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 74</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#e55a1c;">P</div>
-                        <div>
-                            <div class="creation-card__username">Pablo V.</div>
-                            <div class="creation-card__age">11 años · Sevilla</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Robot guardián</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
-                        <span>⏱ 40 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="easy">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-5.png" alt="Flor hecha con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 89</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#10b6b0;">C</div>
-                        <div>
-                            <div class="creation-card__username">Carmen + Mamá</div>
-                            <div class="creation-card__age">13 años · Bilbao</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Flor de primavera</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-easy">⭐ Fácil</span>
-                        <span>⏱ 20 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="easy">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-6.png" alt="Perro hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 41</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#ff7a00;">D</div>
-                        <div>
-                            <div class="creation-card__username">Diego + Papá</div>
-                            <div class="creation-card__age">9 años · Zaragoza</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Perrito fiel</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-easy">⭐ Fácil</span>
-                        <span>⏱ 30 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="medium">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-7.png" alt="Castillo hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 55</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#15204a;">M</div>
-                        <div>
-                            <div class="creation-card__username">Mateo L.</div>
-                            <div class="creation-card__age">14 años · Barcelona</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Castillo medieval</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
-                        <span>⏱ 55 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="easy">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-8.png" alt="Cohete hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 27</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#e55a1c;">I</div>
-                        <div>
-                            <div class="creation-card__username">Irene F.</div>
-                            <div class="creation-card__age">12 años · Toledo</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Cohete espacial</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-easy">⭐ Fácil</span>
-                        <span>⏱ 30 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="medium">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-9.png" alt="Auto hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 36</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#e55a1c;">R</div>
-                        <div>
-                            <div class="creation-card__username">Rodrigo T.</div>
-                            <div class="creation-card__age">13 años · Madrid</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Auto deportivo rojo</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
-                        <span>⏱ 45 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="hard">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-10.png" alt="Barco pirata hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 52</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#15204a;">J</div>
-                        <div>
-                            <div class="creation-card__username">Javier + Papá</div>
-                            <div class="creation-card__age">9 años · Cádiz</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Barco pirata</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-hard">⭐⭐⭐ Difícil</span>
-                        <span>⏱ 75 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="easy">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-11.png" alt="Árbol hecho con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 29</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#10b6b0;">V</div>
-                        <div>
-                            <div class="creation-card__username">Valentina S.</div>
-                            <div class="creation-card__age">10 años · Sevilla</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Árbol del bosque</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-easy">⭐ Fácil</span>
-                        <span>⏱ 20 min</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creation-card" data-diff="medium">
-                <div class="creation-card__img">
-                    <img src="images/comunidad-12.png" alt="Casa hecha con lápiz 3D">
-                    <div class="creation-card__likes">❤️ 43</div>
-                </div>
-                <div class="creation-card__body">
-                    <div class="creation-card__user">
-                        <div class="creation-card__avatar" style="background:#ff7a00;">N</div>
-                        <div>
-                            <div class="creation-card__username">Noa + Mamá</div>
-                            <div class="creation-card__age">14 años · Bilbao</div>
-                        </div>
-                    </div>
-                    <div class="creation-card__title">Mi casita soñada</div>
-                    <div class="creation-card__meta">
-                        <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
-                        <span>⏱ 50 min</span>
-                    </div>
-                </div>
-            </div>
-
+      <div class="ideas-hero__right">
+        <div class="diff-card">
+          <div class="diff-card__badge">⭐ Fácil</div>
+          <div class="diff-card__info">
+            <h4>Principiante</h4>
+            <p>Formas simples · 25–45 min</p>
+          </div>
+          <div class="diff-card__count">3 proyectos</div>
         </div>
+        <div class="diff-card">
+          <div class="diff-card__badge">⭐⭐ Medio</div>
+          <div class="diff-card__info">
+            <h4>Intermedio</h4>
+            <p>Más detalle · 40–60 min</p>
+          </div>
+          <div class="diff-card__count">3 proyectos</div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card__badge">⭐⭐⭐ Difícil</div>
+          <div class="diff-card__info">
+            <h4>Avanzado</h4>
+            <p>Alta precisión · 60–100 min</p>
+          </div>
+          <div class="diff-card__count">4 proyectos</div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- SHARE -->
-<section class="com-share">
-    <div class="container">
-        <div class="com-share__inner" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
-            <div class="com-share__text">
-                <div class="com-share__badge">✦ Únete a la comunidad</div>
-                <h2>¿Creaste algo increíble?<br>Mostráselo al mundo</h2>
-                <p>Cada creación inspira a otra familia. Subí tu foto en Instagram con el hashtag <strong>#3DMinto</strong> y aparecé en nuestra galería.</p>
-                <div class="com-share__steps">
-                    <div class="com-share__step">
-                        <div class="step-num">1</div>
-                        <p><strong>Terminá tu proyecto</strong> con el lápiz 3D Minto</p>
-                    </div>
-                    <div class="com-share__step">
-                        <div class="step-num">2</div>
-                        <p><strong>Sacá una foto</strong> de tu creación en buena luz</p>
-                    </div>
-                    <div class="com-share__step">
-                        <div class="step-num">3</div>
-                        <p><strong>Publicá en Instagram</strong> con <strong>#3DMinto</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
-                <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:28px 32px;width:100%;">
-                    <div style="font-size:2.5rem;margin-bottom:12px;">📷</div>
-                    <div style="font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:6px;">Seguinos en Instagram</div>
-                    <div style="color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:20px;">Publicamos las mejores creaciones de la semana y respondemos todas las dudas.</div>
-                    <a href="https://www.instagram.com/3dminto.es" target="_blank" rel="noopener"
-                       style="display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:14px;background:linear-gradient(90deg,#ff7a00,#ff971e);color:#fff;font-weight:700;font-size:.95rem;text-decoration:none;box-shadow:0 8px 20px rgba(255,122,0,.3);">
-                        📷 Ir a @3dminto.es →
-                    </a>
-                </div>
-                <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:20px 24px;width:100%;display:flex;align-items:center;gap:16px;">
-                    <div style="font-size:1.8rem;">🏷️</div>
-                    <div>
-                        <div style="font-weight:700;color:#fff;margin-bottom:3px;">Usá el hashtag</div>
-                        <div style="font-family:'Fredoka',sans-serif;font-size:1.3rem;color:#ff971e;font-weight:700;">#3DMinto</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- GALLERY -->
+<section class="ideas-gallery">
+  <div class="container">
+    <div class="ideas-gallery__header">
+      <h2 class="ideas-gallery__title">Elegí tu próximo proyecto</h2>
+      <div class="ideas-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="easy">⭐ Fácil</button>
+        <button class="filter-btn" data-filter="medium">⭐⭐ Medio</button>
+        <button class="filter-btn" data-filter="hard">⭐⭐⭐ Difícil</button>
+      </div>
     </div>
+
+    <div class="ideas-grid">
+
+      <a class="idea-card" href="ideas/torre-eiffel.html" data-diff="easy">
+        <div class="idea-card__img"><img src="images/torre-eiffel.png" alt="Torre Eiffel"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-easy">⭐ Fácil</span>
+          <div class="idea-card__title">Torre Eiffel</div>
+          <div class="idea-card__meta"><span>⏱ 45–60 min</span><span>·</span><span>8 años +</span></div>
+          <div class="idea-card__desc">El monumento más famoso del mundo, recreado capa a capa.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/cohete.html" data-diff="easy">
+        <div class="idea-card__img"><img src="images/cohete.png" alt="Cohete"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-easy">⭐ Fácil</span>
+          <div class="idea-card__title">Cohete Espacial</div>
+          <div class="idea-card__meta"><span>⏱ 25–35 min</span><span>·</span><span>6 años +</span></div>
+          <div class="idea-card__desc">Formas simples, resultado increíble. El proyecto ideal para empezar.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/robot.html" data-diff="easy">
+        <div class="idea-card__img"><img src="images/robot.png" alt="Robot"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-easy">⭐ Fácil</span>
+          <div class="idea-card__title">Robot Amigable</div>
+          <div class="idea-card__meta"><span>⏱ 30–40 min</span><span>·</span><span>6 años +</span></div>
+          <div class="idea-card__desc">Formas geométricas y personalización total. Dale cara a tu robot.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/gato.html" data-diff="medium">
+        <div class="idea-card__img"><img src="images/gato.png" alt="Gato"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-medium">⭐⭐ Medio</span>
+          <div class="idea-card__title">Gato</div>
+          <div class="idea-card__meta"><span>⏱ 35–45 min</span><span>·</span><span>7 años +</span></div>
+          <div class="idea-card__desc">Elegante y expresivo. Infinitas posibilidades de color y personalidad.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/dinosaurio.html" data-diff="medium">
+        <div class="idea-card__img"><img src="images/dinosaurio.png" alt="Dinosaurio"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-medium">⭐⭐ Medio</span>
+          <div class="idea-card__title">Dinosaurio T-Rex</div>
+          <div class="idea-card__meta"><span>⏱ 45–60 min</span><span>·</span><span>8 años +</span></div>
+          <div class="idea-card__desc">El rey de los dinosaurios. Con formas orgánicas y textura de piel.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/perro.html" data-diff="medium">
+        <div class="idea-card__img"><img src="images/perro.png" alt="Golden Retriever"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-medium">⭐⭐ Medio</span>
+          <div class="idea-card__title">Golden Retriever</div>
+          <div class="idea-card__meta"><span>⏱ 40–55 min</span><span>·</span><span>8 años +</span></div>
+          <div class="idea-card__desc">El perro más querido, con pelaje simulado capa a capa.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/lampara.html" data-diff="hard">
+        <div class="idea-card__img"><img src="images/lampara.png" alt="Lámpara"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-hard">⭐⭐⭐ Difícil</span>
+          <div class="idea-card__title">Lámpara Decorativa</div>
+          <div class="idea-card__meta"><span>⏱ 75–90 min</span><span>·</span><span>10 años +</span></div>
+          <div class="idea-card__desc">Una pieza funcional que podés iluminar. El más útil de la colección.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/auto.html" data-diff="hard">
+        <div class="idea-card__img" style="background:#ffffff;"><img src="images/auto.png" alt="Alfa Romeo 4C" style="width:100%;height:100%;object-fit:contain;padding:8px;mix-blend-mode:multiply;"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-hard">⭐⭐⭐ Difícil</span>
+          <div class="idea-card__title">Alfa Romeo 4C</div>
+          <div class="idea-card__meta"><span>⏱ 60–75 min</span><span>·</span><span>10 años +</span></div>
+          <div class="idea-card__desc">Curvas aerodinámicas y detalles técnicos. Para amantes del diseño.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/castillo.html" data-diff="hard">
+        <div class="idea-card__img"><img src="images/castillo.png" alt="Castillo"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-hard">⭐⭐⭐ Difícil</span>
+          <div class="idea-card__title">Castillo de Cuento</div>
+          <div class="idea-card__meta"><span>⏱ 80–100 min</span><span>·</span><span>10 años +</span></div>
+          <div class="idea-card__desc">Torres, agujas y magia. El proyecto más épico de la colección.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+      <a class="idea-card" href="ideas/sagrada-familia.html" data-diff="hard">
+        <div class="idea-card__img"><img src="images/sagrada-familia.png" alt="Sagrada Família"></div>
+        <div class="idea-card__body">
+          <span class="idea-card__tag tag-hard">⭐⭐⭐ Difícil</span>
+          <div class="idea-card__title">Sagrada Família</div>
+          <div class="idea-card__meta"><span>⏱ 80–100 min</span><span>·</span><span>10 años +</span></div>
+          <div class="idea-card__desc">La obra maestra de Gaudí. El proyecto arquitectónico más impresionante.</div>
+        </div>
+        <div class="idea-card__arrow">Ver proyecto →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ideas-cta">
+  <div class="container">
+    <div class="ideas-cta__inner">
+      <div class="ideas-cta__text">
+        <div class="ideas-cta__eyebrow">✦ Empezá hoy</div>
+        <h2>¿Listo para crear<br>algo <span>increíble</span>?</h2>
+        <p>Conseguí tu lápiz 3D en Amazon y empezá hoy mismo con cualquiera de estos 10 proyectos.</p>
+      </div>
+      <div class="ideas-cta__actions">
+        <a class="btn-amazon" href="#">🛒 Ver lápiz 3D en Amazon</a>
+        <a class="btn-ghost" href="comunidad.html">Ver comunidad →</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -959,32 +572,42 @@
 </footer>
 
 <script>
-    // Filter buttons
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.creation-card');
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.idea-card');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.dataset.filter;
-
-            // Show/hide cards
-            cards.forEach(card => {
-                if (filter === 'all' || card.dataset.diff === filter) {
-                    card.style.display = 'flex';
-                    card.style.flexDirection = 'column';
-                    setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 10);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(10px)';
-                    setTimeout(() => { card.style.display = 'none'; }, 250);
-                }
-            });
-        });
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.diff === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
     });
+  });
+
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  cards.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity .5s ease ${i * 0.05}s, transform .5s ease ${i * 0.05}s`;
+    observer.observe(el);
+  });
 </script>
 
 </body>
