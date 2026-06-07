@@ -86,7 +86,7 @@
 
     /* PRODUCT */
     .home-product{padding:48px 0;background:#fff;}
-    .home-product__inner{display:grid;grid-template-columns:1fr;gap:64px;align-items:center;}
+    .home-product__inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
     .home-product__label{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
     .home-product__label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--orange);border-radius:2px;}
     .home-product__title{font-family:'Fredoka',sans-serif;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:20px;}
@@ -98,15 +98,22 @@
     .home-spec__desc{font-size:.85rem;color:var(--text);line-height:1.5;}
     .btn-amazon{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:14px;background:#FF9900;color:#1A2C4E;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;box-shadow:0 8px 20px rgba(255,153,0,.3);transition:transform .2s,box-shadow .2s;}
     .btn-amazon:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,153,0,.4);}
-    .home-product__imgs{display:flex;gap:16px;align-items:stretch;}
-    .home-product__img-main{flex:1;border-radius:24px;overflow:hidden;background:#f5f7fa;display:flex;align-items:center;justify-content:center;padding:24px;}
-    .home-product__img-main img{width:100%;max-width:220px;object-fit:contain;}
-    .home-product__img-col{display:flex;flex-direction:column;gap:16px;flex:1;}
-    .home-product__img-small{border-radius:20px;overflow:hidden;background:#f5f7fa;flex:1;display:flex;align-items:center;justify-content:center;padding:18px;}
-    .home-product__img-small img{width:100%;max-width:180px;object-fit:contain;}
-    .home-product__img-tip{border-radius:20px;overflow:hidden;background:#f5f7fa;display:flex;align-items:center;justify-content:center;padding:18px;min-height:130px;flex-direction:column;gap:8px;}
-    .home-product__img-tip img{width:100%;max-width:130px;object-fit:contain;}
-    .home-product__tip-label{font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;}
+    .product-visual{display:flex;flex-direction:column;gap:16px;}
+    .product-visual__main{background:linear-gradient(135deg,#0f1d4a 0%,#1A2C4E 100%);border-radius:24px;padding:40px 32px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:200px;}
+    .product-visual__main::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(16,181,176,.2) 0%,transparent 70%);}
+    .product-visual__main::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,0,.15) 0%,transparent 70%);}
+    .product-visual__pencil{position:relative;z-index:1;text-align:center;}
+    .product-visual__pencil-icon{font-size:5rem;line-height:1;margin-bottom:12px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.3));}
+    .product-visual__pencil-name{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:4px;}
+    .product-visual__pencil-sub{font-size:.8rem;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;}
+    .product-visual__badges{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .product-visual__badge{background:#fff;border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(21,32,74,.08);border:1px solid rgba(21,32,74,.06);}
+    .product-visual__badge-icon{font-size:1.4rem;flex-shrink:0;}
+    .product-visual__badge-title{font-family:'Fredoka',sans-serif;font-size:.95rem;font-weight:700;color:var(--navy);line-height:1.2;}
+    .product-visual__badge-sub{font-size:.72rem;color:var(--text);margin-top:1px;}
+    .product-visual__coming{background:linear-gradient(135deg,#f5f7fa,#edf1f8);border-radius:16px;padding:14px 20px;display:flex;align-items:center;gap:12px;border:1.5px dashed rgba(21,32,74,.15);}
+    .product-visual__coming-text{font-size:.82rem;color:var(--text);line-height:1.4;}
+    .product-visual__coming-text strong{color:var(--navy);display:block;font-size:.88rem;margin-bottom:2px;}
 
     /* PROJECTS */
     .home-projects{padding:20px 0 48px;}
@@ -183,7 +190,7 @@
 
 
         .home-why__grid,.home-projects__grid{grid-template-columns:repeat(2,1fr);}
-        .home-product__inner{grid-template-columns:1fr;gap:40px;}
+        .home-product__inner{grid-template-columns:1fr;gap:32px;}
         .site-footer__grid{grid-template-columns:1fr;}
     }
     @media(max-width:760px){
@@ -330,17 +337,42 @@
                     </div>
                     <a href="#" class="btn-amazon">🛒 Ver en Amazon</a>
                 </div>
-                <div class="home-product__imgs">
-                    <div class="home-product__img-main">
-                        <img src="images/lapiz-1.png" alt="Lápiz 3D Minto vista frontal" loading="lazy">
-                    </div>
-                    <div class="home-product__img-col">
-                        <div class="home-product__img-small">
-                            <img src="images/lapiz-2.png" alt="Lápiz 3D Minto vista lateral" loading="lazy">
+                <div class="product-visual">
+                    <div class="product-visual__main">
+                        <div class="product-visual__pencil">
+                            <div class="product-visual__pencil-icon">✏️</div>
+                            <div class="product-visual__pencil-name">Lápiz 3D Minto</div>
+                            <div class="product-visual__pencil-sub">Fotos del producto próximamente</div>
                         </div>
-                        <div class="home-product__img-tip">
-                            <img src="images/lapiz-punta.png" alt="Punta del lápiz 3D Minto" loading="lazy">
-                            <span class="home-product__tip-label">Punta fría · ≤40°C</span>
+                    </div>
+                    <div class="product-visual__badges">
+                        <div class="product-visual__badge">
+                            <div class="product-visual__badge-icon">🌡️</div>
+                            <div>
+                                <div class="product-visual__badge-title">≤40°C</div>
+                                <div class="product-visual__badge-sub">Punta fría al tacto</div>
+                            </div>
+                        </div>
+                        <div class="product-visual__badge">
+                            <div class="product-visual__badge-icon">⚡</div>
+                            <div>
+                                <div class="product-visual__badge-title">2 velocidades</div>
+                                <div class="product-visual__badge-sub">Lenta y rápida</div>
+                            </div>
+                        </div>
+                        <div class="product-visual__badge">
+                            <div class="product-visual__badge-icon">🔋</div>
+                            <div>
+                                <div class="product-visual__badge-title">Carga USB</div>
+                                <div class="product-visual__badge-sub">Sin pilas</div>
+                            </div>
+                        </div>
+                        <div class="product-visual__badge">
+                            <div class="product-visual__badge-icon">✅</div>
+                            <div>
+                                <div class="product-visual__badge-title">Certificado CE</div>
+                                <div class="product-visual__badge-sub">Directiva EN71</div>
+                            </div>
                         </div>
                     </div>
                 </div>
