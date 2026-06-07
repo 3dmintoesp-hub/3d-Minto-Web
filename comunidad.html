@@ -22,17 +22,17 @@
     img{max-width:100%;display:block;}
 
     /* NAV */
-    .com-nav{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;box-sizing:border-box;}
-    .com-nav__inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 5vw;}
-    .com-nav__brand{display:flex;align-items:baseline;gap:1px;text-decoration:none;flex-shrink:0;}
-    .com-nav__brand-name{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:var(--navy);letter-spacing:-.01em;line-height:1;}
-    .com-nav__brand-dot{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:var(--orange);line-height:1;}
-    .com-nav__links{list-style:none;display:flex;align-items:center;gap:28px;}
-    .com-nav__links a{font-weight:600;font-size:.9rem;color:#18224f;transition:color .2s;}
-    .com-nav__links a:hover{color:var(--orange);}
-    .com-nav__links a.active{color:var(--orange);}
-    .com-nav__cta{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;color:#fff;background:linear-gradient(90deg,#ff7a00,#ff971e);font-weight:700;font-size:.9rem;box-shadow:0 8px 20px rgba(255,122,0,.22);transition:transform .2s,box-shadow .2s;white-space:nowrap;}
-    .com-nav__cta:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(255,122,0,.3);}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /* HERO */
     .com-hero{background:linear-gradient(145deg,#0f1d4a 0%,#1A2C4E 55%,#1f3560 100%);padding:36px 0 40px;position:relative;overflow:hidden;}
@@ -131,28 +131,40 @@
     .site-footer__bottom{position:relative;z-index:1;text-align:center;padding:18px 0;color:rgba(255,255,255,.35);font-size:.8rem;}
 
     @media(max-width:1024px){.com-gallery__grid{grid-template-columns:repeat(2,1fr);}.com-share__inner{grid-template-columns:1fr;}.com-hero__inner{flex-direction:column;}.com-hero__stats{align-self:flex-start;}}
-    @media(max-width:640px){.com-gallery__grid{grid-template-columns:1fr 1fr;}.com-gallery__header{flex-direction:column;align-items:flex-start;}.com-nav__links{display:none;}.com-share__inner{padding:32px 24px;}.com-hero__stats{flex-wrap:wrap;}.site-footer__grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:640px){.com-gallery__grid{grid-template-columns:1fr 1fr;}.com-gallery__header{flex-direction:column;align-items:flex-start;}.com-share__inner{padding:32px 24px;}.com-hero__stats{flex-wrap:wrap;}.site-footer__grid{grid-template-columns:1fr 1fr;}}
     @media(max-width:420px){.com-gallery__grid{grid-template-columns:1fr;}.site-footer__grid{grid-template-columns:1fr;}}
-</style>
+
+    /* ── NAV UNIFICADO ── */
+    .site-nav{position:sticky;top:0;z-index:100;background:#ffffff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;gap:24px;}
+    .site-nav__brand{display:flex;align-items:baseline;gap:1px;text-decoration:none;flex-shrink:0;}
+    .site-nav__brand-name{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:#15204a;letter-spacing:-.01em;line-height:1;}
+    .site-nav__brand-dot{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:#ff7a00;line-height:1;}
+    .site-nav__links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0;}
+    .site-nav__links a{font-weight:600;font-size:.9rem;color:#18224f;transition:color .2s;text-decoration:none;}
+    .site-nav__links a:hover{color:#ff7a00;}
+    .site-nav__links a.active{color:#ff7a00;}
+    .site-nav__cta{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;color:#fff;background:linear-gradient(90deg,#ff7a00,#ff971e);font-weight:700;font-size:.9rem;box-shadow:0 8px 20px rgba(255,122,0,.22);transition:transform .2s,box-shadow .2s;white-space:nowrap;text-decoration:none;}
+    .site-nav__cta:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(255,122,0,.3);}
+    @media(max-width:768px){.site-nav__links{display:none;}}
+
+    </style>
 </head>
 <body>
 
-<header class="com-nav">
-    <div class="container com-nav__inner">
-        <a class="com-nav__brand" href="index.html">
-            <span class="com-nav__brand-name">3D Minto</span><span class="com-nav__brand-dot">.</span>
-        </a>
-        <nav>
-            <ul class="com-nav__links">
+<header class="site-nav">
+    <a class="site-nav__brand" href="index.html">
+        <span class="site-nav__brand-name">3D Minto</span><span class="site-nav__brand-dot">.</span>
+    </a>
+    <nav>
+        <ul class="site-nav__links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="ideas.html">Ideas</a></li>
                 <li><a href="comunidad.html" class="active">Comunidad</a></li>
                 <li><a href="quienes-somos.html">Quiénes somos</a></li>
                 <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-        <a class="com-nav__cta" href="#">Ver en Amazon</a>
-    </div>
+                </ul>
+    </nav>
+    <a class="site-nav__cta" href="#">Ver en Amazon</a>
 </header>
 
 <!-- HERO -->
