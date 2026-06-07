@@ -107,26 +107,27 @@
         box-shadow:0 4px 12px rgba(255,122,0,.25);
     }
 
-    /* ── CREATION CARDS (mejoradas) ── */
+    /* ── CREATION CARDS ── */
     .com-gallery__grid{
         display:grid;
         grid-template-columns:repeat(4,1fr);
         gap:20px;
     }
     .creation-card{
-        border-radius:20px;
+        border-radius:0 0 20px 20px;
         overflow:hidden;
         background:#fff;
         border:1.5px solid rgba(21,32,74,.07);
+        border-top:3px solid var(--navy);
         box-shadow:var(--shadow);
-        transition:transform .25s, box-shadow .25s, border-color .25s, opacity .25s;
+        transition:transform .25s, box-shadow .25s, opacity .25s;
         display:flex;
         flex-direction:column;
     }
     .creation-card:hover{
         transform:translateY(-5px);
         box-shadow:0 20px 44px rgba(17,24,39,.12);
-        border-color:rgba(21,32,74,.13);
+        border-top-color:var(--orange);
     }
     .creation-card__img{
         aspect-ratio:4/3; overflow:hidden;
@@ -155,10 +156,11 @@
 
     /* Card body */
     .creation-card__body{
-        padding:14px 16px 16px;
+        padding:14px 16px 12px;
         display:flex;
         flex-direction:column;
         gap:10px;
+        flex:1;
     }
 
     /* User row */
@@ -172,7 +174,6 @@
         justify-content:center; font-size:.82rem;
         font-weight:700; flex-shrink:0;
     }
-    /* Avatar color variants */
     .av-orange{ background:#fff0e6; color:#cc4e00; }
     .av-navy  { background:#e6eaf2; color:#15204a; }
     .av-teal  { background:#e0f5f3; color:#007a70; }
@@ -201,31 +202,37 @@
         color:var(--navy); line-height:1.2;
     }
 
-    /* Footer row */
+    /* Footer row — colored by difficulty */
     .creation-card__footer{
         display:flex; align-items:center;
-        gap:8px;
+        gap:8px; padding:9px 16px;
+        margin-top:auto;
     }
+    .creation-card__footer.easy  { background:#e8f8e8; }
+    .creation-card__footer.medium{ background:#fff4d6; }
+    .creation-card__footer.hard  { background:#fde8e8; }
+
     .creation-card__tag{
         display:inline-flex; align-items:center;
-        gap:4px; padding:4px 10px;
-        border-radius:50px; font-size:.7rem;
+        gap:4px; font-size:.7rem;
         font-weight:700; white-space:nowrap;
     }
-    .tag-easy  { background:#e8f8e8; color:#2a7a2a; }
-    .tag-medium{ background:#fff4d6; color:#8a5a00; }
-    .tag-hard  { background:#fde8e8; color:#991a1a; }
+    .tag-easy  { color:#2a7a2a; }
+    .tag-medium{ color:#8a5a00; }
+    .tag-hard  { color:#991a1a; }
 
     .creation-card__time{
         display:flex; align-items:center;
         gap:4px; font-size:.72rem;
-        color:var(--text); margin-left:auto;
-        white-space:nowrap;
+        margin-left:auto; white-space:nowrap;
     }
     .creation-card__time svg{
-        width:12px; height:12px; opacity:.6;
+        width:12px; height:12px; opacity:.7;
         flex-shrink:0;
     }
+    .easy   .creation-card__time{ color:#2a7a2a; }
+    .medium .creation-card__time{ color:#8a5a00; }
+    .hard   .creation-card__time{ color:#991a1a; }
 
     /* ── SHARE CTA ── */
     .com-share{
@@ -441,7 +448,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Torre Eiffel multicolor</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer easy">
                         <span class="creation-card__tag tag-easy">⭐ Fácil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -467,7 +474,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Dragón de fuego</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer hard">
                         <span class="creation-card__tag tag-hard">⭐⭐⭐ Difícil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -493,7 +500,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Mariposa de colores</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer easy">
                         <span class="creation-card__tag tag-easy">⭐ Fácil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -519,7 +526,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Robot guardián</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer medium">
                         <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -545,7 +552,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Flor de primavera</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer easy">
                         <span class="creation-card__tag tag-easy">⭐ Fácil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -571,7 +578,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Perrito fiel</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer easy">
                         <span class="creation-card__tag tag-easy">⭐ Fácil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -597,7 +604,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Castillo medieval</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer medium">
                         <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -623,7 +630,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Cohete espacial</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer easy">
                         <span class="creation-card__tag tag-easy">⭐ Fácil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -649,7 +656,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Auto deportivo rojo</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer medium">
                         <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -675,7 +682,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Barco pirata</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer hard">
                         <span class="creation-card__tag tag-hard">⭐⭐⭐ Difícil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -701,7 +708,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Árbol del bosque</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer easy">
                         <span class="creation-card__tag tag-easy">⭐ Fácil</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -727,7 +734,7 @@
                     </div>
                     <div class="creation-card__divider"></div>
                     <div class="creation-card__title">Mi casita soñada</div>
-                    <div class="creation-card__footer">
+                    <div class="creation-card__footer medium">
                         <span class="creation-card__tag tag-medium">⭐⭐ Medio</span>
                         <span class="creation-card__time">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
