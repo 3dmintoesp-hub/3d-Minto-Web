@@ -41,7 +41,7 @@
     .ideas-hero { background: linear-gradient(145deg, #0f1d4a 0%, #1A2C4E 50%, #1f3560 100%); padding: 36px 0 36px; position: relative; overflow: hidden; }
     .ideas-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle,rgba(0,181,163,.18) 0%,transparent 65%); }
     .ideas-hero::after { content: ''; position: absolute; bottom: -80px; left: 5%; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle,rgba(255,107,43,.12) 0%,transparent 65%); }
-    .ideas-hero__inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; }
+    .ideas-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
     .ideas-hero__badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 999px; background: rgba(0,181,163,.15); border: 1px solid rgba(0,181,163,.35); color: #5EEADA; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 22px; }
     .ideas-hero h1 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(2.8rem, 5vw, 4.2rem); color: #fff; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 18px; }
     .ideas-hero h1 em { font-style: normal; color: var(--orange); }
@@ -59,6 +59,14 @@
     .diff-card__info p { font-size: .75rem; color: rgba(255,255,255,.5); line-height: 1.2; }
     .diff-card__count { font-family: 'Fredoka', sans-serif; font-size: .82rem; font-weight: 600; color: var(--orange); flex-shrink: 0; background: rgba(255,122,0,.15); padding: 4px 10px; border-radius: 50px; margin-left: auto; }
 
+
+    .ideas-hero__mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 10px; }
+    .ideas-hero__mosaic-item { border-radius: 16px; overflow: hidden; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); }
+    .ideas-hero__mosaic-item img { width: 100%; height: 100%; object-fit: contain; padding: 12px; mix-blend-mode: multiply; background: #fff; display: block; }
+    .ideas-hero__mosaic-item:first-child { grid-column: 1 / span 2; }
+    .ideas-hero__mosaic-item:first-child img { height: 180px; }
+    .ideas-hero__mosaic-item:not(:first-child) img { height: 130px; }
+    .ideas-hero__mosaic-label { font-size: .72rem; font-weight: 700; color: rgba(255,255,255,.45); text-align: center; padding: 6px 0 10px; letter-spacing: .06em; text-transform: uppercase; }
     /* GALLERY */
     .ideas-gallery { padding: 64px 0 80px; }
     .ideas-gallery__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
@@ -126,7 +134,7 @@
     /* RESPONSIVE */
     @media (max-width: 1100px) { .ideas-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 900px) {
-      .ideas-hero__inner { gap: 24px; }
+      .ideas-hero__inner { grid-template-columns: 1fr; gap: 32px; }
       .ideas-hero__right { flex-direction: column; }
       .ideas-grid { grid-template-columns: repeat(2, 1fr); }
       .ideas-cta__inner { flex-direction: column; padding: 36px 28px; }
@@ -176,18 +184,34 @@
 <section class="ideas-hero">
   <div class="container">
     <div class="ideas-hero__inner">
-      <div class="ideas-hero__badge">✦ Biblioteca de proyectos</div>
-      <h1>Todas las <em>ideas</em><br>para crear</h1>
-      <p class="ideas-hero__lead">14 proyectos guiados para todos los niveles. Desde tu primera figura hasta creaciones que van a impresionar a todos.</p>
-      <div class="ideas-hero__stats">
-        <div class="ideas-stat"><div class="ideas-stat__num">14</div><div class="ideas-stat__label">Proyectos disponibles</div></div>
-        <div class="ideas-stat"><div class="ideas-stat__num">3</div><div class="ideas-stat__label">Niveles de dificultad</div></div>
-        <div class="ideas-stat"><div class="ideas-stat__num">6+</div><div class="ideas-stat__label">Años en adelante</div></div>
+      <div>
+        <div class="ideas-hero__badge">✦ Biblioteca de proyectos</div>
+        <h1>Todas las <em>ideas</em><br>para crear</h1>
+        <p class="ideas-hero__lead">14 proyectos guiados para todos los niveles. Desde tu primera figura hasta creaciones que van a impresionar a todos.</p>
+        <div class="ideas-hero__stats">
+          <div class="ideas-stat"><div class="ideas-stat__num">14</div><div class="ideas-stat__label">Proyectos disponibles</div></div>
+          <div class="ideas-stat"><div class="ideas-stat__num">3</div><div class="ideas-stat__label">Niveles de dificultad</div></div>
+          <div class="ideas-stat"><div class="ideas-stat__num">6+</div><div class="ideas-stat__label">Años en adelante</div></div>
+        </div>
+        <div class="ideas-hero__right">
+          <div class="diff-card"><div class="diff-card__badge">⭐ Fácil</div><div class="diff-card__info"><h4>Principiante</h4><p>Formas simples · 20–45 min</p></div><div class="diff-card__count">5 proyectos</div></div>
+          <div class="diff-card"><div class="diff-card__badge">⭐⭐ Medio</div><div class="diff-card__info"><h4>Intermedio</h4><p>Más detalle · 40–60 min</p></div><div class="diff-card__count">4 proyectos</div></div>
+          <div class="diff-card"><div class="diff-card__badge">⭐⭐⭐ Difícil</div><div class="diff-card__info"><h4>Avanzado</h4><p>Alta precisión · 60–100 min</p></div><div class="diff-card__count">5 proyectos</div></div>
+        </div>
       </div>
-      <div class="ideas-hero__right">
-        <div class="diff-card"><div class="diff-card__badge">⭐ Fácil</div><div class="diff-card__info"><h4>Principiante</h4><p>Formas simples · 20–45 min</p></div><div class="diff-card__count">5 proyectos</div></div>
-        <div class="diff-card"><div class="diff-card__badge">⭐⭐ Medio</div><div class="diff-card__info"><h4>Intermedio</h4><p>Más detalle · 40–60 min</p></div><div class="diff-card__count">4 proyectos</div></div>
-        <div class="diff-card"><div class="diff-card__badge">⭐⭐⭐ Difícil</div><div class="diff-card__info"><h4>Avanzado</h4><p>Alta precisión · 60–100 min</p></div><div class="diff-card__count">5 proyectos</div></div>
+      <div class="ideas-hero__mosaic">
+        <div class="ideas-hero__mosaic-item">
+          <img src="images/sagrada-familia.png" alt="Sagrada Família en 3D">
+          <div class="ideas-hero__mosaic-label">Sagrada Família · Difícil</div>
+        </div>
+        <div class="ideas-hero__mosaic-item">
+          <img src="images/dinosaurio.png" alt="Dinosaurio en 3D">
+          <div class="ideas-hero__mosaic-label">Dinosaurio · Medio</div>
+        </div>
+        <div class="ideas-hero__mosaic-item">
+          <img src="images/cohete.png" alt="Cohete en 3D">
+          <div class="ideas-hero__mosaic-label">Cohete · Fácil</div>
+        </div>
       </div>
     </div>
   </div>
