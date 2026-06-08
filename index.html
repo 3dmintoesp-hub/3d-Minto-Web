@@ -287,14 +287,14 @@
 
     
     /* ── TRACER SECTION ── */
-    .home-tracer { padding: 72px 0; background: linear-gradient(180deg, #fff 0%, var(--mint) 100%); }
-    .home-tracer__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .home-tracer { padding: 80px 0; background: linear-gradient(175deg, #fff 0%, #f0f9f8 60%, #e6f5f3 100%); }
+    .home-tracer__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
     .home-tracer__text {}
-    .home-tracer__lead { font-size: 1rem; color: var(--text); line-height: 1.7; margin: 16px 0 20px; max-width: 440px; }
-    .home-tracer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .home-tracer__list li { display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: var(--text); line-height: 1.5; }
-    .home-tracer__check { color: var(--teal); font-weight: 800; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-    .home-tracer__widget { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .home-tracer__lead { font-family: 'Poppins', sans-serif; font-size: 1rem; color: var(--text); line-height: 1.75; margin: 14px 0 24px; max-width: 420px; opacity: .85; }
+    .home-tracer__list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .home-tracer__list li { display: flex; align-items: flex-start; gap: 12px; font-family: 'Poppins', sans-serif; font-size: .9rem; color: var(--text); line-height: 1.55; }
+    .home-tracer__check { width: 22px; height: 22px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .72rem; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .home-tracer__widget { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .home-tracer__hint { font-size: .75rem; color: var(--text); opacity: .5; text-align: center; }
     @media(max-width:900px) {
         .home-tracer__inner { grid-template-columns: 1fr; gap: 40px; }
@@ -302,21 +302,35 @@
     }
         /* ── SLIDER ANTES/DESPUÉS ── */
     /* ── SLIDER ANTES/DESPUÉS ── */
-    .slider-wrap{position:relative;width:100%;max-width:480px;border-radius:16px;overflow:hidden;background:#0f1d4a;user-select:none;cursor:ew-resize;box-shadow:0 24px 60px rgba(0,0,0,.35)}
-    .slider-label{text-align:center;padding:14px 20px 10px;min-height:56px;display:flex;align-items:center;justify-content:center}
-    .slider-label p{font-family:'Fredoka',sans-serif;font-size:15px;font-weight:600;color:#fff;margin:0;transition:opacity .3s;line-height:1.4}
-    .slider-label p span{color:#00B5A3}
+    /* ── SLIDER ANTES/DESPUÉS ── */
+    .slider-wrap{position:relative;width:100%;max-width:480px;border-radius:20px;overflow:hidden;background:#1A2C4E;user-select:none;cursor:ew-resize;box-shadow:0 32px 64px rgba(15,29,74,.28)}
+
+    /* Label dinámico superior */
+    .slider-label{text-align:center;padding:16px 24px 12px;min-height:60px;display:flex;align-items:center;justify-content:center;background:#1A2C4E;border-bottom:1px solid rgba(255,255,255,.07)}
+    .slider-label p{font-family:'Fredoka',sans-serif;font-size:1.05rem;font-weight:600;color:rgba(255,255,255,.75);margin:0;line-height:1.35;letter-spacing:-.01em}
+    .slider-label p span{color:#00B5A3;font-weight:700}
+
+    /* Stage */
     .slider-stage{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;cursor:ew-resize}
     .img-after{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
     .img-before{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;clip-path:polygon(0 0,50% 0,50% 100%,0 100%)}
-    .slider-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#00B5A3;transform:translateX(-50%);pointer-events:none;z-index:5}
-    .slider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#00B5A3;border:3px solid #fff;box-shadow:0 4px 18px rgba(0,0,0,.4);z-index:6;display:flex;align-items:center;justify-content:center;cursor:ew-resize}
+
+    /* Línea divisora */
+    .slider-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:linear-gradient(180deg,transparent 0%,#00B5A3 15%,#00B5A3 85%,transparent 100%);transform:translateX(-50%);pointer-events:none;z-index:5}
+
+    /* Handle circular */
+    .slider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#00B5A3;border:3px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.35),0 0 0 4px rgba(0,181,163,.2);z-index:6;display:flex;align-items:center;justify-content:center;cursor:ew-resize;transition:box-shadow .2s}
+    .slider-handle:active{box-shadow:0 6px 24px rgba(0,181,163,.5),0 0 0 6px rgba(0,181,163,.15)}
     .slider-handle svg{width:20px;height:20px}
-    .slider-tag{position:absolute;top:12px;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;z-index:4;pointer-events:none;backdrop-filter:blur(4px)}
-    .slider-tag--before{left:12px;background:rgba(15,29,74,.75);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
-    .slider-tag--after{right:12px;background:rgba(0,181,163,.85);color:#fff;border:1.5px solid #00B5A3}
-    .slider-footer{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px 16px 16px}
-    .slider-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,.6)}
+
+    /* Tags Boceto / En 3D */
+    .slider-tag{position:absolute;top:14px;font-family:'Fredoka',sans-serif;padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:700;letter-spacing:.02em;z-index:4;pointer-events:none}
+    .slider-tag--before{left:14px;background:rgba(15,29,74,.82);color:#fff;border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(6px)}
+    .slider-tag--after{right:14px;background:#00B5A3;color:#fff;border:1.5px solid rgba(0,181,163,.6);box-shadow:0 4px 12px rgba(0,181,163,.3)}
+
+    /* Footer */
+    .slider-footer{display:flex;align-items:center;justify-content:center;padding:11px 16px 14px;background:#1A2C4E;border-top:1px solid rgba(255,255,255,.07)}
+    .slider-pill{font-family:'Poppins',sans-serif;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase}
     </style>
 </head>
 
@@ -606,7 +620,7 @@
             <div class="home-tracer__inner">
                 <div class="home-tracer__text">
                     <span class="home-section-kicker">De la idea al objeto real</span>
-                    <h2>Un boceto en papel.<br>Una figura en tus manos.</h2>
+                    <h2 style="font-family:'Fredoka',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.1;letter-spacing:-.02em;margin-bottom:0">Un boceto en papel.<br><span style="color:var(--orange)">Una figura en tus manos.</span></h2>
                     <p class="home-tracer__lead">Desliza el divisor y ve la transformación. Lo que empieza como un simple dibujo sobre papel, el lápiz 3D lo convierte en un objeto real que puedes tocar y guardar.</p>
                     <ul class="home-tracer__list">
                         <li><span class="home-tracer__check">✓</span> Sin moldes ni impresora — solo el lápiz y la mano del niño</li>
