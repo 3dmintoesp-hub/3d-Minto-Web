@@ -271,20 +271,19 @@
 
     
     
-    /* ── TRACER ── */
-    .tracer{background:#1A2C4E;border-radius:20px;overflow:hidden;padding:14px;width:100%;max-width:460px}
-    .tracer__btns{display:flex;gap:8px;margin-bottom:12px;justify-content:center}
-    .tracer__btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.15);border-radius:50px;padding:7px 16px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55);cursor:pointer;transition:all .2s}
-    .tracer__btn:hover{background:rgba(255,255,255,.16);color:#fff}
-    .tracer__btn.on{background:rgba(255,107,43,.3);border-color:rgba(255,107,43,.7);color:#FF8C5A}
-    .tracer__cv{position:relative;width:100%;height:260px}
-    .tracer__svg{position:absolute;top:0;left:0;width:100%;height:100%}
-    .tracer__pen{position:absolute;font-size:18px;transform:translate(-4px,-18px) rotate(-25deg);pointer-events:none;opacity:0;z-index:10;transition:opacity .1s}
-    .tracer__info{text-align:center;padding:10px 0 4px}
-    .tracer__title{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:3px}
+    .tracer{background:#1a2c4e;border-radius:20px;padding:16px;width:100%;max-width:460px}
+    .tracer__btns{display:flex;gap:8px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+    .tracer__btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.18);border-radius:50px;padding:7px 18px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55);cursor:pointer;transition:all .2s;font-family:'Fredoka',sans-serif}
+    .tracer__btn:hover{color:#fff;background:rgba(255,255,255,.18)}
+    .tracer__btn.on{background:rgba(255,107,43,.3);border-color:rgba(255,107,43,.7);color:#ff8c5a}
+    .tracer__stage{position:relative;width:100%;aspect-ratio:4/3;background:rgba(0,0,0,.2);border-radius:14px;overflow:hidden}
+    .tracer__stage svg{position:absolute;inset:0;width:100%;height:100%}
+    .tracer__pen{position:absolute;font-size:20px;transform:translate(-4px,-20px) rotate(-25deg);pointer-events:none;opacity:0;transition:opacity .1s;z-index:5}
+    .tracer__meta{text-align:center;padding:10px 0 6px}
+    .tracer__title{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:2px}
     .tracer__sub{font-size:.72rem;color:rgba(255,255,255,.45)}
     .tracer__pills{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding-top:8px}
-    .tracer__pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:4px 10px;font-size:.7rem;color:rgba(255,255,255,.6)}
+    .tracer__pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:4px 10px;font-size:.7rem;color:rgba(255,255,255,.55)}
 
     
     /* ── TRACER SECTION ── */
@@ -301,6 +300,23 @@
         .home-tracer__inner { grid-template-columns: 1fr; gap: 40px; }
         .home-tracer__widget { width: 100%; max-width: 400px; margin: 0 auto; }
     }
+        /* ── SLIDER ANTES/DESPUÉS ── */
+    /* ── SLIDER ANTES/DESPUÉS ── */
+    .slider-wrap{position:relative;width:100%;max-width:480px;border-radius:16px;overflow:hidden;background:#0f1d4a;user-select:none;cursor:ew-resize;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+    .slider-label{text-align:center;padding:14px 20px 10px;min-height:56px;display:flex;align-items:center;justify-content:center}
+    .slider-label p{font-family:'Fredoka',sans-serif;font-size:15px;font-weight:600;color:#fff;margin:0;transition:opacity .3s;line-height:1.4}
+    .slider-label p span{color:#00B5A3}
+    .slider-stage{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;cursor:ew-resize}
+    .img-after{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .img-before{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;clip-path:polygon(0 0,50% 0,50% 100%,0 100%)}
+    .slider-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#00B5A3;transform:translateX(-50%);pointer-events:none;z-index:5}
+    .slider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#00B5A3;border:3px solid #fff;box-shadow:0 4px 18px rgba(0,0,0,.4);z-index:6;display:flex;align-items:center;justify-content:center;cursor:ew-resize}
+    .slider-handle svg{width:20px;height:20px}
+    .slider-tag{position:absolute;top:12px;padding:5px 12px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;z-index:4;pointer-events:none}
+    .slider-tag--before{left:12px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25)}
+    .slider-tag--after{right:12px;background:rgba(0,181,163,.25);color:#00B5A3;border:1px solid rgba(0,181,163,.4)}
+    .slider-footer{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px 16px 16px}
+    .slider-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,.6)}
     </style>
 </head>
 
@@ -600,26 +616,27 @@
                     <a class="home-btn home-btn--primary" href="ideas.html" style="margin-top:28px;display:inline-flex;">Ver los 15 proyectos →</a>
                 </div>
                 <div class="home-tracer__widget">
-                                        <div class="tracer" id="heroTracer">
-                        <div class="tracer__btns">
-                            <button class="tracer__btn on" onclick="tracerPick('rocket',this)">🚀 Cohete</button>
-                            <button class="tracer__btn" onclick="tracerPick('dino',this)">🦕 T-Rex</button>
-                            <button class="tracer__btn" onclick="tracerPick('castle',this)">🏰 Castillo</button>
+                                                            <div class="slider-wrap" id="sliderWrap">
+                        <div class="slider-label">
+                            <p id="sliderText">Todo empieza con una <span>idea en plano...</span></p>
                         </div>
-                        <div class="tracer__cv" id="tracerCv">
-                            <svg class="tracer__svg" id="tracerSvg" viewBox="0 0 300 260" preserveAspectRatio="xMidYMid meet"></svg>
-                            <div class="tracer__pen" id="tracerPen">✏️</div>
+                        <div class="slider-stage" id="sliderStage">
+                            <img class="img-after" src="images/despues.jpg" alt="Figura 3D terminada con lápiz 3D Minto" draggable="false" />
+                            <img class="img-before" id="imgBefore" src="images/antes.jpg" alt="Boceto en papel del proyecto" draggable="false" />
+                            <div class="slider-divider" id="sliderDivider"></div>
+                            <div class="slider-handle" id="sliderHandle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+                                    <path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/>
+                                </svg>
+                            </div>
+                            <div class="slider-tag slider-tag--before">Boceto</div>
+                            <div class="slider-tag slider-tag--after">En 3D ✦</div>
                         </div>
-                        <div class="tracer__info">
-                            <div class="tracer__title" id="tracerTitle">Cohete Espacial</div>
-                            <div class="tracer__sub" id="tracerSub">⭐ Fácil · 25–35 min · desde 6 años</div>
+                        <div class="slider-footer">
+                            <span class="slider-pill">🎨 Lápiz 3D PCL</span>
+                            <span class="slider-pill">✅ Certificado CE</span>
+                            <span class="slider-pill">🛡️ Baja temperatura</span>
                         </div>
-                        <div class="tracer__pills">
-                            <span class="tracer__pill">🌡️ PCL · baja temperatura</span>
-                            <span class="tracer__pill">✅ Certificado CE</span>
-                            <span class="tracer__pill">🛡️ Punta fría</span>
-                        </div>
-                    </div>
                     </div>
                     <p class="home-tracer__hint">← Elige una figura y mira cómo se traza</p>
                 </div>
@@ -745,633 +762,56 @@ function closeCookies(choice){
 }
 </script>
 
-<script>
 
-(function(){
-    // ── FIGURAS ── cada figura es un array de "strokes" (trazos)
-    // Cada stroke es un array de puntos [x,y]
-    // Los puntos tienen pequeñas imperfecciones para parecer humanos
 
-    function jitter(x, y, amount) {
-        return [
-            x + (Math.random() - 0.5) * amount,
-            y + (Math.random() - 0.5) * amount
-        ];
-    }
 
-    // Genera una curva de bezier con ruido humano entre dos puntos
-    function humanLine(x1, y1, x2, y2, steps, noise) {
-        const pts = [];
-        for (let i = 0; i <= steps; i++) {
-            const t = i / steps;
-            const x = x1 + (x2 - x1) * t;
-            const y = y1 + (y2 - y1) * t;
-            const n = noise * (0.3 + Math.random() * 0.7);
-            pts.push([x + (Math.random()-0.5)*n, y + (Math.random()-0.5)*n]);
-        }
-        return pts;
-    }
 
-    // Convierte array de puntos a path d="..."
-    function toPath(pts) {
-        if (!pts.length) return '';
-        let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
-        for (let i = 1; i < pts.length; i++) {
-            d += ` L ${pts[i][0].toFixed(1)} ${pts[i][1].toFixed(1)}`;
-        }
-        return d;
-    }
 
-    // Colores de filamento por trazo
-    const COLORS = {
-        rocket:  ['#FF6B2B','#FF6B2B','#FFD700','#FF6B2B','#FF4444','#FFD700','#FF6B2B'],
-        dino:    ['#4CAF50','#4CAF50','#2E7D32','#81C784','#4CAF50','#FFD700','#4CAF50'],
-        castle:  ['#90CAF9','#90CAF9','#64B5F6','#E3F2FD','#90CAF9','#FFD700','#90CAF9'],
-    };
-
-    // ── COHETE ── (cx=150, cy=120, tamaño ~180px)
-    const ROCKET = [
-        // cuerpo
-        [...humanLine(150,40, 120,140, 10, 3), ...humanLine(120,140, 180,140, 8, 3), ...humanLine(180,140, 150,40, 10, 3)],
-        // relleno cuerpo (líneas internas)
-        humanLine(132,100, 168,100, 6, 2),
-        humanLine(126,120, 174,120, 7, 2),
-        // nariz
-        humanLine(135,68, 165,68, 5, 2),
-        // llama izq
-        [...humanLine(125,140, 112,165, 6, 4), ...humanLine(112,165, 133,148, 5, 4)],
-        // llama der
-        [...humanLine(175,140, 188,165, 6, 4), ...humanLine(188,165, 167,148, 5, 4)],
-        // ventana
-        [jitter(150,95,2), jitter(158,90,2), jitter(163,98,2), jitter(158,106,2), jitter(150,108,2), jitter(142,106,2), jitter(137,98,2), jitter(142,90,2), jitter(150,95,2)],
-    ];
-
-    // ── DINOSAURIO T-REX ──
-    const DINO = [
-        // cuerpo principal oval
-        [jitter(145,145,2),jitter(160,128,2),jitter(185,120,2),jitter(205,125,2),jitter(215,140,2),jitter(210,160,2),jitter(195,172,2),jitter(170,175,2),jitter(148,168,2),jitter(138,155,2),jitter(140,145,2)],
-        // cabeza
-        [jitter(105,90,2),jitter(115,78,2),jitter(130,75,2),jitter(145,80,2),jitter(152,92,2),jitter(148,105,2),jitter(135,112,2),jitter(118,108,2),jitter(108,100,2),jitter(105,90,2)],
-        // mandibula
-        [jitter(108,100,2),jitter(115,110,2),jitter(130,115,2),jitter(145,108,2)],
-        // dientes
-        humanLine(112,104, 115,112, 2, 1),
-        humanLine(120,106, 122,115, 2, 1),
-        humanLine(128,107, 130,115, 2, 1),
-        // cola
-        [...humanLine(145,165, 120,170, 6, 4), ...humanLine(120,170, 95,185, 7, 5), ...humanLine(95,185, 75,175, 5, 4)],
-        // pata trasera
-        [...humanLine(170,172, 168,195, 5, 3), ...humanLine(168,195, 158,210, 4, 3)],
-        [...humanLine(190,170, 192,195, 5, 3), ...humanLine(192,195, 185,210, 4, 3)],
-        // bracito
-        [...humanLine(148,130, 135,148, 4, 3), ...humanLine(135,148, 128,155, 3, 3)],
-        // ojo
-        [jitter(122,86,1.5),jitter(127,83,1.5),jitter(132,86,1.5),jitter(127,90,1.5),jitter(122,86,1.5)],
-    ];
-
-    // ── CASTILLO ──
-    const CASTLE = [
-        // muralla base
-        humanLine(60,180, 240,180, 12, 2),
-        // pared izq
-        humanLine(60,180, 60,130, 7, 2),
-        // pared der
-        humanLine(240,180, 240,130, 7, 2),
-        // almenas izq
-        humanLine(60,130, 75,130, 3, 1.5),
-        humanLine(75,120, 75,130, 2, 1.5),
-        humanLine(75,120, 88,120, 3, 1.5),
-        humanLine(88,120, 88,130, 2, 1.5),
-        // almenas der
-        humanLine(212,130, 225,130, 3, 1.5),
-        humanLine(225,120, 225,130, 2, 1.5),
-        humanLine(225,120, 240,120, 3, 1.5),
-        // torre izq
-        humanLine(60,130, 90,130, 5, 2),
-        humanLine(60,60, 60,130, 7, 2),
-        humanLine(90,60, 90,130, 7, 2),
-        humanLine(60,60, 90,60, 5, 2),
-        // aguja izq
-        humanLine(60,60, 75,28, 6, 3),
-        humanLine(75,28, 90,60, 6, 3),
-        // torre der
-        humanLine(210,130, 240,130, 5, 2),
-        humanLine(210,60, 210,130, 7, 2),
-        humanLine(240,60, 240,130, 7, 2),
-        humanLine(210,60, 240,60, 5, 2),
-        // aguja der
-        humanLine(210,60, 225,28, 6, 3),
-        humanLine(225,28, 240,60, 6, 3),
-        // torre central
-        humanLine(120,130, 180,130, 6, 2),
-        humanLine(120,55, 120,130, 8, 2),
-        humanLine(180,55, 180,130, 8, 2),
-        humanLine(120,55, 180,55, 6, 2),
-        // aguja central
-        humanLine(120,55, 150,18, 7, 3),
-        humanLine(150,18, 180,55, 7, 3),
-        // puerta
-        [jitter(138,180,1),jitter(138,155,1),jitter(143,148,1),jitter(150,145,1),jitter(157,148,1),jitter(162,155,1),jitter(162,180,1)],
-        // ventanas
-        [jitter(140,95,1.5),jitter(148,88,1.5),jitter(156,95,1.5),jitter(148,102,1.5),jitter(140,95,1.5)],
-    ];
-
-    const SHAPES = { rocket: ROCKET, dino: DINO, castle: CASTLE };
-    const META = {
-        rocket:  { title:'Cohete Espacial',    sub:'⭐ Fácil · 25–35 min · desde 6 años' },
-        dino:    { title:'Dinosaurio T-Rex',   sub:'⭐⭐ Medio · 45–60 min · desde 8 años' },
-        castle:  { title:'Castillo de Cuento', sub:'⭐⭐⭐ Difícil · 80–100 min · desde 10 años' },
-    };
-
-    let currentShape = 'rocket';
-    let animTimer = null;
-    let strokeIndex = 0;
-    let pointIndex = 0;
-    let drawnPaths = [];
-    let currentPathEl = null;
-    let currentD = '';
-    let pencilEl = document.getElementById('tracerPencil');
-    let svgEl = document.getElementById('tracerSvg');
-    const WRAP = document.getElementById('tracerWrap');
-
-    function clearCanvas() {
-        while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-        drawnPaths = [];
-        currentPathEl = null;
-        currentD = '';
-    }
-
-    function getPencilPos(svgX, svgY) {
-        const rect = WRAP.getBoundingClientRect();
-        const svgRect = svgEl.getBoundingClientRect();
-        // Mapear coordenadas SVG (0-300 x 0-240) a píxeles del wrap
-        const scaleX = svgRect.width / 300;
-        const scaleY = svgRect.height / 240;
-        const offsetX = svgRect.left - rect.left;
-        const offsetY = svgRect.top - rect.top;
-        return {
-            left: offsetX + svgX * scaleX,
-            top: offsetY + svgY * scaleY
-        };
-    }
-
-    function startNewStroke(strokeIdx) {
-        const shape = SHAPES[currentShape];
-        if (strokeIdx >= shape.length) {
-            // Terminó — pausa y repite
-            animTimer = setTimeout(() => {
-                clearCanvas();
-                strokeIndex = 0;
-                pointIndex = 0;
-                animateNext();
-            }, 2200);
-            if (pencilEl) pencilEl.style.opacity = '0';
-            return;
-        }
-        // Crear nuevo path SVG
-        currentPathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        const colors = COLORS[currentShape];
-        currentPathEl.setAttribute('stroke', colors[strokeIdx % colors.length]);
-        currentPathEl.setAttribute('stroke-width', (1.8 + Math.random() * 1.4).toFixed(1));
-        currentPathEl.setAttribute('stroke-linecap', 'round');
-        currentPathEl.setAttribute('stroke-linejoin', 'round');
-        currentPathEl.setAttribute('fill', 'none');
-        currentPathEl.setAttribute('opacity', '0.88');
-        svgEl.appendChild(currentPathEl);
-        currentD = '';
-    }
-
-    function animateNext() {
-        const shape = SHAPES[currentShape];
-        if (strokeIndex >= shape.length) {
-            // fin
-            if (pencilEl) pencilEl.style.opacity = '0';
-            animTimer = setTimeout(() => {
-                clearCanvas();
-                strokeIndex = 0;
-                pointIndex = 0;
-                animateNext();
-            }, 2500);
-            return;
-        }
-        const stroke = shape[strokeIndex];
-        if (pointIndex >= stroke.length) {
-            strokeIndex++;
-            pointIndex = 0;
-            // pausa entre trazos
-            animTimer = setTimeout(() => {
-                startNewStroke(strokeIndex);
-                animateNext();
-            }, 60 + Math.random() * 120);
-            return;
-        }
-        const [x, y] = stroke[pointIndex];
-        // Mover lápiz
-        if (pencilEl) {
-            const pos = getPencilPos(x, y);
-            pencilEl.style.left = pos.left + 'px';
-            pencilEl.style.top = pos.top + 'px';
-            pencilEl.style.opacity = '1';
-        }
-        // Dibujar punto
-        if (pointIndex === 0) {
-            currentD = `M ${x.toFixed(1)} ${y.toFixed(1)}`;
-        } else {
-            currentD += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
-        }
-        if (currentPathEl) currentPathEl.setAttribute('d', currentD);
-        pointIndex++;
-        // Velocidad variable: más lento en curvas, más rápido en rectas
-        const speed = 18 + Math.random() * 22;
-        animTimer = setTimeout(animateNext, speed);
-    }
-
-    function startAnimation(shape) {
-        if (animTimer) clearTimeout(animTimer);
-        clearCanvas();
-        currentShape = shape;
-        strokeIndex = 0;
-        pointIndex = 0;
-        if (pencilEl) pencilEl.style.opacity = '0';
-        // Pequeña pausa antes de empezar
-        animTimer = setTimeout(() => {
-            startNewStroke(0);
-            animateNext();
-        }, 300);
-    }
-
-    window.setShape = function(shape, btn) {
-        document.querySelectorAll('.tracer__btn').forEach(b => b.classList.remove('active'));
-        if (btn) btn.classList.add('active');
-        const meta = META[shape];
-        document.getElementById('tracerTitle').textContent = meta.title;
-        document.getElementById('tracerSub').textContent = meta.sub;
-        startAnimation(shape);
-    };
-
-    // Iniciar
-    startAnimation('rocket');
-
-    // Pausar cuando no es visible (performance)
-    const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (!e.isIntersecting && animTimer) {
-                clearTimeout(animTimer);
-            } else if (e.isIntersecting) {
-                startAnimation(currentShape);
-            }
-        });
-    }, { threshold: 0.2 });
-    const tracerEl = document.getElementById('heroTracer');
-    if (tracerEl) obs.observe(tracerEl);
-})();
-
-</script>
-<script>
-/* ── TRACER: Simulador de trazo 3D ── */
-(function(){
-
-function jitter(x,y,a){ return [x+(Math.random()-.5)*a, y+(Math.random()-.5)*a]; }
-
-function line(x1,y1,x2,y2,steps,noise){
-    var pts=[];
-    for(var i=0;i<=steps;i++){
-        var t=i/steps;
-        pts.push([x1+(x2-x1)*t+(Math.random()-.5)*noise, y1+(y2-y1)*t+(Math.random()-.5)*noise]);
-    }
-    return pts;
-}
-
-var SHAPES = {
-    rocket:[
-        [].concat(line(150,42,122,138,10,3), line(122,138,178,138,8,3), line(178,138,150,42,10,3)),
-        line(134,100,166,100,6,2),
-        line(128,118,172,118,6,2),
-        [jitter(150,96,2),jitter(158,89,2),jitter(163,97,2),jitter(157,105,2),jitter(150,108,2),jitter(143,105,2),jitter(137,97,2),jitter(142,89,2),jitter(150,96,2)],
-        [].concat(line(124,138,110,164,6,4), line(110,164,132,148,5,4)),
-        [].concat(line(176,138,190,164,6,4), line(190,164,168,148,5,4)),
-        line(138,115,162,115,4,2)
-    ],
-    dino:[
-        [jitter(145,145,2),jitter(162,126,2),jitter(185,120,2),jitter(206,126,2),jitter(215,142,2),jitter(210,161,2),jitter(193,173,2),jitter(168,176,2),jitter(147,169,2),jitter(138,155,2),jitter(140,145,2)],
-        [jitter(104,90,2),jitter(114,77,2),jitter(130,74,2),jitter(146,80,2),jitter(153,93,2),jitter(148,107,2),jitter(133,113,2),jitter(116,109,2),jitter(106,100,2),jitter(104,90,2)],
-        [jitter(106,101,2),jitter(114,112,2),jitter(130,116,2),jitter(146,109,2)],
-        line(111,104,115,113,2,1.5),
-        line(120,107,122,116,2,1.5),
-        line(129,108,131,116,2,1.5),
-        [].concat(line(145,166,118,171,6,4), line(118,171,92,186,7,5), line(92,186,73,176,5,4)),
-        [].concat(line(170,173,168,196,5,3), line(168,196,158,211,4,3)),
-        [].concat(line(191,171,193,196,5,3), line(193,196,186,211,4,3)),
-        [].concat(line(147,131,134,149,4,3), line(134,149,127,156,3,3)),
-        [jitter(121,87,1.5),jitter(127,82,1.5),jitter(133,87,1.5),jitter(127,92,1.5),jitter(121,87,1.5)]
-    ],
-    castle:[
-        line(58,180,242,180,14,2),
-        line(58,180,58,128,8,2),
-        line(242,180,242,128,8,2),
-        [].concat(line(58,128,74,128,3,1.5),line(74,118,74,128,2,1.5),line(74,118,90,118,3,1.5),line(90,118,90,128,2,1.5)),
-        [].concat(line(210,128,226,128,3,1.5),line(226,118,226,128,2,1.5),line(226,118,242,118,3,1.5)),
-        line(58,128,92,128,5,2),
-        line(58,58,58,128,8,2), line(92,58,92,128,8,2), line(58,58,92,58,5,2),
-        line(58,58,75,24,7,3), line(75,24,92,58,7,3),
-        line(208,128,242,128,5,2),
-        line(208,58,208,128,8,2), line(242,58,242,128,8,2), line(208,58,242,58,5,2),
-        line(208,58,225,24,7,3), line(225,24,242,58,7,3),
-        line(118,130,182,130,7,2),
-        line(118,52,118,130,9,2), line(182,52,182,130,9,2), line(118,52,182,52,7,2),
-        line(118,52,150,14,8,3), line(150,14,182,52,8,3),
-        [jitter(137,180,1),jitter(137,153,1),jitter(143,146,1),jitter(150,143,1),jitter(157,146,1),jitter(163,153,1),jitter(163,180,1)],
-        [jitter(138,97,1.5),jitter(147,89,1.5),jitter(157,97,1.5),jitter(147,105,1.5),jitter(138,97,1.5)]
-    ]
-};
-
-var COLORS = {
-    rocket: ['#FF6B2B','#FF8C5A','#FFD700','#FF6B2B','#FF4444','#FFD700'],
-    dino:   ['#4CAF50','#66BB6A','#2E7D32','#81C784','#4CAF50','#FFD700'],
-    castle: ['#90CAF9','#64B5F6','#42A5F5','#E3F2FD','#90CAF9','#FFD700']
-};
-
-var META = {
-    rocket:  {title:'Cohete Espacial',    sub:'⭐ Fácil · 25–35 min · desde 6 años'},
-    dino:    {title:'Dinosaurio T-Rex',   sub:'⭐⭐ Medio · 45–60 min · desde 8 años'},
-    castle:  {title:'Castillo de Cuento', sub:'⭐⭐⭐ Difícil · 80–100 min · desde 10 años'}
-};
-
-var current='rocket', timer=null, si=0, pi=0, pathEl=null, d='';
-var svgEl, pencilEl, wrapEl;
-
-function init(){
-    svgEl    = document.getElementById('tracerSvg');
-    pencilEl = document.getElementById('tracerPencil');
-    wrapEl   = document.getElementById('tracerWrap');
-    if(!svgEl) return;
-    startAnimation('rocket');
-    var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-            if(e.isIntersecting){ startAnimation(current); }
-            else if(timer){ clearTimeout(timer); }
-        });
-    },{threshold:0.2});
-    var el = document.getElementById('heroTracer');
-    if(el) obs.observe(el);
-}
-
-function clear(){
-    if(!svgEl) return;
-    while(svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-    pathEl=null; d='';
-}
-
-function movePencil(x,y){
-    if(!pencilEl||!wrapEl||!svgEl) return;
-    var sr=svgEl.getBoundingClientRect(), wr=wrapEl.getBoundingClientRect();
-    pencilEl.style.left=(sr.left-wr.left+x*(sr.width/300))+'px';
-    pencilEl.style.top =(sr.top -wr.top +y*(sr.height/240))+'px';
-    pencilEl.style.opacity='1';
-}
-
-function newStroke(idx){
-    if(!svgEl) return;
-    var shape=SHAPES[current];
-    if(idx>=shape.length){
-        if(pencilEl) pencilEl.style.opacity='0';
-        timer=setTimeout(function(){clear();si=0;pi=0;newStroke(0);tick();},2400);
-        return;
-    }
-    pathEl=document.createElementNS('http://www.w3.org/2000/svg','path');
-    var cols=COLORS[current];
-    pathEl.setAttribute('stroke',cols[idx%cols.length]);
-    pathEl.setAttribute('stroke-width',(1.8+Math.random()*1.3).toFixed(1));
-    pathEl.setAttribute('stroke-linecap','round');
-    pathEl.setAttribute('stroke-linejoin','round');
-    pathEl.setAttribute('fill','none');
-    pathEl.setAttribute('opacity','0.9');
-    svgEl.appendChild(pathEl);
-    d='';
-}
-
-function tick(){
-    var shape=SHAPES[current];
-    if(si>=shape.length){ newStroke(si); return; }
-    var stroke=shape[si];
-    if(pi>=stroke.length){
-        si++; pi=0;
-        timer=setTimeout(function(){newStroke(si);tick();},55+Math.random()*110);
-        return;
-    }
-    var pt=stroke[pi];
-    movePencil(pt[0],pt[1]);
-    d+=(pi===0?'M':'L')+' '+pt[0].toFixed(1)+' '+pt[1].toFixed(1)+' ';
-    if(pathEl) pathEl.setAttribute('d',d);
-    pi++;
-    timer=setTimeout(tick, 16+Math.random()*24);
-}
-
-function startAnimation(shape){
-    if(timer) clearTimeout(timer);
-    current=shape; si=0; pi=0;
-    clear();
-    if(pencilEl) pencilEl.style.opacity='0';
-    timer=setTimeout(function(){newStroke(0);tick();},350);
-}
-
-window.setShape=function(shape,btn){
-    document.querySelectorAll('.tracer__btn').forEach(function(b){b.classList.remove('active');});
-    if(btn) btn.classList.add('active');
-    var m=META[shape];
-    var t=document.getElementById('tracerTitle'), s=document.getElementById('tracerSub');
-    if(t) t.textContent=m.title;
-    if(s) s.textContent=m.sub;
-    startAnimation(shape);
-};
-
-if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',init);
-} else { init(); }
-
-})();
-</script>
 
 
 <script>
-/* 3D Minto tracer */
+/* 3D Minto: slider antes/después */
 (function(){
-const VW=300,VH=260;
-function r(n,a){return n+(Math.random()-.5)*(a||2)}
-function seg(pts,n){return pts.map(function(p){return[r(p[0],n||2),r(p[1],n||2)]})}
-function circle(cx,cy,rx,ry,steps,n){
-  var p=[];
-  for(var i=0;i<=steps;i++){var a=i/steps*Math.PI*2;p.push([r(cx+rx*Math.cos(a),n||1.5),r(cy+ry*Math.sin(a),n||1.5)]);}
-  return p;
-}
-function arc(cx,cy,rx,ry,a0,a1,steps,n){
-  var p=[];
-  for(var i=0;i<=steps;i++){var a=a0+(a1-a0)*i/steps;p.push([r(cx+rx*Math.cos(a),n||1.5),r(cy+ry*Math.sin(a),n||1.5)]);}
-  return p;
-}
+  var stage   = document.getElementById('sliderStage');
+  var before  = document.getElementById('imgBefore');
+  var divider = document.getElementById('sliderDivider');
+  var handle  = document.getElementById('sliderHandle');
+  var text    = document.getElementById('sliderText');
+  if(!stage) return;
 
-var SHAPES={
-  rocket:{
-    meta:{title:'Cohete Espacial',sub:'⭐ Fácil · 25–35 min · desde 6 años'},
-    strokes:[
-      {c:'#FF6B2B',p:seg([[150,22],[128,85],[172,85],[150,22]],2)},
-      {c:'#FF6B2B',p:seg([[128,85],[128,170],[172,170],[172,85],[128,85]],2)},
-      {c:'#64B5F6',p:circle(150,112,14,14,20,1.5)},
-      {c:'#FF6B2B',p:seg([[128,132],[100,170],[128,170]],2)},
-      {c:'#FF6B2B',p:seg([[172,132],[200,170],[172,170]],2)},
-      {c:'#FF4500',p:seg([[138,170],[128,196],[142,182],[130,218],[150,190]],3)},
-      {c:'#FFD700',p:seg([[162,170],[172,196],[158,182],[170,218],[150,190]],3)},
-      {c:'#E0E0E0',p:seg([[138,60],[162,60]],1.5)},
-      {c:'#E0E0E0',p:seg([[133,74],[167,74]],1.5)}
-    ]
-  },
-  dino:{
-    meta:{title:'Dinosaurio T-Rex',sub:'⭐⭐ Medio · 45–60 min · desde 8 años'},
-    strokes:[
-      {c:'#4CAF50',p:seg([[62,38],[135,38],[135,62],[62,62],[62,38]],2)},
-      {c:'#4CAF50',p:seg([[62,74],[118,74],[118,88],[62,88]],2)},
-      {c:'#81C784',p:seg([[72,62],[72,74],[80,62]],1.5)},
-      {c:'#81C784',p:seg([[86,62],[86,74],[94,62]],1.5)},
-      {c:'#81C784',p:seg([[100,62],[100,74],[108,62]],1.5)},
-      {c:'#FFCC02',p:circle(105,49,7,7,14,1)},
-      {c:'#4CAF50',p:seg([[135,50],[156,76],[162,92]],2)},
-      {c:'#4CAF50',p:seg([[135,60],[153,82],[160,98]],2)},
-      {c:'#4CAF50',p:circle(196,118,52,42,24,2.5)},
-      {c:'#4CAF50',p:seg([[242,104],[260,90],[276,85],[284,100],[286,118]],3)},
-      {c:'#4CAF50',p:seg([[242,130],[260,135],[275,128],[284,118]],3)},
-      {c:'#4CAF50',p:seg([[168,152],[160,182],[153,210]],2)},
-      {c:'#81C784',p:seg([[153,210],[139,213],[135,218]],2)},
-      {c:'#4CAF50',p:seg([[190,155],[188,185],[184,212]],2)},
-      {c:'#81C784',p:seg([[184,212],[171,215],[167,220]],2)},
-      {c:'#4CAF50',p:seg([[160,108],[148,124],[142,134]],2)}
-    ]
-  },
-  castle:{
-    meta:{title:'Castillo de Cuento',sub:'⭐⭐⭐ Difícil · 80–100 min · desde 10 años'},
-    strokes:[
-      {c:'#90CAF9',p:seg([[75,192],[225,192]],1.5)},
-      {c:'#90CAF9',p:seg([[75,144],[75,192]],1.5)},
-      {c:'#90CAF9',p:seg([[225,144],[225,192]],1.5)},
-      {c:'#90CAF9',p:seg([[75,144],[100,144]],1.5)},
-      {c:'#90CAF9',p:seg([[200,144],[225,144]],1.5)},
-      {c:'#64B5F6',p:seg([[75,144],[75,131],[85,131],[85,144]],1.5)},
-      {c:'#64B5F6',p:seg([[89,144],[89,131],[99,131],[99,144]],1.5)},
-      {c:'#64B5F6',p:seg([[201,144],[201,131],[211,131],[211,144]],1.5)},
-      {c:'#64B5F6',p:seg([[215,144],[215,131],[225,131],[225,144]],1.5)},
-      {c:'#90CAF9',p:seg([[58,144],[58,84],[100,84],[100,144]],2)},
-      {c:'#64B5F6',p:seg([[58,84],[58,72],[69,72],[69,84]],1.5)},
-      {c:'#64B5F6',p:seg([[73,84],[73,72],[84,72],[84,84]],1.5)},
-      {c:'#64B5F6',p:seg([[89,84],[89,72],[100,84]],1.5)},
-      {c:'#E3F2FD',p:seg([[58,84],[79,47],[100,84]],2.5)},
-      {c:'#90CAF9',p:seg([[200,144],[200,84],[243,84],[243,144]],2)},
-      {c:'#64B5F6',p:seg([[200,84],[200,72],[211,72],[211,84]],1.5)},
-      {c:'#64B5F6',p:seg([[217,84],[217,72],[228,72],[228,84]],1.5)},
-      {c:'#64B5F6',p:seg([[232,84],[232,72],[243,72],[243,84]],1.5)},
-      {c:'#E3F2FD',p:seg([[200,84],[222,47],[243,84]],2.5)},
-      {c:'#90CAF9',p:seg([[112,192],[112,58],[188,58],[188,192]],2)},
-      {c:'#64B5F6',p:seg([[112,58],[112,44],[124,44],[124,58]],1.5)},
-      {c:'#64B5F6',p:seg([[128,58],[128,44],[140,44],[140,58]],1.5)},
-      {c:'#64B5F6',p:seg([[144,58],[144,44],[156,44],[156,58]],1.5)},
-      {c:'#64B5F6',p:seg([[160,58],[160,44],[172,44],[172,58]],1.5)},
-      {c:'#64B5F6',p:seg([[176,58],[176,44],[188,44],[188,58]],1.5)},
-      {c:'#E3F2FD',p:seg([[112,58],[150,16],[188,58]],2.5)},
-      {c:'#FFD700',p:circle(150,16,6,6,10,1)},
-      {c:'#E3F2FD',p:arc(150,168,18,18,Math.PI,Math.PI*2,12,1.5)},
-      {c:'#E3F2FD',p:seg([[132,168],[132,192]],1.5)},
-      {c:'#E3F2FD',p:seg([[168,168],[168,192]],1.5)},
-      {c:'#E3F2FD',p:circle(150,108,10,10,12,1)}
-    ]
+  var pct = 50, dragging = false;
+
+  function setPos(p) {
+    p = Math.max(2, Math.min(98, p));
+    pct = p;
+    before.style.clipPath = 'polygon(0 0,'+p+'% 0,'+p+'% 100%,0 100%)';
+    divider.style.left    = p + '%';
+    handle.style.left     = p + '%';
+    if(text) {
+      if(p < 30) {
+        text.innerHTML = 'Todo empieza con una <span style="color:#00B5A3">idea en plano...</span>';
+      } else {
+        text.innerHTML = '¡Y cobra vida en <span style="color:#00B5A3">3D con tus propias manos!</span>';
+      }
+    }
   }
-};
 
-var svg,pen,cv,cur='rocket',timer=null,si=0,pi=0,path=null,d='';
-
-function movePen(x,y){
-  if(!pen||!cv||!svg)return;
-  var sr=svg.getBoundingClientRect(),cr=cv.getBoundingClientRect();
-  pen.style.left=(sr.left-cr.left+x*(sr.width/VW))+'px';
-  pen.style.top =(sr.top -cr.top +y*(sr.height/VH))+'px';
-  pen.style.opacity='1';
-}
-
-function clearSvg(){
-  if(!svg)return;
-  while(svg.firstChild)svg.removeChild(svg.firstChild);
-  path=null;d='';
-}
-
-function beginStroke(i){
-  var strokes=SHAPES[cur].strokes;
-  if(i>=strokes.length){
-    if(pen)pen.style.opacity='0';
-    timer=setTimeout(function(){clearSvg();si=0;pi=0;beginStroke(0);tick();},2800);
-    return;
+  function getPct(clientX) {
+    var rect = stage.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
   }
-  path=document.createElementNS('http://www.w3.org/2000/svg','path');
-  var s=strokes[i];
-  path.setAttribute('stroke',s.c);
-  path.setAttribute('stroke-width',(1.8+Math.random()*1.2).toFixed(1));
-  path.setAttribute('stroke-linecap','round');
-  path.setAttribute('stroke-linejoin','round');
-  path.setAttribute('fill','none');
-  svg.appendChild(path);
-  d='';
-}
 
-function tick(){
-  var strokes=SHAPES[cur].strokes;
-  if(si>=strokes.length){beginStroke(si);return;}
-  var pts=strokes[si].p;
-  if(pi>=pts.length){
-    si++;pi=0;
-    timer=setTimeout(function(){beginStroke(si);tick();},45+Math.random()*85);
-    return;
-  }
-  var pt=pts[pi];
-  movePen(pt[0],pt[1]);
-  d+=(pi===0?'M':'L')+pt[0].toFixed(1)+' '+pt[1].toFixed(1)+' ';
-  if(path)path.setAttribute('d',d);
-  pi++;
-  timer=setTimeout(tick,13+Math.random()*17);
-}
+  stage.addEventListener('mousedown',  function(e){ dragging=true; setPos(getPct(e.clientX)); e.preventDefault(); });
+  stage.addEventListener('touchstart', function(e){ dragging=true; setPos(getPct(e.touches[0].clientX)); }, {passive:true});
+  window.addEventListener('mousemove', function(e){ if(dragging) setPos(getPct(e.clientX)); });
+  window.addEventListener('touchmove', function(e){ if(dragging) setPos(getPct(e.touches[0].clientX)); }, {passive:true});
+  window.addEventListener('mouseup',   function(){ dragging=false; });
+  window.addEventListener('touchend',  function(){ dragging=false; });
 
-function startAnim(shape){
-  if(timer)clearTimeout(timer);
-  cur=shape;si=0;pi=0;clearSvg();
-  if(pen)pen.style.opacity='0';
-  timer=setTimeout(function(){beginStroke(0);tick();},320);
-}
-
-function init(){
-  svg=document.getElementById('tracerSvg');
-  pen=document.getElementById('tracerPen');
-  cv=document.getElementById('tracerCv');
-  if(!svg)return;
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting)startAnim(cur);
-      else if(timer)clearTimeout(timer);
-    });
-  },{threshold:0.25});
-  var el=document.getElementById('heroTracer');
-  if(el)obs.observe(el);
-  startAnim('rocket');
-}
-
-window.tracerPick=function(shape,btn){
-  document.querySelectorAll('.tracer__btn').forEach(function(b){b.classList.remove('on');});
-  if(btn)btn.classList.add('on');
-  var m=SHAPES[shape].meta;
-  var t=document.getElementById('tracerTitle'),s=document.getElementById('tracerSub');
-  if(t)t.textContent=m.title;
-  if(s)s.textContent=m.sub;
-  startAnim(shape);
-};
-
-if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
-else{init();}
+  // Animación de entrada: desliza de 80 a 50
+  var v = 80;
+  var t = setInterval(function(){ v -= 1.2; setPos(v); if(v <= 50) clearInterval(t); }, 16);
 })();
 </script>
-
 </body>
 </html>
