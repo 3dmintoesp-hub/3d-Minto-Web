@@ -298,6 +298,21 @@
     .tracer__specs { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; padding:0 16px 16px; position:relative; z-index:2; }
     .tracer__spec { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:6px 12px; font-size:.72rem; font-weight:600; color:rgba(255,255,255,.7); }
 
+    
+    /* ── TRACER SECTION ── */
+    .home-tracer { padding: 72px 0; background: linear-gradient(180deg, #fff 0%, var(--mint) 100%); }
+    .home-tracer__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .home-tracer__text {}
+    .home-tracer__lead { font-size: 1rem; color: var(--text); line-height: 1.7; margin: 16px 0 20px; max-width: 440px; }
+    .home-tracer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .home-tracer__list li { display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: var(--text); line-height: 1.5; }
+    .home-tracer__check { color: var(--teal); font-weight: 800; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .home-tracer__widget { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .home-tracer__hint { font-size: .75rem; color: var(--text); opacity: .5; text-align: center; }
+    @media(max-width:900px) {
+        .home-tracer__inner { grid-template-columns: 1fr; gap: 40px; }
+        .home-tracer__widget { width: 100%; max-width: 400px; margin: 0 auto; }
+    }
     </style>
 </head>
 
@@ -352,26 +367,20 @@
         </div>
 
         <div class="home-hero__product">
-            <div class="tracer" id="heroTracer">
-    <div class="tracer__selector">
-        <button class="tracer__btn active" data-shape="rocket" onclick="setShape('rocket',this)">🚀 Cohete</button>
-        <button class="tracer__btn" data-shape="dino" onclick="setShape('dino',this)">🦕 Dinosaurio</button>
-        <button class="tracer__btn" data-shape="castle" onclick="setShape('castle',this)">🏰 Castillo</button>
-    </div>
-    <div class="tracer__canvas-wrap" id="tracerWrap">
-        <svg class="tracer__svg" id="tracerSvg" viewBox="0 0 300 240"></svg>
-        <div class="tracer__pencil" id="tracerPencil">✏️</div>
-    </div>
-    <div class="tracer__label">
-        <div class="tracer__label-title" id="tracerTitle">Cohete Espacial</div>
-        <div class="tracer__label-sub" id="tracerSub">⭐ Fácil · 25–35 min · desde 6 años</div>
-    </div>
-    <div class="tracer__specs">
-        <span class="tracer__spec">🌡️ Filamento PCL</span>
-        <span class="tracer__spec">✅ CE</span>
-        <span class="tracer__spec">🛡️ Punta fría</span>
-    </div>
-</div>
+            <div class="home-hero__product-frame">
+                <div class="home-hero__product-icon">✏️</div>
+                <div class="home-hero__product-label">
+                    <div class="home-hero__product-title">Kit Lápiz 3D Minto</div>
+                    <div class="home-hero__product-sub">Lápiz · Caja · Filamento PCL incluido<br>Disponible en Amazon muy pronto</div>
+                </div>
+                <div class="home-hero__product-badge">🛒 Próximamente en Amazon</div>
+                <div class="home-hero__product-specs">
+                    <div class="home-hero__product-spec">🌡️ ≤40°C</div>
+                    <div class="home-hero__product-spec">✅ CE</div>
+                    <div class="home-hero__product-spec">🔋 USB</div>
+                    <div class="home-hero__product-spec">🎨 PCL</div>
+                </div>
+            </div>
         </div>
 
     </section>
@@ -582,6 +591,49 @@
                         <p>La obra de Gaudí en tus manos.</p>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TRACER: ¿Qué pueden crear? -->
+    <section class="home-tracer" id="prueba-el-lapiz">
+        <div class="home-container">
+            <div class="home-tracer__inner">
+                <div class="home-tracer__text">
+                    <span class="home-section-kicker">Míralo en acción</span>
+                    <h2>Así dibuja<br>el lápiz 3D</h2>
+                    <p class="home-tracer__lead">El lápiz traza el filamento capa a capa, igual que lo haría un niño. Sin moldes. Sin impresora. Solo la mano, el lápiz y la imaginación.</p>
+                    <ul class="home-tracer__list">
+                        <li><span class="home-tracer__check">✓</span> Trazo imperfecto y artesanal — eso es lo que lo hace especial</li>
+                        <li><span class="home-tracer__check">✓</span> El filamento PCL se solidifica en segundos al salir</li>
+                        <li><span class="home-tracer__check">✓</span> Cada figura es única — ninguna queda igual</li>
+                    </ul>
+                    <a class="home-btn home-btn--primary" href="ideas.html" style="margin-top:28px;display:inline-flex;">Ver los 15 proyectos →</a>
+                </div>
+                <div class="home-tracer__widget">
+                    <div class="tracer" id="heroTracer">
+                        <div class="tracer__selector">
+                            <button class="tracer__btn active" data-shape="rocket" onclick="setShape('rocket',this)">🚀 Cohete</button>
+                            <button class="tracer__btn" data-shape="dino" onclick="setShape('dino',this)">🦕 Dinosaurio</button>
+                            <button class="tracer__btn" data-shape="castle" onclick="setShape('castle',this)">🏰 Castillo</button>
+                        </div>
+                        <div class="tracer__canvas-wrap" id="tracerWrap">
+                            <svg class="tracer__svg" id="tracerSvg" viewBox="0 0 300 240"></svg>
+                            <div class="tracer__pencil" id="tracerPencil">✏️</div>
+                        </div>
+                        <div class="tracer__label">
+                            <div class="tracer__label-title" id="tracerTitle">Cohete Espacial</div>
+                            <div class="tracer__label-sub" id="tracerSub">⭐ Fácil · 25–35 min · desde 6 años</div>
+                        </div>
+                        <div class="tracer__specs">
+                            <span class="tracer__spec">🌡️ Filamento PCL</span>
+                            <span class="tracer__spec">✅ CE</span>
+                            <span class="tracer__spec">🛡️ Punta fría</span>
+                        </div>
+                    </div>
+                    <p class="home-tracer__hint">← Elige una figura y mira cómo se traza</p>
+                </div>
             </div>
         </div>
     </section>
@@ -986,5 +1038,170 @@ function closeCookies(choice){
 })();
 
 </script>
+<script>
+/* ── TRACER: Simulador de trazo 3D ── */
+(function(){
+
+function jitter(x,y,a){ return [x+(Math.random()-.5)*a, y+(Math.random()-.5)*a]; }
+
+function line(x1,y1,x2,y2,steps,noise){
+    var pts=[];
+    for(var i=0;i<=steps;i++){
+        var t=i/steps;
+        pts.push([x1+(x2-x1)*t+(Math.random()-.5)*noise, y1+(y2-y1)*t+(Math.random()-.5)*noise]);
+    }
+    return pts;
+}
+
+var SHAPES = {
+    rocket:[
+        [].concat(line(150,42,122,138,10,3), line(122,138,178,138,8,3), line(178,138,150,42,10,3)),
+        line(134,100,166,100,6,2),
+        line(128,118,172,118,6,2),
+        [jitter(150,96,2),jitter(158,89,2),jitter(163,97,2),jitter(157,105,2),jitter(150,108,2),jitter(143,105,2),jitter(137,97,2),jitter(142,89,2),jitter(150,96,2)],
+        [].concat(line(124,138,110,164,6,4), line(110,164,132,148,5,4)),
+        [].concat(line(176,138,190,164,6,4), line(190,164,168,148,5,4)),
+        line(138,115,162,115,4,2)
+    ],
+    dino:[
+        [jitter(145,145,2),jitter(162,126,2),jitter(185,120,2),jitter(206,126,2),jitter(215,142,2),jitter(210,161,2),jitter(193,173,2),jitter(168,176,2),jitter(147,169,2),jitter(138,155,2),jitter(140,145,2)],
+        [jitter(104,90,2),jitter(114,77,2),jitter(130,74,2),jitter(146,80,2),jitter(153,93,2),jitter(148,107,2),jitter(133,113,2),jitter(116,109,2),jitter(106,100,2),jitter(104,90,2)],
+        [jitter(106,101,2),jitter(114,112,2),jitter(130,116,2),jitter(146,109,2)],
+        line(111,104,115,113,2,1.5),
+        line(120,107,122,116,2,1.5),
+        line(129,108,131,116,2,1.5),
+        [].concat(line(145,166,118,171,6,4), line(118,171,92,186,7,5), line(92,186,73,176,5,4)),
+        [].concat(line(170,173,168,196,5,3), line(168,196,158,211,4,3)),
+        [].concat(line(191,171,193,196,5,3), line(193,196,186,211,4,3)),
+        [].concat(line(147,131,134,149,4,3), line(134,149,127,156,3,3)),
+        [jitter(121,87,1.5),jitter(127,82,1.5),jitter(133,87,1.5),jitter(127,92,1.5),jitter(121,87,1.5)]
+    ],
+    castle:[
+        line(58,180,242,180,14,2),
+        line(58,180,58,128,8,2),
+        line(242,180,242,128,8,2),
+        [].concat(line(58,128,74,128,3,1.5),line(74,118,74,128,2,1.5),line(74,118,90,118,3,1.5),line(90,118,90,128,2,1.5)),
+        [].concat(line(210,128,226,128,3,1.5),line(226,118,226,128,2,1.5),line(226,118,242,118,3,1.5)),
+        line(58,128,92,128,5,2),
+        line(58,58,58,128,8,2), line(92,58,92,128,8,2), line(58,58,92,58,5,2),
+        line(58,58,75,24,7,3), line(75,24,92,58,7,3),
+        line(208,128,242,128,5,2),
+        line(208,58,208,128,8,2), line(242,58,242,128,8,2), line(208,58,242,58,5,2),
+        line(208,58,225,24,7,3), line(225,24,242,58,7,3),
+        line(118,130,182,130,7,2),
+        line(118,52,118,130,9,2), line(182,52,182,130,9,2), line(118,52,182,52,7,2),
+        line(118,52,150,14,8,3), line(150,14,182,52,8,3),
+        [jitter(137,180,1),jitter(137,153,1),jitter(143,146,1),jitter(150,143,1),jitter(157,146,1),jitter(163,153,1),jitter(163,180,1)],
+        [jitter(138,97,1.5),jitter(147,89,1.5),jitter(157,97,1.5),jitter(147,105,1.5),jitter(138,97,1.5)]
+    ]
+};
+
+var COLORS = {
+    rocket: ['#FF6B2B','#FF8C5A','#FFD700','#FF6B2B','#FF4444','#FFD700'],
+    dino:   ['#4CAF50','#66BB6A','#2E7D32','#81C784','#4CAF50','#FFD700'],
+    castle: ['#90CAF9','#64B5F6','#42A5F5','#E3F2FD','#90CAF9','#FFD700']
+};
+
+var META = {
+    rocket:  {title:'Cohete Espacial',    sub:'⭐ Fácil · 25–35 min · desde 6 años'},
+    dino:    {title:'Dinosaurio T-Rex',   sub:'⭐⭐ Medio · 45–60 min · desde 8 años'},
+    castle:  {title:'Castillo de Cuento', sub:'⭐⭐⭐ Difícil · 80–100 min · desde 10 años'}
+};
+
+var current='rocket', timer=null, si=0, pi=0, pathEl=null, d='';
+var svgEl, pencilEl, wrapEl;
+
+function init(){
+    svgEl    = document.getElementById('tracerSvg');
+    pencilEl = document.getElementById('tracerPencil');
+    wrapEl   = document.getElementById('tracerWrap');
+    if(!svgEl) return;
+    startAnimation('rocket');
+    var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(e.isIntersecting){ startAnimation(current); }
+            else if(timer){ clearTimeout(timer); }
+        });
+    },{threshold:0.2});
+    var el = document.getElementById('heroTracer');
+    if(el) obs.observe(el);
+}
+
+function clear(){
+    if(!svgEl) return;
+    while(svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+    pathEl=null; d='';
+}
+
+function movePencil(x,y){
+    if(!pencilEl||!wrapEl||!svgEl) return;
+    var sr=svgEl.getBoundingClientRect(), wr=wrapEl.getBoundingClientRect();
+    pencilEl.style.left=(sr.left-wr.left+x*(sr.width/300))+'px';
+    pencilEl.style.top =(sr.top -wr.top +y*(sr.height/240))+'px';
+    pencilEl.style.opacity='1';
+}
+
+function newStroke(idx){
+    if(!svgEl) return;
+    var shape=SHAPES[current];
+    if(idx>=shape.length){
+        if(pencilEl) pencilEl.style.opacity='0';
+        timer=setTimeout(function(){clear();si=0;pi=0;newStroke(0);tick();},2400);
+        return;
+    }
+    pathEl=document.createElementNS('http://www.w3.org/2000/svg','path');
+    var cols=COLORS[current];
+    pathEl.setAttribute('stroke',cols[idx%cols.length]);
+    pathEl.setAttribute('stroke-width',(1.8+Math.random()*1.3).toFixed(1));
+    pathEl.setAttribute('stroke-linecap','round');
+    pathEl.setAttribute('stroke-linejoin','round');
+    pathEl.setAttribute('fill','none');
+    pathEl.setAttribute('opacity','0.9');
+    svgEl.appendChild(pathEl);
+    d='';
+}
+
+function tick(){
+    var shape=SHAPES[current];
+    if(si>=shape.length){ newStroke(si); return; }
+    var stroke=shape[si];
+    if(pi>=stroke.length){
+        si++; pi=0;
+        timer=setTimeout(function(){newStroke(si);tick();},55+Math.random()*110);
+        return;
+    }
+    var pt=stroke[pi];
+    movePencil(pt[0],pt[1]);
+    d+=(pi===0?'M':'L')+' '+pt[0].toFixed(1)+' '+pt[1].toFixed(1)+' ';
+    if(pathEl) pathEl.setAttribute('d',d);
+    pi++;
+    timer=setTimeout(tick, 16+Math.random()*24);
+}
+
+function startAnimation(shape){
+    if(timer) clearTimeout(timer);
+    current=shape; si=0; pi=0;
+    clear();
+    if(pencilEl) pencilEl.style.opacity='0';
+    timer=setTimeout(function(){newStroke(0);tick();},350);
+}
+
+window.setShape=function(shape,btn){
+    document.querySelectorAll('.tracer__btn').forEach(function(b){b.classList.remove('active');});
+    if(btn) btn.classList.add('active');
+    var m=META[shape];
+    var t=document.getElementById('tracerTitle'), s=document.getElementById('tracerSub');
+    if(t) t.textContent=m.title;
+    if(s) s.textContent=m.sub;
+    startAnimation(shape);
+};
+
+if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init);
+} else { init(); }
+
+})();
+</script>
+
 </body>
 </html>
