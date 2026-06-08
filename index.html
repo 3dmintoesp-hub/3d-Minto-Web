@@ -270,6 +270,34 @@
     @media(max-width:768px){.site-nav__links{display:none;}}
 
     
+    
+    /* ── TRACER WIDGET ── */
+    .tracer { width:100%; max-width:480px; aspect-ratio:1/1; border-radius:28px; background:rgba(255,255,255,.04); border:1.5px solid rgba(255,255,255,.1); display:flex; flex-direction:column; align-items:stretch; overflow:hidden; position:relative; }
+    .tracer::before { content:''; position:absolute; top:-80px; right:-80px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(16,181,176,.12) 0%,transparent 70%); pointer-events:none; }
+    .tracer::after { content:''; position:absolute; bottom:-60px; left:-60px; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle,rgba(255,122,0,.1) 0%,transparent 70%); pointer-events:none; }
+
+    /* Selector de figuras */
+    .tracer__selector { display:flex; gap:8px; padding:16px 16px 0; position:relative; z-index:2; justify-content:center; }
+    .tracer__btn { background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.12); border-radius:50px; padding:7px 16px; font-size:.78rem; font-weight:700; color:rgba(255,255,255,.6); cursor:pointer; transition:all .2s; font-family:'Fredoka',sans-serif; letter-spacing:.02em; }
+    .tracer__btn:hover { background:rgba(255,255,255,.13); color:#fff; }
+    .tracer__btn.active { background:rgba(255,122,0,.2); border-color:rgba(255,122,0,.5); color:#ff971e; }
+
+    /* Canvas área */
+    .tracer__canvas-wrap { flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:12px; }
+    .tracer__svg { width:100%; height:100%; overflow:visible; }
+
+    /* Lápiz cursor */
+    .tracer__pencil { position:absolute; width:28px; height:28px; pointer-events:none; font-size:22px; line-height:1; transform:translate(-4px,-24px) rotate(-20deg); transition:opacity .15s; z-index:10; filter:drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
+
+    /* Label abajo */
+    .tracer__label { text-align:center; padding:0 16px 14px; position:relative; z-index:2; }
+    .tracer__label-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:700; color:#fff; margin-bottom:2px; }
+    .tracer__label-sub { font-size:.72rem; color:rgba(255,255,255,.45); }
+
+    /* Spec pills */
+    .tracer__specs { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; padding:0 16px 16px; position:relative; z-index:2; }
+    .tracer__spec { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:6px 12px; font-size:.72rem; font-weight:600; color:rgba(255,255,255,.7); }
+
     </style>
 </head>
 
@@ -324,20 +352,26 @@
         </div>
 
         <div class="home-hero__product">
-            <div class="home-hero__product-frame">
-                <div class="home-hero__product-icon">✏️</div>
-                <div class="home-hero__product-label">
-                    <div class="home-hero__product-title">Kit Lápiz 3D Minto</div>
-                    <div class="home-hero__product-sub">Lápiz · Caja · Filamento incluido<br>Disponible en Amazon muy pronto</div>
-                </div>
-                <div class="home-hero__product-badge">🛒 Próximamente en Amazon</div>
-                <div class="home-hero__product-specs">
-                    <div class="home-hero__product-spec">🌡️ ≤40°C</div>
-                    <div class="home-hero__product-spec">✅ CE</div>
-                    <div class="home-hero__product-spec">🔋 USB</div>
-                    <div class="home-hero__product-spec">🎨 PCL</div>
-                </div>
-            </div>
+            <div class="tracer" id="heroTracer">
+    <div class="tracer__selector">
+        <button class="tracer__btn active" data-shape="rocket" onclick="setShape('rocket',this)">🚀 Cohete</button>
+        <button class="tracer__btn" data-shape="dino" onclick="setShape('dino',this)">🦕 Dinosaurio</button>
+        <button class="tracer__btn" data-shape="castle" onclick="setShape('castle',this)">🏰 Castillo</button>
+    </div>
+    <div class="tracer__canvas-wrap" id="tracerWrap">
+        <svg class="tracer__svg" id="tracerSvg" viewBox="0 0 300 240"></svg>
+        <div class="tracer__pencil" id="tracerPencil">✏️</div>
+    </div>
+    <div class="tracer__label">
+        <div class="tracer__label-title" id="tracerTitle">Cohete Espacial</div>
+        <div class="tracer__label-sub" id="tracerSub">⭐ Fácil · 25–35 min · desde 6 años</div>
+    </div>
+    <div class="tracer__specs">
+        <span class="tracer__spec">🌡️ Filamento PCL</span>
+        <span class="tracer__spec">✅ CE</span>
+        <span class="tracer__spec">🛡️ Punta fría</span>
+    </div>
+</div>
         </div>
 
     </section>
@@ -670,5 +704,287 @@ function closeCookies(choice){
 }
 </script>
 
+<script>
+
+(function(){
+    // ── FIGURAS ── cada figura es un array de "strokes" (trazos)
+    // Cada stroke es un array de puntos [x,y]
+    // Los puntos tienen pequeñas imperfecciones para parecer humanos
+
+    function jitter(x, y, amount) {
+        return [
+            x + (Math.random() - 0.5) * amount,
+            y + (Math.random() - 0.5) * amount
+        ];
+    }
+
+    // Genera una curva de bezier con ruido humano entre dos puntos
+    function humanLine(x1, y1, x2, y2, steps, noise) {
+        const pts = [];
+        for (let i = 0; i <= steps; i++) {
+            const t = i / steps;
+            const x = x1 + (x2 - x1) * t;
+            const y = y1 + (y2 - y1) * t;
+            const n = noise * (0.3 + Math.random() * 0.7);
+            pts.push([x + (Math.random()-0.5)*n, y + (Math.random()-0.5)*n]);
+        }
+        return pts;
+    }
+
+    // Convierte array de puntos a path d="..."
+    function toPath(pts) {
+        if (!pts.length) return '';
+        let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+        for (let i = 1; i < pts.length; i++) {
+            d += ` L ${pts[i][0].toFixed(1)} ${pts[i][1].toFixed(1)}`;
+        }
+        return d;
+    }
+
+    // Colores de filamento por trazo
+    const COLORS = {
+        rocket:  ['#FF6B2B','#FF6B2B','#FFD700','#FF6B2B','#FF4444','#FFD700','#FF6B2B'],
+        dino:    ['#4CAF50','#4CAF50','#2E7D32','#81C784','#4CAF50','#FFD700','#4CAF50'],
+        castle:  ['#90CAF9','#90CAF9','#64B5F6','#E3F2FD','#90CAF9','#FFD700','#90CAF9'],
+    };
+
+    // ── COHETE ── (cx=150, cy=120, tamaño ~180px)
+    const ROCKET = [
+        // cuerpo
+        [...humanLine(150,40, 120,140, 10, 3), ...humanLine(120,140, 180,140, 8, 3), ...humanLine(180,140, 150,40, 10, 3)],
+        // relleno cuerpo (líneas internas)
+        humanLine(132,100, 168,100, 6, 2),
+        humanLine(126,120, 174,120, 7, 2),
+        // nariz
+        humanLine(135,68, 165,68, 5, 2),
+        // llama izq
+        [...humanLine(125,140, 112,165, 6, 4), ...humanLine(112,165, 133,148, 5, 4)],
+        // llama der
+        [...humanLine(175,140, 188,165, 6, 4), ...humanLine(188,165, 167,148, 5, 4)],
+        // ventana
+        [jitter(150,95,2), jitter(158,90,2), jitter(163,98,2), jitter(158,106,2), jitter(150,108,2), jitter(142,106,2), jitter(137,98,2), jitter(142,90,2), jitter(150,95,2)],
+    ];
+
+    // ── DINOSAURIO T-REX ──
+    const DINO = [
+        // cuerpo principal oval
+        [jitter(145,145,2),jitter(160,128,2),jitter(185,120,2),jitter(205,125,2),jitter(215,140,2),jitter(210,160,2),jitter(195,172,2),jitter(170,175,2),jitter(148,168,2),jitter(138,155,2),jitter(140,145,2)],
+        // cabeza
+        [jitter(105,90,2),jitter(115,78,2),jitter(130,75,2),jitter(145,80,2),jitter(152,92,2),jitter(148,105,2),jitter(135,112,2),jitter(118,108,2),jitter(108,100,2),jitter(105,90,2)],
+        // mandibula
+        [jitter(108,100,2),jitter(115,110,2),jitter(130,115,2),jitter(145,108,2)],
+        // dientes
+        humanLine(112,104, 115,112, 2, 1),
+        humanLine(120,106, 122,115, 2, 1),
+        humanLine(128,107, 130,115, 2, 1),
+        // cola
+        [...humanLine(145,165, 120,170, 6, 4), ...humanLine(120,170, 95,185, 7, 5), ...humanLine(95,185, 75,175, 5, 4)],
+        // pata trasera
+        [...humanLine(170,172, 168,195, 5, 3), ...humanLine(168,195, 158,210, 4, 3)],
+        [...humanLine(190,170, 192,195, 5, 3), ...humanLine(192,195, 185,210, 4, 3)],
+        // bracito
+        [...humanLine(148,130, 135,148, 4, 3), ...humanLine(135,148, 128,155, 3, 3)],
+        // ojo
+        [jitter(122,86,1.5),jitter(127,83,1.5),jitter(132,86,1.5),jitter(127,90,1.5),jitter(122,86,1.5)],
+    ];
+
+    // ── CASTILLO ──
+    const CASTLE = [
+        // muralla base
+        humanLine(60,180, 240,180, 12, 2),
+        // pared izq
+        humanLine(60,180, 60,130, 7, 2),
+        // pared der
+        humanLine(240,180, 240,130, 7, 2),
+        // almenas izq
+        humanLine(60,130, 75,130, 3, 1.5),
+        humanLine(75,120, 75,130, 2, 1.5),
+        humanLine(75,120, 88,120, 3, 1.5),
+        humanLine(88,120, 88,130, 2, 1.5),
+        // almenas der
+        humanLine(212,130, 225,130, 3, 1.5),
+        humanLine(225,120, 225,130, 2, 1.5),
+        humanLine(225,120, 240,120, 3, 1.5),
+        // torre izq
+        humanLine(60,130, 90,130, 5, 2),
+        humanLine(60,60, 60,130, 7, 2),
+        humanLine(90,60, 90,130, 7, 2),
+        humanLine(60,60, 90,60, 5, 2),
+        // aguja izq
+        humanLine(60,60, 75,28, 6, 3),
+        humanLine(75,28, 90,60, 6, 3),
+        // torre der
+        humanLine(210,130, 240,130, 5, 2),
+        humanLine(210,60, 210,130, 7, 2),
+        humanLine(240,60, 240,130, 7, 2),
+        humanLine(210,60, 240,60, 5, 2),
+        // aguja der
+        humanLine(210,60, 225,28, 6, 3),
+        humanLine(225,28, 240,60, 6, 3),
+        // torre central
+        humanLine(120,130, 180,130, 6, 2),
+        humanLine(120,55, 120,130, 8, 2),
+        humanLine(180,55, 180,130, 8, 2),
+        humanLine(120,55, 180,55, 6, 2),
+        // aguja central
+        humanLine(120,55, 150,18, 7, 3),
+        humanLine(150,18, 180,55, 7, 3),
+        // puerta
+        [jitter(138,180,1),jitter(138,155,1),jitter(143,148,1),jitter(150,145,1),jitter(157,148,1),jitter(162,155,1),jitter(162,180,1)],
+        // ventanas
+        [jitter(140,95,1.5),jitter(148,88,1.5),jitter(156,95,1.5),jitter(148,102,1.5),jitter(140,95,1.5)],
+    ];
+
+    const SHAPES = { rocket: ROCKET, dino: DINO, castle: CASTLE };
+    const META = {
+        rocket:  { title:'Cohete Espacial',    sub:'⭐ Fácil · 25–35 min · desde 6 años' },
+        dino:    { title:'Dinosaurio T-Rex',   sub:'⭐⭐ Medio · 45–60 min · desde 8 años' },
+        castle:  { title:'Castillo de Cuento', sub:'⭐⭐⭐ Difícil · 80–100 min · desde 10 años' },
+    };
+
+    let currentShape = 'rocket';
+    let animTimer = null;
+    let strokeIndex = 0;
+    let pointIndex = 0;
+    let drawnPaths = [];
+    let currentPathEl = null;
+    let currentD = '';
+    let pencilEl = document.getElementById('tracerPencil');
+    let svgEl = document.getElementById('tracerSvg');
+    const WRAP = document.getElementById('tracerWrap');
+
+    function clearCanvas() {
+        while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+        drawnPaths = [];
+        currentPathEl = null;
+        currentD = '';
+    }
+
+    function getPencilPos(svgX, svgY) {
+        const rect = WRAP.getBoundingClientRect();
+        const svgRect = svgEl.getBoundingClientRect();
+        // Mapear coordenadas SVG (0-300 x 0-240) a píxeles del wrap
+        const scaleX = svgRect.width / 300;
+        const scaleY = svgRect.height / 240;
+        const offsetX = svgRect.left - rect.left;
+        const offsetY = svgRect.top - rect.top;
+        return {
+            left: offsetX + svgX * scaleX,
+            top: offsetY + svgY * scaleY
+        };
+    }
+
+    function startNewStroke(strokeIdx) {
+        const shape = SHAPES[currentShape];
+        if (strokeIdx >= shape.length) {
+            // Terminó — pausa y repite
+            animTimer = setTimeout(() => {
+                clearCanvas();
+                strokeIndex = 0;
+                pointIndex = 0;
+                animateNext();
+            }, 2200);
+            if (pencilEl) pencilEl.style.opacity = '0';
+            return;
+        }
+        // Crear nuevo path SVG
+        currentPathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        const colors = COLORS[currentShape];
+        currentPathEl.setAttribute('stroke', colors[strokeIdx % colors.length]);
+        currentPathEl.setAttribute('stroke-width', (1.8 + Math.random() * 1.4).toFixed(1));
+        currentPathEl.setAttribute('stroke-linecap', 'round');
+        currentPathEl.setAttribute('stroke-linejoin', 'round');
+        currentPathEl.setAttribute('fill', 'none');
+        currentPathEl.setAttribute('opacity', '0.88');
+        svgEl.appendChild(currentPathEl);
+        currentD = '';
+    }
+
+    function animateNext() {
+        const shape = SHAPES[currentShape];
+        if (strokeIndex >= shape.length) {
+            // fin
+            if (pencilEl) pencilEl.style.opacity = '0';
+            animTimer = setTimeout(() => {
+                clearCanvas();
+                strokeIndex = 0;
+                pointIndex = 0;
+                animateNext();
+            }, 2500);
+            return;
+        }
+        const stroke = shape[strokeIndex];
+        if (pointIndex >= stroke.length) {
+            strokeIndex++;
+            pointIndex = 0;
+            // pausa entre trazos
+            animTimer = setTimeout(() => {
+                startNewStroke(strokeIndex);
+                animateNext();
+            }, 60 + Math.random() * 120);
+            return;
+        }
+        const [x, y] = stroke[pointIndex];
+        // Mover lápiz
+        if (pencilEl) {
+            const pos = getPencilPos(x, y);
+            pencilEl.style.left = pos.left + 'px';
+            pencilEl.style.top = pos.top + 'px';
+            pencilEl.style.opacity = '1';
+        }
+        // Dibujar punto
+        if (pointIndex === 0) {
+            currentD = `M ${x.toFixed(1)} ${y.toFixed(1)}`;
+        } else {
+            currentD += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
+        }
+        if (currentPathEl) currentPathEl.setAttribute('d', currentD);
+        pointIndex++;
+        // Velocidad variable: más lento en curvas, más rápido en rectas
+        const speed = 18 + Math.random() * 22;
+        animTimer = setTimeout(animateNext, speed);
+    }
+
+    function startAnimation(shape) {
+        if (animTimer) clearTimeout(animTimer);
+        clearCanvas();
+        currentShape = shape;
+        strokeIndex = 0;
+        pointIndex = 0;
+        if (pencilEl) pencilEl.style.opacity = '0';
+        // Pequeña pausa antes de empezar
+        animTimer = setTimeout(() => {
+            startNewStroke(0);
+            animateNext();
+        }, 300);
+    }
+
+    window.setShape = function(shape, btn) {
+        document.querySelectorAll('.tracer__btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        const meta = META[shape];
+        document.getElementById('tracerTitle').textContent = meta.title;
+        document.getElementById('tracerSub').textContent = meta.sub;
+        startAnimation(shape);
+    };
+
+    // Iniciar
+    startAnimation('rocket');
+
+    // Pausar cuando no es visible (performance)
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (!e.isIntersecting && animTimer) {
+                clearTimeout(animTimer);
+            } else if (e.isIntersecting) {
+                startAnimation(currentShape);
+            }
+        });
+    }, { threshold: 0.2 });
+    const tracerEl = document.getElementById('heroTracer');
+    if (tracerEl) obs.observe(tracerEl);
+})();
+
+</script>
 </body>
 </html>
