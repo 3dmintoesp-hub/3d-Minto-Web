@@ -271,32 +271,20 @@
 
     
     
-    /* ── TRACER WIDGET ── */
-    .tracer { width:100%; max-width:480px; aspect-ratio:1/1; border-radius:28px; background:rgba(255,255,255,.04); border:1.5px solid rgba(255,255,255,.1); display:flex; flex-direction:column; align-items:stretch; overflow:hidden; position:relative; }
-    .tracer::before { content:''; position:absolute; top:-80px; right:-80px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(16,181,176,.12) 0%,transparent 70%); pointer-events:none; }
-    .tracer::after { content:''; position:absolute; bottom:-60px; left:-60px; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle,rgba(255,122,0,.1) 0%,transparent 70%); pointer-events:none; }
-
-    /* Selector de figuras */
-    .tracer__selector { display:flex; gap:8px; padding:16px 16px 0; position:relative; z-index:2; justify-content:center; }
-    .tracer__btn { background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.12); border-radius:50px; padding:7px 16px; font-size:.78rem; font-weight:700; color:rgba(255,255,255,.6); cursor:pointer; transition:all .2s; font-family:'Fredoka',sans-serif; letter-spacing:.02em; }
-    .tracer__btn:hover { background:rgba(255,255,255,.13); color:#fff; }
-    .tracer__btn.active { background:rgba(255,122,0,.2); border-color:rgba(255,122,0,.5); color:#ff971e; }
-
-    /* Canvas área */
-    .tracer__canvas-wrap { flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:12px; }
-    .tracer__svg { width:100%; height:100%; overflow:visible; }
-
-    /* Lápiz cursor */
-    .tracer__pencil { position:absolute; width:28px; height:28px; pointer-events:none; font-size:22px; line-height:1; transform:translate(-4px,-24px) rotate(-20deg); transition:opacity .15s; z-index:10; filter:drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
-
-    /* Label abajo */
-    .tracer__label { text-align:center; padding:0 16px 14px; position:relative; z-index:2; }
-    .tracer__label-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:700; color:#fff; margin-bottom:2px; }
-    .tracer__label-sub { font-size:.72rem; color:rgba(255,255,255,.45); }
-
-    /* Spec pills */
-    .tracer__specs { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; padding:0 16px 16px; position:relative; z-index:2; }
-    .tracer__spec { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:6px 12px; font-size:.72rem; font-weight:600; color:rgba(255,255,255,.7); }
+    /* ── TRACER ── */
+    .tracer{background:#1A2C4E;border-radius:20px;overflow:hidden;padding:14px;width:100%;max-width:460px}
+    .tracer__btns{display:flex;gap:8px;margin-bottom:12px;justify-content:center}
+    .tracer__btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.15);border-radius:50px;padding:7px 16px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55);cursor:pointer;transition:all .2s}
+    .tracer__btn:hover{background:rgba(255,255,255,.16);color:#fff}
+    .tracer__btn.on{background:rgba(255,107,43,.3);border-color:rgba(255,107,43,.7);color:#FF8C5A}
+    .tracer__cv{position:relative;width:100%;height:260px}
+    .tracer__svg{position:absolute;top:0;left:0;width:100%;height:100%}
+    .tracer__pen{position:absolute;font-size:18px;transform:translate(-4px,-18px) rotate(-25deg);pointer-events:none;opacity:0;z-index:10;transition:opacity .1s}
+    .tracer__info{text-align:center;padding:10px 0 4px}
+    .tracer__title{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:3px}
+    .tracer__sub{font-size:.72rem;color:rgba(255,255,255,.45)}
+    .tracer__pills{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding-top:8px}
+    .tracer__pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:4px 10px;font-size:.7rem;color:rgba(255,255,255,.6)}
 
     
     /* ── TRACER SECTION ── */
@@ -612,25 +600,26 @@
                     <a class="home-btn home-btn--primary" href="ideas.html" style="margin-top:28px;display:inline-flex;">Ver los 15 proyectos →</a>
                 </div>
                 <div class="home-tracer__widget">
-                    <div class="tracer" id="heroTracer">
-                        <div class="tracer__selector">
-                            <button class="tracer__btn active" data-shape="rocket" onclick="setShape('rocket',this)">🚀 Cohete</button>
-                            <button class="tracer__btn" data-shape="dino" onclick="setShape('dino',this)">🦕 Dinosaurio</button>
-                            <button class="tracer__btn" data-shape="castle" onclick="setShape('castle',this)">🏰 Castillo</button>
+                                        <div class="tracer" id="heroTracer">
+                        <div class="tracer__btns">
+                            <button class="tracer__btn on" onclick="tracerPick('rocket',this)">🚀 Cohete</button>
+                            <button class="tracer__btn" onclick="tracerPick('dino',this)">🦕 T-Rex</button>
+                            <button class="tracer__btn" onclick="tracerPick('castle',this)">🏰 Castillo</button>
                         </div>
-                        <div class="tracer__canvas-wrap" id="tracerWrap">
-                            <svg class="tracer__svg" id="tracerSvg" viewBox="0 0 300 240"></svg>
-                            <div class="tracer__pencil" id="tracerPencil">✏️</div>
+                        <div class="tracer__cv" id="tracerCv">
+                            <svg class="tracer__svg" id="tracerSvg" viewBox="0 0 300 260" preserveAspectRatio="xMidYMid meet"></svg>
+                            <div class="tracer__pen" id="tracerPen">✏️</div>
                         </div>
-                        <div class="tracer__label">
-                            <div class="tracer__label-title" id="tracerTitle">Cohete Espacial</div>
-                            <div class="tracer__label-sub" id="tracerSub">⭐ Fácil · 25–35 min · desde 6 años</div>
+                        <div class="tracer__info">
+                            <div class="tracer__title" id="tracerTitle">Cohete Espacial</div>
+                            <div class="tracer__sub" id="tracerSub">⭐ Fácil · 25–35 min · desde 6 años</div>
                         </div>
-                        <div class="tracer__specs">
-                            <span class="tracer__spec">🌡️ Filamento PCL</span>
-                            <span class="tracer__spec">✅ CE</span>
-                            <span class="tracer__spec">🛡️ Punta fría</span>
+                        <div class="tracer__pills">
+                            <span class="tracer__pill">🌡️ PCL · baja temperatura</span>
+                            <span class="tracer__pill">✅ Certificado CE</span>
+                            <span class="tracer__pill">🛡️ Punta fría</span>
                         </div>
+                    </div>
                     </div>
                     <p class="home-tracer__hint">← Elige una figura y mira cómo se traza</p>
                 </div>
@@ -1200,6 +1189,187 @@ if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',init);
 } else { init(); }
 
+})();
+</script>
+
+
+<script>
+/* 3D Minto tracer */
+(function(){
+const VW=300,VH=260;
+function r(n,a){return n+(Math.random()-.5)*(a||2)}
+function seg(pts,n){return pts.map(function(p){return[r(p[0],n||2),r(p[1],n||2)]})}
+function circle(cx,cy,rx,ry,steps,n){
+  var p=[];
+  for(var i=0;i<=steps;i++){var a=i/steps*Math.PI*2;p.push([r(cx+rx*Math.cos(a),n||1.5),r(cy+ry*Math.sin(a),n||1.5)]);}
+  return p;
+}
+function arc(cx,cy,rx,ry,a0,a1,steps,n){
+  var p=[];
+  for(var i=0;i<=steps;i++){var a=a0+(a1-a0)*i/steps;p.push([r(cx+rx*Math.cos(a),n||1.5),r(cy+ry*Math.sin(a),n||1.5)]);}
+  return p;
+}
+
+var SHAPES={
+  rocket:{
+    meta:{title:'Cohete Espacial',sub:'⭐ Fácil · 25–35 min · desde 6 años'},
+    strokes:[
+      {c:'#FF6B2B',p:seg([[150,22],[128,85],[172,85],[150,22]],2)},
+      {c:'#FF6B2B',p:seg([[128,85],[128,170],[172,170],[172,85],[128,85]],2)},
+      {c:'#64B5F6',p:circle(150,112,14,14,20,1.5)},
+      {c:'#FF6B2B',p:seg([[128,132],[100,170],[128,170]],2)},
+      {c:'#FF6B2B',p:seg([[172,132],[200,170],[172,170]],2)},
+      {c:'#FF4500',p:seg([[138,170],[128,196],[142,182],[130,218],[150,190]],3)},
+      {c:'#FFD700',p:seg([[162,170],[172,196],[158,182],[170,218],[150,190]],3)},
+      {c:'#E0E0E0',p:seg([[138,60],[162,60]],1.5)},
+      {c:'#E0E0E0',p:seg([[133,74],[167,74]],1.5)}
+    ]
+  },
+  dino:{
+    meta:{title:'Dinosaurio T-Rex',sub:'⭐⭐ Medio · 45–60 min · desde 8 años'},
+    strokes:[
+      {c:'#4CAF50',p:seg([[62,38],[135,38],[135,62],[62,62],[62,38]],2)},
+      {c:'#4CAF50',p:seg([[62,74],[118,74],[118,88],[62,88]],2)},
+      {c:'#81C784',p:seg([[72,62],[72,74],[80,62]],1.5)},
+      {c:'#81C784',p:seg([[86,62],[86,74],[94,62]],1.5)},
+      {c:'#81C784',p:seg([[100,62],[100,74],[108,62]],1.5)},
+      {c:'#FFCC02',p:circle(105,49,7,7,14,1)},
+      {c:'#4CAF50',p:seg([[135,50],[156,76],[162,92]],2)},
+      {c:'#4CAF50',p:seg([[135,60],[153,82],[160,98]],2)},
+      {c:'#4CAF50',p:circle(196,118,52,42,24,2.5)},
+      {c:'#4CAF50',p:seg([[242,104],[260,90],[276,85],[284,100],[286,118]],3)},
+      {c:'#4CAF50',p:seg([[242,130],[260,135],[275,128],[284,118]],3)},
+      {c:'#4CAF50',p:seg([[168,152],[160,182],[153,210]],2)},
+      {c:'#81C784',p:seg([[153,210],[139,213],[135,218]],2)},
+      {c:'#4CAF50',p:seg([[190,155],[188,185],[184,212]],2)},
+      {c:'#81C784',p:seg([[184,212],[171,215],[167,220]],2)},
+      {c:'#4CAF50',p:seg([[160,108],[148,124],[142,134]],2)}
+    ]
+  },
+  castle:{
+    meta:{title:'Castillo de Cuento',sub:'⭐⭐⭐ Difícil · 80–100 min · desde 10 años'},
+    strokes:[
+      {c:'#90CAF9',p:seg([[75,192],[225,192]],1.5)},
+      {c:'#90CAF9',p:seg([[75,144],[75,192]],1.5)},
+      {c:'#90CAF9',p:seg([[225,144],[225,192]],1.5)},
+      {c:'#90CAF9',p:seg([[75,144],[100,144]],1.5)},
+      {c:'#90CAF9',p:seg([[200,144],[225,144]],1.5)},
+      {c:'#64B5F6',p:seg([[75,144],[75,131],[85,131],[85,144]],1.5)},
+      {c:'#64B5F6',p:seg([[89,144],[89,131],[99,131],[99,144]],1.5)},
+      {c:'#64B5F6',p:seg([[201,144],[201,131],[211,131],[211,144]],1.5)},
+      {c:'#64B5F6',p:seg([[215,144],[215,131],[225,131],[225,144]],1.5)},
+      {c:'#90CAF9',p:seg([[58,144],[58,84],[100,84],[100,144]],2)},
+      {c:'#64B5F6',p:seg([[58,84],[58,72],[69,72],[69,84]],1.5)},
+      {c:'#64B5F6',p:seg([[73,84],[73,72],[84,72],[84,84]],1.5)},
+      {c:'#64B5F6',p:seg([[89,84],[89,72],[100,84]],1.5)},
+      {c:'#E3F2FD',p:seg([[58,84],[79,47],[100,84]],2.5)},
+      {c:'#90CAF9',p:seg([[200,144],[200,84],[243,84],[243,144]],2)},
+      {c:'#64B5F6',p:seg([[200,84],[200,72],[211,72],[211,84]],1.5)},
+      {c:'#64B5F6',p:seg([[217,84],[217,72],[228,72],[228,84]],1.5)},
+      {c:'#64B5F6',p:seg([[232,84],[232,72],[243,72],[243,84]],1.5)},
+      {c:'#E3F2FD',p:seg([[200,84],[222,47],[243,84]],2.5)},
+      {c:'#90CAF9',p:seg([[112,192],[112,58],[188,58],[188,192]],2)},
+      {c:'#64B5F6',p:seg([[112,58],[112,44],[124,44],[124,58]],1.5)},
+      {c:'#64B5F6',p:seg([[128,58],[128,44],[140,44],[140,58]],1.5)},
+      {c:'#64B5F6',p:seg([[144,58],[144,44],[156,44],[156,58]],1.5)},
+      {c:'#64B5F6',p:seg([[160,58],[160,44],[172,44],[172,58]],1.5)},
+      {c:'#64B5F6',p:seg([[176,58],[176,44],[188,44],[188,58]],1.5)},
+      {c:'#E3F2FD',p:seg([[112,58],[150,16],[188,58]],2.5)},
+      {c:'#FFD700',p:circle(150,16,6,6,10,1)},
+      {c:'#E3F2FD',p:arc(150,168,18,18,Math.PI,Math.PI*2,12,1.5)},
+      {c:'#E3F2FD',p:seg([[132,168],[132,192]],1.5)},
+      {c:'#E3F2FD',p:seg([[168,168],[168,192]],1.5)},
+      {c:'#E3F2FD',p:circle(150,108,10,10,12,1)}
+    ]
+  }
+};
+
+var svg,pen,cv,cur='rocket',timer=null,si=0,pi=0,path=null,d='';
+
+function movePen(x,y){
+  if(!pen||!cv||!svg)return;
+  var sr=svg.getBoundingClientRect(),cr=cv.getBoundingClientRect();
+  pen.style.left=(sr.left-cr.left+x*(sr.width/VW))+'px';
+  pen.style.top =(sr.top -cr.top +y*(sr.height/VH))+'px';
+  pen.style.opacity='1';
+}
+
+function clearSvg(){
+  if(!svg)return;
+  while(svg.firstChild)svg.removeChild(svg.firstChild);
+  path=null;d='';
+}
+
+function beginStroke(i){
+  var strokes=SHAPES[cur].strokes;
+  if(i>=strokes.length){
+    if(pen)pen.style.opacity='0';
+    timer=setTimeout(function(){clearSvg();si=0;pi=0;beginStroke(0);tick();},2800);
+    return;
+  }
+  path=document.createElementNS('http://www.w3.org/2000/svg','path');
+  var s=strokes[i];
+  path.setAttribute('stroke',s.c);
+  path.setAttribute('stroke-width',(1.8+Math.random()*1.2).toFixed(1));
+  path.setAttribute('stroke-linecap','round');
+  path.setAttribute('stroke-linejoin','round');
+  path.setAttribute('fill','none');
+  svg.appendChild(path);
+  d='';
+}
+
+function tick(){
+  var strokes=SHAPES[cur].strokes;
+  if(si>=strokes.length){beginStroke(si);return;}
+  var pts=strokes[si].p;
+  if(pi>=pts.length){
+    si++;pi=0;
+    timer=setTimeout(function(){beginStroke(si);tick();},45+Math.random()*85);
+    return;
+  }
+  var pt=pts[pi];
+  movePen(pt[0],pt[1]);
+  d+=(pi===0?'M':'L')+pt[0].toFixed(1)+' '+pt[1].toFixed(1)+' ';
+  if(path)path.setAttribute('d',d);
+  pi++;
+  timer=setTimeout(tick,13+Math.random()*17);
+}
+
+function startAnim(shape){
+  if(timer)clearTimeout(timer);
+  cur=shape;si=0;pi=0;clearSvg();
+  if(pen)pen.style.opacity='0';
+  timer=setTimeout(function(){beginStroke(0);tick();},320);
+}
+
+function init(){
+  svg=document.getElementById('tracerSvg');
+  pen=document.getElementById('tracerPen');
+  cv=document.getElementById('tracerCv');
+  if(!svg)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting)startAnim(cur);
+      else if(timer)clearTimeout(timer);
+    });
+  },{threshold:0.25});
+  var el=document.getElementById('heroTracer');
+  if(el)obs.observe(el);
+  startAnim('rocket');
+}
+
+window.tracerPick=function(shape,btn){
+  document.querySelectorAll('.tracer__btn').forEach(function(b){b.classList.remove('on');});
+  if(btn)btn.classList.add('on');
+  var m=SHAPES[shape].meta;
+  var t=document.getElementById('tracerTitle'),s=document.getElementById('tracerSub');
+  if(t)t.textContent=m.title;
+  if(s)s.textContent=m.sub;
+  startAnim(shape);
+};
+
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+else{init();}
 })();
 </script>
 
