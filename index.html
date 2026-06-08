@@ -6,7 +6,7 @@
 <title>3D Minto | Lápiz 3D para niños — Crea figuras reales en 3D</title>
 <meta name="description" content="3D Minto es el lápiz 3D para niños desde 6 años. Crea dinosaurios, cohetes, castillos y más con guías paso a paso. Seguro, divertido y para toda la familia.">
 <meta property="og:title" content="3D Minto | Lápiz 3D para niños">
-<meta property="og:description" content="Crea figuras reales en 3D con el lápiz 3D de 3D Minto. 14 proyectos guiados para niños desde 6 años. Seguro, divertido y para toda la familia.">
+<meta property="og:description" content="Crea figuras reales en 3D con el lápiz 3D de 3D Minto. 15 proyectos guiados para niños desde 6 años. Seguro, divertido y para toda la familia.">
 <meta property="og:image" content="https://3dminto.es/images/child.png">
 <meta property="og:url" content="https://3dminto.es/">
 <meta property="og:type" content="website">
@@ -269,6 +269,22 @@
     .site-nav__cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(255,153,0,.45);background:#ffaa00;}
     @media(max-width:768px){.site-nav__links{display:none;}}
 
+    
+    /* ── BANNER PRÓXIMAMENTE ── */
+    .coming-banner { background: linear-gradient(135deg, rgba(0,181,163,.12) 0%, rgba(255,122,0,.08) 100%); border: 1.5px solid rgba(0,181,163,.25); border-radius: 20px; padding: 20px 28px; margin-top: 32px; }
+    .coming-banner__inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .coming-banner__icon { font-size: 1.8rem; flex-shrink: 0; }
+    .coming-banner__text { flex: 1; min-width: 200px; }
+    .coming-banner__text strong { display: block; color: #fff; font-size: .95rem; font-weight: 700; margin-bottom: 3px; }
+    .coming-banner__text span { color: rgba(255,255,255,.6); font-size: .82rem; line-height: 1.4; }
+    .coming-banner__form { display: flex; gap: 8px; flex-shrink: 0; }
+    .coming-banner__input { background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.2); border-radius: 10px; padding: 10px 16px; color: #fff; font-size: .88rem; font-family: inherit; outline: none; width: 200px; transition: border-color .2s; }
+    .coming-banner__input::placeholder { color: rgba(255,255,255,.4); }
+    .coming-banner__input:focus { border-color: rgba(0,181,163,.6); }
+    .coming-banner__btn { background: #00B5A3; color: #fff; border: none; border-radius: 10px; padding: 10px 20px; font-size: .88rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: background .2s, transform .15s; font-family: inherit; }
+    .coming-banner__btn:hover { background: #008F80; transform: translateY(-1px); }
+    .coming-banner__success { display: none; color: #5EEADA; font-size: .88rem; font-weight: 600; align-items: center; gap: 6px; }
+    @media(max-width:640px) { .coming-banner__form { width: 100%; } .coming-banner__input { flex: 1; width: auto; } }
     </style>
 </head>
 
@@ -297,7 +313,7 @@
                 <li><a href="faq.html">FAQ</a></li>
                 </ul>
     </nav>
-    <a class="site-nav__cta" href="#"><svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:2px"><path d="M1 4C3.5 8.5 8 10.5 16.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 6.5L16.5 8L14.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ver en Amazon</a>
+    <a class="site-nav__cta" href="#avísame"><svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:2px"><path d="M1 4C3.5 8.5 8 10.5 16.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 6.5L16.5 8L14.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ver en Amazon</a>
 </header>
 
 <main>
@@ -316,9 +332,24 @@
                 <span class="home-hero__badge-item">✅ Certificación CE</span>
             </div>
             <div class="home-actions">
-                <a class="home-btn home-btn--primary" href="#proyectos">Ver los 14 proyectos →</a>
-                <a class="home-btn home-btn--ghost" href="#"><svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:2px"><path d="M1 4C3.5 8.5 8 10.5 16.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 6.5L16.5 8L14.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ver en Amazon</a>
-            </div>
+                <a class="home-btn home-btn--primary" href="#proyectos">Ver los 15 proyectos →</a>
+                <a class="home-btn home-btn--ghost" href="#avísame"><svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:2px"><path d="M1 4C3.5 8.5 8 10.5 16.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 6.5L16.5 8L14.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ver en Amazon</a>
+            
+      <!-- PRÓXIMAMENTE BANNER -->
+      <div class="coming-banner" id="avísame">
+        <div class="coming-banner__inner">
+          <div class="coming-banner__icon">🚀</div>
+          <div class="coming-banner__text">
+            <strong>Disponible en Amazon muy pronto</strong>
+            <span>Déjanos tu email y te avisamos el día que salga — con descuento de lanzamiento.</span>
+          </div>
+          <form class="coming-banner__form" onsubmit="handleEmailSubmit(event)">
+            <input type="email" class="coming-banner__input" placeholder="tu@email.com" required aria-label="Tu email" />
+            <button type="submit" class="coming-banner__btn">Avísame →</button>
+          </form>
+        </div>
+      </div>
+      </div>
         </div>
 
         <div class="home-hero__product">
@@ -326,9 +357,9 @@
                 <div class="home-hero__product-icon">✏️</div>
                 <div class="home-hero__product-label">
                     <div class="home-hero__product-title">Kit Lápiz 3D Minto</div>
-                    <div class="home-hero__product-sub">Lápiz · Caja · Filamento incluido<br>Foto oficial del producto</div>
+                    <div class="home-hero__product-sub">Lápiz · Caja · Filamento incluido<br>Disponible en Amazon muy pronto</div>
                 </div>
-                <div class="home-hero__product-badge">📸 Foto próximamente</div>
+                <div class="home-hero__product-badge">🛒 Próximamente en Amazon</div>
                 <div class="home-hero__product-specs">
                     <div class="home-hero__product-spec">🌡️ ≤40°C</div>
                     <div class="home-hero__product-spec">✅ CE</div>
@@ -360,7 +391,7 @@
                 </article>
                 <article class="home-why__card">
                     <div class="home-why__icon">📐</div>
-                    <h3>14 proyectos guiados</h3>
+                    <h3>15 proyectos guiados</h3>
                     <p>Desde un cohete sencillo hasta la Sagrada Família. Cada proyecto tiene pasos claros para que no se pierdan en el camino.</p>
                 </article>
                 <article class="home-why__card">
@@ -410,14 +441,14 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn-amazon"><svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0;"><path d="M1 4C3.5 8.5 8 10.5 16.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 6.5L16.5 8L14.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ver en Amazon</a>
+                    <a href="#avísame" class="btn-amazon"><svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0;"><path d="M1 4C3.5 8.5 8 10.5 16.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 6.5L16.5 8L14.5 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ver en Amazon</a>
                 </div>
                 <div class="product-visual">
                     <div class="product-visual__main">
                         <div class="product-visual__pencil">
                             <div class="product-visual__pencil-icon">✏️</div>
                             <div class="product-visual__pencil-name">Lápiz 3D Minto</div>
-                            <div class="product-visual__pencil-sub">Fotos del producto próximamente</div>
+                            <div class="product-visual__pencil-sub">Disponible en Amazon muy pronto</div>
                         </div>
                     </div>
                     <div class="product-visual__badges">
@@ -463,7 +494,7 @@
                     <span class="home-section-kicker">Ideas para empezar</span>
                     <h2>Proyectos que inspiran</h2>
                 </div>
-                <a class="home-projects__link" href="ideas.html">Ver los 14 proyectos →</a>
+                <a class="home-projects__link" href="ideas.html">Ver los 15 proyectos →</a>
             </div>
             <div class="home-projects__grid">
                 <a class="home-project" href="ideas/torre-eiffel.html">
@@ -626,7 +657,7 @@
       <p class="site-footer__lead">Crea figuras increíbles con tu lápiz 3D.<br>Seguro, divertido y para toda la familia.</p>
       <div class="site-footer__social">
         <a href="https://www.instagram.com/3dminto.es" target="_blank" rel="noopener">📷 Instagram</a>
-        <a href="#">🛒 Amazon</a>
+        <a href="#avísame">🛒 Amazon</a>
       </div>
     </div>
     <div>
