@@ -312,9 +312,9 @@
     .slider-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#00B5A3;transform:translateX(-50%);pointer-events:none;z-index:5}
     .slider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#00B5A3;border:3px solid #fff;box-shadow:0 4px 18px rgba(0,0,0,.4);z-index:6;display:flex;align-items:center;justify-content:center;cursor:ew-resize}
     .slider-handle svg{width:20px;height:20px}
-    .slider-tag{position:absolute;top:12px;padding:5px 12px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;z-index:4;pointer-events:none}
-    .slider-tag--before{left:12px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25)}
-    .slider-tag--after{right:12px;background:rgba(0,181,163,.25);color:#00B5A3;border:1px solid rgba(0,181,163,.4)}
+    .slider-tag{position:absolute;top:12px;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;z-index:4;pointer-events:none;backdrop-filter:blur(4px)}
+    .slider-tag--before{left:12px;background:rgba(15,29,74,.75);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+    .slider-tag--after{right:12px;background:rgba(0,181,163,.85);color:#fff;border:1.5px solid #00B5A3}
     .slider-footer{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px 16px 16px}
     .slider-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,.6)}
     </style>
@@ -633,12 +633,9 @@
                             <div class="slider-tag slider-tag--after">En 3D ✦</div>
                         </div>
                         <div class="slider-footer">
-                            <span class="slider-pill">🎨 Lápiz 3D PCL</span>
-                            <span class="slider-pill">✅ Certificado CE</span>
-                            <span class="slider-pill">🛡️ Baja temperatura</span>
+                            <span class="slider-pill">✏️ Desliza para ver la transformación</span>
                         </div>
                     </div>
-                    <p class="home-tracer__hint">← Elige una figura y mira cómo se traza</p>
                 </div>
             </div>
         </div>
