@@ -429,7 +429,7 @@
             <div class="home-hero__badges">
                 <span class="home-hero__badge-item">🌡️ Filamento PCL · Baja temperatura</span>
                 <span class="home-hero__badge-item">🧪 No tóxico · Sin humos</span>
-                <span class="home-hero__badge-item">🛡️ Punta fría · No quema</span>
+                <span class="home-hero__badge-item">🛡️ Punta a baja temperatura</span>
                 <span class="home-hero__badge-item">👨‍👩‍👧 Para hacer en familia</span>
                 <span class="home-hero__badge-item">📋 Proyectos paso a paso incluidos</span>
                 <span class="home-hero__badge-item">✅ Certificación CE</span>
@@ -450,7 +450,7 @@
                 </div>
                 <div class="home-hero__product-badge">🛒 Próximamente en Amazon</div>
                 <div class="home-hero__product-specs">
-                    <div class="home-hero__product-spec">🌡️ ≤40°C</div>
+                    <div class="home-hero__product-spec">🌡️ Baja Tª</div>
                     <div class="home-hero__product-spec">✅ CE</div>
                     <div class="home-hero__product-spec">🔋 USB</div>
                     <div class="home-hero__product-spec">🎨 PCL</div>
@@ -471,7 +471,7 @@
                 <article class="home-why__card">
                     <div class="home-why__icon">🛡️</div>
                     <h3>Seguro desde los 6 años</h3>
-                    <p>Funciona a baja temperatura — el filamento no quema. Certificado CE. Diseñado para que los niños lo usen de forma autónoma.</p>
+                    <p>Funciona a baja temperatura, pensado para reducir el riesgo de quemaduras. Cumple la normativa europea de juguetes (EN71) y usa filamento PCL no tóxico.</p>
                 </article>
                 <article class="home-why__card">
                     <div class="home-why__icon">🏆</div>
@@ -492,6 +492,47 @@
         </div>
     </section>
 
+    <!-- TRACER: ¿Qué pueden crear? -->
+    <section class="home-tracer" id="prueba-el-lapiz">
+        <div class="home-container">
+            <div class="home-tracer__inner">
+                <div class="home-tracer__text">
+                    <span class="home-section-kicker">De la idea al objeto real</span>
+                    <h2 style="font-family:'Fredoka',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.1;letter-spacing:-.02em;margin-bottom:0">Un boceto en papel.<br><span style="color:var(--orange)">Una figura en tus manos.</span></h2>
+                    <p class="home-tracer__lead">Desliza el divisor y ve la transformación. Lo que empieza como un simple dibujo sobre papel, el lápiz 3D lo convierte en un objeto real que puedes tocar y guardar.</p>
+                    <ul class="home-tracer__list">
+                        <li><span class="home-tracer__check">✓</span> Sin moldes ni impresora — solo el lápiz y la mano del niño</li>
+                        <li><span class="home-tracer__check">✓</span> El filamento PCL sale caliente y se solidifica en segundos</li>
+                        <li><span class="home-tracer__check">✓</span> Cada figura queda diferente — es suya, no de nadie más</li>
+                    </ul>
+                    <a class="home-btn home-btn--primary" href="ideas.html" style="margin-top:28px;display:inline-flex;">Ver los 15 proyectos →</a>
+                </div>
+                <div class="home-tracer__widget">
+                                                            <div class="slider-wrap" id="sliderWrap">
+                        <div class="slider-label">
+                            <p id="sliderText">Todo empieza con una <span>idea en plano...</span></p>
+                        </div>
+                        <div class="slider-stage" id="sliderStage">
+                            <img class="img-after" src="images/despues.png" alt="Figura 3D terminada con lápiz 3D Minto" draggable="false" />
+                            <img class="img-before" id="imgBefore" src="images/antes.png" alt="Boceto en papel del proyecto" draggable="false" />
+                            <div class="slider-divider" id="sliderDivider"></div>
+                            <div class="slider-handle" id="sliderHandle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+                                    <path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/>
+                                </svg>
+                            </div>
+                            <div class="slider-tag slider-tag--before">Boceto</div>
+                            <div class="slider-tag slider-tag--after">En 3D ✦</div>
+                        </div>
+                        <div class="slider-footer">
+                            <span class="slider-pill">← Arrastra el divisor →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PRODUCT -->
     <section id="producto" class="home-product" id="lapiz">
         <div class="home-container">
@@ -504,8 +545,8 @@
                         <div class="home-spec">
                             <div class="home-spec__icon" style="background:#E0F7F5;">🌡️</div>
                             <div>
-                                <div class="home-spec__name">Temperatura máxima ≤40°C</div>
-                                <div class="home-spec__desc">El filamento sale frío al tacto. Sin riesgo de quemadura desde los 6 años.</div>
+                                <div class="home-spec__name">Punta a baja temperatura</div>
+                                <div class="home-spec__desc">Funciona a una temperatura mucho más baja que un lápiz 3D convencional, pensado para reducir el riesgo de quemaduras.</div>
                             </div>
                         </div>
                         <div class="home-spec">
@@ -525,8 +566,8 @@
                         <div class="home-spec">
                             <div class="home-spec__icon" style="background:#d1fae5;">✅</div>
                             <div>
-                                <div class="home-spec__name">Certificación CE · Filamento PCL</div>
-                                <div class="home-spec__desc">Cumple la Directiva de Juguetes EN71. Fabricado en PCL, un material de baja temperatura, flexible y no tóxico.</div>
+                                <div class="home-spec__name">Normativa europea de juguetes (EN71)</div>
+                                <div class="home-spec__desc">Cumple la EN71, la misma normativa de seguridad que la Unión Europea exige a los juguetes infantiles. Filamento PCL: material no tóxico, flexible y de baja temperatura.</div>
                             </div>
                         </div>
                     </div>
@@ -544,8 +585,8 @@
                         <div class="product-visual__badge">
                             <div class="product-visual__badge-icon">🌡️</div>
                             <div>
-                                <div class="product-visual__badge-title">≤40°C</div>
-                                <div class="product-visual__badge-sub">Punta fría al tacto</div>
+                                <div class="product-visual__badge-title">Baja Tª</div>
+                                <div class="product-visual__badge-sub">Baja temperatura</div>
                             </div>
                         </div>
                         <div class="product-visual__badge">
@@ -671,46 +712,7 @@
     </section>
 
 
-    <!-- TRACER: ¿Qué pueden crear? -->
-    <section class="home-tracer" id="prueba-el-lapiz">
-        <div class="home-container">
-            <div class="home-tracer__inner">
-                <div class="home-tracer__text">
-                    <span class="home-section-kicker">De la idea al objeto real</span>
-                    <h2 style="font-family:'Fredoka',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.1;letter-spacing:-.02em;margin-bottom:0">Un boceto en papel.<br><span style="color:var(--orange)">Una figura en tus manos.</span></h2>
-                    <p class="home-tracer__lead">Desliza el divisor y ve la transformación. Lo que empieza como un simple dibujo sobre papel, el lápiz 3D lo convierte en un objeto real que puedes tocar y guardar.</p>
-                    <ul class="home-tracer__list">
-                        <li><span class="home-tracer__check">✓</span> Sin moldes ni impresora — solo el lápiz y la mano del niño</li>
-                        <li><span class="home-tracer__check">✓</span> El filamento PCL sale caliente y se solidifica en segundos</li>
-                        <li><span class="home-tracer__check">✓</span> Cada figura queda diferente — es suya, no de nadie más</li>
-                    </ul>
-                    <a class="home-btn home-btn--primary" href="ideas.html" style="margin-top:28px;display:inline-flex;">Ver los 15 proyectos →</a>
-                </div>
-                <div class="home-tracer__widget">
-                                                            <div class="slider-wrap" id="sliderWrap">
-                        <div class="slider-label">
-                            <p id="sliderText">Todo empieza con una <span>idea en plano...</span></p>
-                        </div>
-                        <div class="slider-stage" id="sliderStage">
-                            <img class="img-after" src="images/despues.png" alt="Figura 3D terminada con lápiz 3D Minto" draggable="false" />
-                            <img class="img-before" id="imgBefore" src="images/antes.png" alt="Boceto en papel del proyecto" draggable="false" />
-                            <div class="slider-divider" id="sliderDivider"></div>
-                            <div class="slider-handle" id="sliderHandle">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
-                                    <path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/>
-                                </svg>
-                            </div>
-                            <div class="slider-tag slider-tag--before">Boceto</div>
-                            <div class="slider-tag slider-tag--after">En 3D ✦</div>
-                        </div>
-                        <div class="slider-footer">
-                            <span class="slider-pill">← Arrastra el divisor →</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- COMMUNITY -->
     <section class="home-community" id="comunidad">
