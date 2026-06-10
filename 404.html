@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada | 3D Minto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;background:#fff;color:#15204a;min-height:100vh;display:flex;flex-direction:column;}
+    nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid rgba(21,32,74,.08);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;}
+    .nav-brand{display:flex;align-items:baseline;gap:1px;text-decoration:none;}
+    .nav-brand-name{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:700;color:#15204a;letter-spacing:-.01em;line-height:1;}
+    .nav-brand-dot{font-family:'Fredoka',sans-serif;font-size:1.35rem;font-weight:700;color:#ff7a00;line-height:1;}
+    .nav-links{list-style:none;display:flex;gap:28px;}
+    .nav-links a{font-weight:600;font-size:.9rem;color:#18224f;text-decoration:none;transition:color .2s;}
+    .nav-links a:hover{color:#ff7a00;}
+    main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 5vw;}
+    .error-box{text-align:center;max-width:540px;}
+    .error-num{font-family:'Fredoka',sans-serif;font-size:clamp(6rem,18vw,10rem);font-weight:700;color:#ff7a00;line-height:1;margin-bottom:0;letter-spacing:-.04em;}
+    .error-title{font-family:'Fredoka',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#15204a;line-height:1.1;margin-bottom:16px;}
+    .error-lead{font-size:1rem;color:#475569;line-height:1.65;margin-bottom:40px;}
+    .error-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;background:linear-gradient(90deg,#ff7a00,#ff971e);color:#fff;font-weight:700;font-size:.95rem;text-decoration:none;box-shadow:0 8px 20px rgba(255,122,0,.25);transition:transform .2s;}
+    .btn-primary:hover{transform:translateY(-2px);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:14px;background:#fff;color:#15204a;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid rgba(21,32,74,.15);transition:border-color .2s,color .2s;}
+    .btn-ghost:hover{border-color:#ff7a00;color:#ff7a00;}
+    .error-links{margin-top:40px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+    .error-links a{font-size:.88rem;color:#475569;text-decoration:none;font-weight:600;transition:color .2s;}
+    .error-links a:hover{color:#ff7a00;}
+    footer{background:#15204a;padding:20px 5vw;text-align:center;color:rgba(255,255,255,.4);font-size:.8rem;}
+    @media(max-width:600px){nav .nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+    <a class="nav-brand" href="/index.html">
+        <span class="nav-brand-name">3D Minto</span><span class="nav-brand-dot">.</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/ideas.html">Ideas</a></li>
+        <li><a href="/comunidad.html">Comunidad</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="error-box">
+        <div class="error-num">404</div>
+        <h1 class="error-title">Esta página no existe</h1>
+        <p class="error-lead">Parece que el enlace que seguiste ya no está disponible o se ha movido. No te preocupes — todavía hay mucho para crear.</p>
+        <div class="error-actions">
+            <a href="/index.html" class="btn-primary">Volver al inicio →</a>
+            <a href="/ideas.html" class="btn-ghost">Ver proyectos</a>
+        </div>
+        <div class="error-links">
+            <a href="/comunidad.html">Comunidad</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/quienes-somos.html">Quiénes somos</a>
+            <a href="mailto:hola@3dminto.es">Contacto</a>
+        </div>
+    </div>
+</main>
+
+<footer>© 2025 3D Minto. Todos los derechos reservados.</footer>
+
+</body>
+</html>
