@@ -376,11 +376,27 @@
     .slider-footer{display:flex;align-items:center;justify-content:center;padding:11px 16px 14px;background:#1A2C4E;border-top:1px solid rgba(255,255,255,.07)}
     .slider-pill{font-family:'Poppins',sans-serif;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase}
     
-    /* Cursor lápiz 3D (solo desktop, no entorpece botones) */
-    @media (hover:hover) and (pointer:fine){
-        body{cursor:url('images/cursor-lapiz.png') 3 3, auto;}
-        a,button,input,select,textarea,label,summary,[role="button"]{cursor:pointer;}
-    }
+    /* CALCULADORA tiempo creativo */
+    .home-calc{padding:64px 0;background:linear-gradient(135deg,var(--mint,#eafaf8),#fff);}
+    .home-calc__inner{max-width:600px;margin:0 auto;text-align:center;}
+    .home-calc__label{display:inline-block;background:#fff;color:var(--teal);font-weight:600;font-size:.8rem;padding:6px 14px;border-radius:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(16,182,176,.15);}
+    .home-calc h2{font-family:'Fredoka',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.15;margin-bottom:12px;color:var(--navy);}
+    .home-calc h2 em{color:var(--orange);font-style:normal;}
+    .home-calc__sub{color:var(--text);font-size:1rem;margin-bottom:32px;line-height:1.5;}
+    .home-calc__card{background:#fff;border-radius:24px;padding:36px 32px;box-shadow:0 20px 50px rgba(21,32,74,.1);}
+    .home-calc__q{font-weight:600;font-size:1rem;margin-bottom:16px;display:block;color:var(--navy);text-align:left;}
+    .home-calc input[type=range]{width:100%;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--teal) 0%,var(--teal) var(--pct,30%),#e8edf5 var(--pct,30%));-webkit-appearance:none;cursor:pointer;}
+    .home-calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--orange);border:4px solid #fff;box-shadow:0 3px 10px rgba(255,122,0,.5);cursor:pointer;}
+    .home-calc input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--orange);border:4px solid #fff;cursor:pointer;}
+    .home-calc__sliderval{text-align:center;font-family:'Fredoka',sans-serif;font-size:2.2rem;color:var(--navy);margin:18px 0 4px;}
+    .home-calc__sliderval span{font-size:1rem;color:var(--text);font-family:'Poppins',sans-serif;}
+    .home-calc__result{margin-top:28px;padding:28px 24px;background:linear-gradient(135deg,var(--mint,#eafaf8),#fff);border-radius:18px;border:2px solid #d6f3f0;}
+    .home-calc__big{font-family:'Fredoka',sans-serif;font-size:2.4rem;color:var(--orange);line-height:1;margin-bottom:6px;}
+    .home-calc__big small{font-size:1.05rem;color:var(--navy);}
+    .home-calc__rtxt{color:var(--text);font-size:.95rem;line-height:1.55;margin-top:10px;}
+    .home-calc__rtxt strong{color:var(--navy);}
+    .home-calc__foot{font-size:.78rem;color:#9aa6bd;margin-top:16px;}
+    @media(max-width:480px){.home-calc__card{padding:28px 20px;}}
 </style>
 </head>
 
@@ -494,6 +510,27 @@
                     <h3>Lo mejor es hacerlo juntos</h3>
                     <p>Los proyectos están pensados para que padres e hijos creen juntos. Sin competencia, sin pantallas, con conversación real.</p>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA tiempo creativo -->
+    <section class="home-calc">
+        <div class="home-container">
+            <div class="home-calc__inner">
+                <span class="home-calc__label">✦ Tiempo para crear</span>
+                <h2>¿Cuánto tiempo podría tu hijo <em>crear con las manos</em>?</h2>
+                <p class="home-calc__sub">Mové el control según las horas de pantalla al día de tu hijo y descubre cuánto de ese tiempo podría transformarse en creatividad real durante un año.</p>
+                <div class="home-calc__card">
+                    <span class="home-calc__q">Horas de pantalla al día</span>
+                    <input type="range" id="calcHoras" min="1" max="8" value="3" step="0.5">
+                    <div class="home-calc__sliderval"><span id="calcHVal">3</span> <span>horas/día</span></div>
+                    <div class="home-calc__result">
+                        <div class="home-calc__big" id="calcBig">—</div>
+                        <div class="home-calc__rtxt" id="calcTxt"></div>
+                    </div>
+                    <p class="home-calc__foot">Estimación si solo 1 de cada 4 de esas horas se dedicara a crear.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -815,6 +852,22 @@ function closeCookies(choice){
     localStorage.setItem('cookies_choice', choice);
     document.getElementById('cookieBanner').classList.remove('show');
 }
+// Calculadora tiempo creativo
+(function(){
+    var h=document.getElementById('calcHoras'),hv=document.getElementById('calcHVal'),
+        big=document.getElementById('calcBig'),txt=document.getElementById('calcTxt');
+    if(!h)return;
+    function upd(){
+        var v=parseFloat(h.value);
+        hv.textContent=v;
+        h.style.setProperty('--pct',((v-1)/7*100)+'%');
+        var anio=Math.round(v*0.25*365), dias=Math.round(anio/24);
+        big.innerHTML=anio+' <small>horas al año</small>';
+        txt.innerHTML='Eso son <strong>'+anio+' horas</strong> que tu hijo podría pasar construyendo cohetes, animales y robots con sus propias manos — en vez de mirar una pantalla. El equivalente a <strong>'+dias+' días completos</strong> de creatividad.';
+    }
+    h.addEventListener('input',upd);
+    upd();
+})();
 // Menú móvil
 (function(){
     var burger = document.getElementById('navBurger');
