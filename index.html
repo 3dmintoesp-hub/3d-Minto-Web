@@ -375,7 +375,13 @@
     /* Footer */
     .slider-footer{display:flex;align-items:center;justify-content:center;padding:11px 16px 14px;background:#1A2C4E;border-top:1px solid rgba(255,255,255,.07)}
     .slider-pill{font-family:'Poppins',sans-serif;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase}
-    </style>
+    
+    /* Cursor lápiz 3D (solo desktop, no entorpece botones) */
+    @media (hover:hover) and (pointer:fine){
+        body{cursor:url('images/cursor-lapiz.png') 3 3, auto;}
+        a,button,input,select,textarea,label,summary,[role="button"]{cursor:pointer;}
+    }
+</style>
 </head>
 
 <body class="home-page">
